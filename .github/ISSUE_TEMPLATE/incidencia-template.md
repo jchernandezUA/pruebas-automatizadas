@@ -1,14 +1,11 @@
 ---
 name: Incidencia template
 about: Describe this issue template's purpose here.
-title: "[BUG]"
+title: "[FUNCIONALIDAD]"
 labels: bug
 assignees: ''
 
 ---
-
-**TÍTULO**
-El objetivo del título es dar una explicación bastante corta y puntual del defecto a reportar.
 
 **COMPORTAMIENTO ESPERADO** 
 Una descripción del comportamiento esperado para el escenario de pruebas ejecutado.
