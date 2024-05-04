@@ -1,42 +1,22 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const utils = require('./utils')
+const utils = require('../support/utils')
+const {expect} = require('chai');
+const ProfilePageObject = require('../support/ProfilePageObject');
+const properties = require('../../properties.json');
+const { getEnvElements } = require('../support/elements');
 
-When('I scroll to the element with text {string}', async function (text) {
-    let item = await utils.findElementByText(this.driver, 'span', text)
-    return item.scrollIntoView()
+When('I change the password', async function () {
+    let profilePageObject = new ProfilePageObject(this.driver)
+    await profilePageObject.changePassword(
+        properties['<JOSE_PASSWORD>'],
+        properties['<JOSE_PASSWORD>']
+    )
+    await profilePageObject.clickChangePassword()
 });
 
-When('I click to the element with text {string}', async function (text) {
-    let item = await utils.findElementByText(this.driver, 'span', text)
-
-    return await item.click()
-});
-
-When('I enter current password {string}', async function (password) {
-    let inputs = await this.driver.$$('input[type="password"]')
-    return await inputs[0].setValue(password)
-})
-
-
-When('I enter new password {string}', async function (password) {
-    let inputs = await this.driver.$$('input[type="password"]')
-    return await inputs[1].setValue(password)
-})
-
-
-When('I enter verify password {string}', async function (password) {
-    let inputs = await this.driver.$$('input[type="password"]')
-    return await inputs[2].setValue(password)
-});
-
-When('I click to the button with title Close', async function () {
-    let button = await this.driver.$('button[title="Close (ESC)"]')
-    await button.click()
-});
-
-Then('I validate the text {string}', async function (text) {
+Then('I validate the password changed', async function () {
+    let elements = getEnvElements()
+    let text = elements.passwordUpdated
     const span =  await utils.findElementByText(this.driver, 'span', text)
-    if (span == null) {
-        throw new Error(`Error al validar el texto "${text}"`);
-    }
+    expect(await this.driver.getElementText(span.elementId)).to.equal(text)
 });
