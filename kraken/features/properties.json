@@ -1,5 +1,5 @@
 {
     "<URL>": "http://localhost:2368/ghost",
-    "<JOSE_MAIL>":"user@example.com",
-    "<JOSE_PASSWORD>": "r7aHWhKneSw="
+    "<GHOST_MAIL>":"user@example.com",
+    "<GHOST_PASSWORD>": "r7aHWhKneSw="
 }
