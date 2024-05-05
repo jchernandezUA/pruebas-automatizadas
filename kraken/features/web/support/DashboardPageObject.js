@@ -1,5 +1,6 @@
 const BasePageObject = require("./BasePageObject");
 const utils = require('./utils')
+
 class DashboardPageObject extends BasePageObject {
 
   constructor(driver) {
@@ -22,7 +23,7 @@ class DashboardPageObject extends BasePageObject {
 
   async openPages() {
     const navElement = await utils.waitForElementDisplayed(
-      this.driver, 
+      this.driver,
       this.elementsSearch.pagesItem)
     await navElement.click()
   }
@@ -33,5 +34,5 @@ class DashboardPageObject extends BasePageObject {
   }
 
 }
-  
+
 module.exports = DashboardPageObject;
