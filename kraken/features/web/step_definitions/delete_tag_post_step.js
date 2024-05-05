@@ -1,6 +1,5 @@
 const {Given, When, Then} = require('@cucumber/cucumber');
 const utils = require('../support/utils')
-const {expect} = require('chai')
 const PagePostPageObject = require('../support/PagePostPageObject')
 
 When('I erase the tag', async function () {

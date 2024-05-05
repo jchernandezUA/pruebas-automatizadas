@@ -1,7 +1,6 @@
 const {Given, When, Then} = require('@cucumber/cucumber');
 const PagePostPageObject = require('../support/PagePostPageObject');
 const utils = require('../support/utils');
-const {expect} = require('chai');
 
 When('I add a new page with title {string}', async function (title) {
   let pagePO = new PagePostPageObject(this.driver)
@@ -18,5 +17,4 @@ Then('I verify the published message', async function () {
   let text = await this.driver.getElementText(span.elementId)
   expect(text).to.equal('Boom. It’s out there.')
 })
-
 

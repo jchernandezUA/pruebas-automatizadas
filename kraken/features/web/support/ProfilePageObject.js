@@ -49,7 +49,7 @@ class ProfilePageObject extends BasePageObject {
   }
 
   async back() {
-    let btn = await utils.waitForElementDisplayed(this.driver, '#done-button')
+    let btn = await utils.waitForElementDisplayed(this.driver, this.elementsSearch.backSettings)
     return await btn.click()
   }
 
