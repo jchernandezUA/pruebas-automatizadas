@@ -22,7 +22,7 @@ const element5141 = {
 }
 
 
-const elementLocal = {
+const element5796 = {
     isLocal: true,
     email: 'input[name="identification"]',
     password: 'input[name="password"]',
@@ -45,7 +45,7 @@ const elementLocal = {
 }
 
 function getEnvElements() {
-    return element5141
+    return element5796
 }
 
 

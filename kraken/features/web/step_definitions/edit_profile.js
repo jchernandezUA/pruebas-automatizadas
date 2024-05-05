@@ -7,9 +7,8 @@ When('I change full name', async function() {
     let profilePO = new ProfilePageObject(this.driver)
     await profilePO.changeName('_CH_')
     await profilePO.saveAndClose()
-    if (profilePO.elementsSearch.isLocal) {
-        return await profilePO.back()
-    }
+    await this.driver.pause(10000)
+    return await profilePO.back()
 })
 
 
