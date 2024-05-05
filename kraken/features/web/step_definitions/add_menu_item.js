@@ -16,9 +16,9 @@ When('I enter New item {string}', async function (label) {
   await addMenuPO.enterNewLabel(label);
 });
 
-When('I click the New Navigation Customize button OK button', async function () {
+When('I click the Navigation Customize button OK button', async function () {
   let addMenuPO = new AddMenuPageObject(this.driver)
-  await addMenuPO.clickNewNavigationCustomizeOkButton();
+  await addMenuPO.clickNavigationCustomizeOkButton();
 });
 
 Then('I go to admin page', async function() {
@@ -26,7 +26,7 @@ Then('I go to admin page', async function() {
   await addMenuPO.goToAdminPage();
 });
 
-Then('I see the new item menu {string}', async function (expectedText) {
+Then('I see item menu {string}', async function (expectedText) {
   let addMenuPO = new AddMenuPageObject(this.driver)
   await addMenuPO.seeTheNewItemMenu(expectedText);
 });
