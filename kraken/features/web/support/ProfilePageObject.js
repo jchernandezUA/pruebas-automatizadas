@@ -12,6 +12,7 @@ class ProfilePageObject extends BasePageObject {
     let avatarIcon = await this.driver.$('div.gh-user-avatar.relative')
     await avatarIcon.click()
   }
+
   async openProfile() {
     let profileItem = await this.driver.$(this.elementsSearch.profileItem)
     await profileItem.click()
