@@ -12,7 +12,13 @@ describe('Testing change password', () => {
     PagePostPageObject.createNew()
     PagePostPageObject.openSettings()
     PagePostPageObject.addTag()
+    DashboardPageObject.clickPublished()
+    DashboardPageObject.openFirstPublishedPost()
+    PagePostPageObject.deleteTag()
     // Then
-    DashboardPageObject.verifyTag()
+    DashboardPageObject.verifyPostWithNoTag()
+    //Teardown
+    DashboardPageObject.openFirstPublishedPage()
+    PagePostPageObject.deletePage()
   })
 })

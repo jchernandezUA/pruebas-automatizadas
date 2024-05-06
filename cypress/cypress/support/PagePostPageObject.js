@@ -31,7 +31,7 @@ class PagePostPageObject extends BasePageObject {
     })
     this.openSettings()
     this.clickUpdate()
-    this.back()
+    this.back('Post')
   }
 
   clickUpdate() {
@@ -48,9 +48,13 @@ class PagePostPageObject extends BasePageObject {
   }
 
   deleteTag() {
-    const inputTag = utils.waitForElementDisplayed(this.driver, '#tag-input')
-    inputTag.click()
-    inputTag.keys('Backspace')
+    this.openSettings()
+    cy.get('#tag-input')
+    .click()
+    .type('{backspace}')
+    this.openSettings()
+    this.clickUpdate()
+    this.back()
   }
 
   openSettings() {
@@ -61,6 +65,27 @@ class PagePostPageObject extends BasePageObject {
   back(type) {
     cy.contains('a', 'Posts')
     .click()
+  }
+
+  backPages() {
+    cy.contains('a', 'Pages')
+    .click()
+  }
+
+  deletePage() {
+    this.openSettings()
+    cy.contains('span', 'Delete')
+    .scrollIntoView()
+    .click()
+
+    cy.get('span[data-test-task-button-state="idle"]')
+    .each(($span)  => {
+      const spanText = $span.text().trim();
+      if (spanText == 'Delete') {
+        $span.click()
+      }
+    })
+
   }
 }
 

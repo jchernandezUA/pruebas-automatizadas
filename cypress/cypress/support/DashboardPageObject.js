@@ -7,31 +7,35 @@ class DashboardPageObject extends BasePageObject {
     newPostButton.click()
   }
 
-  openFirstPublishedPost() {
-    const navElement = cy.get('a[title="Published"]')
-    navElement.click()
-    const selectorSearch = this.elements.selectorSearch
-    const listPost = utils.waitForElementsDisplayed(this.driver, selectorSearch)
-    listPost[0].click()
-  }
-
-  openPages() {
-    const navElement = utils.waitForElementDisplayed(
-      this.driver,
-      this.elements.pagesItem)
-    navElement.click()
-  }
-
   startNewPage() {
-    const newBtn = utils.waitForElementDisplayed(this.driver, this.elements.newPage)
-    newBtn.click()
+    cy.get(this.elements.pagesItem).click()
+    cy.wait(1000)
+    cy.get(this.elements.newPage).click()
+  }
+
+
+
+  openFirstPublishedPost() {
+    const listPost = cy.get('div[role="menuitem"]').then($items => {
+      cy.wrap($items[0]).click()
+    }) 
   }
   
+
+  openFirstPublishedPage() {
+    const listPost = cy.get('div[role="menuitem"]').then($items => {
+      cy.wrap($items[0]).click()
+    }) 
+  }
+
+  clickPublished() {
+    cy.get('a[title="Published"]')
+    .click()
+  }
   
   verifyTag() {
 
-    cy.get('a[title="Published"]')
-    .click()
+    this.clickPublished()
 
     cy.get(this.elements.postList)
     .first()
@@ -42,7 +46,6 @@ class DashboardPageObject extends BasePageObject {
       var matches = false
       cy.get('span').each(($span) => {
         const spanText = $span.text().trim();
-        cy.wrap($span)
         const tag = this.properties['<NEW_TAG>']
         if (spanText == tag) {
           matches = true
@@ -52,6 +55,35 @@ class DashboardPageObject extends BasePageObject {
       })
     })
   }
+
+  verifyPostWithNoTag() {
+    cy.get(this.elements.postList)
+    .first()
+    .find('a')
+    .first()
+    .find(this.elements.contentEntryMeta)
+    .within(() => {
+      cy.get('span').each(($span) => {
+        const spanText = $span.text().trim();
+         expect(spanText).to.not.equal(this.properties['<NEW_TAG>']);
+      })
+    })
+  }
+
+    
+  verifyPage() {
+
+    cy.get(this.elements.postList)
+    .first()
+    .find('a')
+    .first()
+    .find('h3.gh-content-entry-title').then(($title) => {
+      let text = $title.text().trim()
+      expect(text).to.equal(this.properties['<NEW_POST>']);
+    })
+  }
+
+  
 
 }
 
