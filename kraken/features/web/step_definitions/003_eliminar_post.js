@@ -50,3 +50,13 @@ When(
       }
     }
   );
+
+  Then("I should see post with title {string} deleted", async function (title) {
+    let elements = await this.driver.$$(".gh-post-list-title h3");
+    for (let element of elements) {
+        let elementTitle = await element.getText();
+        if (elementTitle.trim() === title.trim()) {
+            throw new Error(`Post with title "${title}" was not deleted`);
+        }
+    }
+});

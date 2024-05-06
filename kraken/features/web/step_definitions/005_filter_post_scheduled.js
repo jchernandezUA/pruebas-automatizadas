@@ -30,3 +30,11 @@ When("I select the post scheduled", async function () {
       }
     }
   });
+
+  Then("I should see posts filtered by scheduled", async function () {
+    let dropdown = await this.driver.$(".gh-contentfilter-menu .ember-basic-dropdown-trigger");
+    let text = await dropdown.getText();
+    if (!text.includes("Scheduled")) {
+        throw new Error("Posts are not filtered by scheduled");
+    }
+});

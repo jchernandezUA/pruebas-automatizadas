@@ -41,3 +41,11 @@ When("I select the post with title for edit {string}", async function (title) {
     return await element.setValue(title);
   });
   
+
+  Then("I should see post title edited to {string}", async function (title) {
+    let element = await this.driver.$(".gh-editor-title");
+    let value = await element.getValue();
+    if (value !== title) {
+        throw new Error(`Expected post title to be ${title} but got ${value}`);
+    }
+});

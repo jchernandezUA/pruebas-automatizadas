@@ -13,3 +13,4 @@ Scenario: filtrar un post
   And I wait for 4 seconds
   When I select the post filter publish
   And I wait for 5 seconds
+  Then I should see posts filtered by publish

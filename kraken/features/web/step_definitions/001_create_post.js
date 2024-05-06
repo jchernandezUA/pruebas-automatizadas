@@ -29,3 +29,19 @@ When("I click post", async function () {
   let element = await this.driver.$(".gh-publish-trigger");
   return await element.click();
 });
+
+Then("I should see post title as {string}", async function (title) {
+    let element = await this.driver.$(".gh-editor-title");
+    let value = await element.getValue();
+    if (value !== title) {
+        throw new Error(`Expected post title to be ${title} but got ${value}`);
+    }
+});
+
+Then("I should see post description as {string}", async function (desc) {
+    let element = await this.driver.$(".kg-prose");
+    let value = await element.getText();
+    if (value !== desc) {
+        throw new Error(`Expected post description to be ${desc} but got ${value}`);
+    }
+});

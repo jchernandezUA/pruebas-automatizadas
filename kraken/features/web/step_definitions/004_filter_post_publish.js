@@ -29,3 +29,11 @@ When("I select the post filter publish", async function () {
       }
     }
   });
+
+  Then("I should see posts filtered by publish", async function () {
+    let dropdown = await this.driver.$(".gh-contentfilter-menu .ember-basic-dropdown-trigger");
+    let text = await dropdown.getText();
+    if (!text.includes("Published")) {
+        throw new Error("Posts are not filtered by publish");
+    }
+});

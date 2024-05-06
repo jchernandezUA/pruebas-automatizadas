@@ -13,3 +13,4 @@ Scenario: programar un post
   And I wait for 4 seconds
   When I select the post scheduled
   And I wait for 5 seconds
+  Then I should see posts filtered by scheduled
