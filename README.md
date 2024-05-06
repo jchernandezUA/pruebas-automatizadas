@@ -5,6 +5,12 @@
 
 ## Pre requisitos para pruebas E2E
 
+### S0
+Probado en:
+
+- Windows 10, 23H2
+- MacOS 14.4.1 (23E224) (Apple Chip)
+
 ### Ghost v5.79.6
 [Ghost](http://3.83.87.188/)
 ### Node JS
@@ -12,17 +18,18 @@
 
 ### Cypress
 Tener instalado Cypress
-    ```sh
-        npm install -g cypress
     ```
+    npm install -g cypress
+    ```
+
 ### Kraken
 Tener instalado Kraken
 - Ejecutar el siguiente comando para instalar kraken-node:
-    ```sh
+    ```
     npm install kraken-node -g
     ```
 - Tener instalado Appium:
-    ```sh
+    ```
     npm install -g appium
     ```
     
@@ -33,26 +40,32 @@ Tener instalado Kraken
 - Para instalar cypress se 
 
  - Correr el siguiente comando
-    ```sh
+    ```
     cypress open 
     ```
 
 - Se abrirá la interface de cypress y se podran ejecutar de forma independiente las funcionalidades de cada ing automatizador por **/e2e/{{nombre_archivo}}_spec.cy.js**
 
  - También se puede correr el siguiente comando para correr las pruebas headless
-    ```sh
+    ```
         cypress run --headless
     ```
 ### Kraken
 - Para ejecutar las pruebas E2E de Kraken se debe dirigit al path: **/kraken** ahí se encuentran los archivos .feature donde se describen los escenarios de prueba.
 
-- Ejecutar el siguiente comando para instalar las dependencias:
-    ```sh
-    npm install
+- Ejecutar los siguientes comandos para instalar las dependencias:
+    ```
+        npm uninstall -g android-platform-tools
+        npm uninstall -g @cucumber/cucumber
+        npm uninstall -g kraken-node
+        npm uninstall -g appium
+        npm install kraken-node
+        npm install android-platform-tools
+        npm install appium
     ```
     
 
 - Ejecutar el siguiente comando para correr las pruebas:
-    ```sh
+    ```
          ./node_modules/kraken-node/bin/kraken-node run
     ```
