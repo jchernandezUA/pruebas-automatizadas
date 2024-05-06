@@ -1,8 +1,8 @@
 describe('Gestión de posts en Ghost CMS ', () => {
     beforeEach(() => {
         cy.visit('http://localhost:2368/ghost/#/signin');
-        cy.get('#identification').type('me.ruiz42@uniandes.edu.co');
-        cy.get('#password').type('mypass');
+        cy.get('#identification').type('user@example.com');
+        cy.get('#password').type('r7aHWhKneSw=');
         cy.get('#ember5').click();
         cy.wait(1000);
     });
