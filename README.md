@@ -1,7 +1,7 @@
 ## Semana 5
 **Wiki Info**:
 **Entrega Semana 5**
-- [WIKI Entrega Semana 5 VRT](https://github.com/jchernandezUA/tswdc-project/wiki#semana-5)
+- [WIKI Entrega Semana 5](https://github.com/jchernandezUA/tswdc-project/wiki#semana-5)
 
 ## Pre requisitos para pruebas E2E
 
