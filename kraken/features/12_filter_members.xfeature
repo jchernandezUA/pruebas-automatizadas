@@ -1,4 +1,4 @@
-Feature: Add new member 
+Feature: Filter members
 
   @user1 @web
   Scenario: As a user I want to new member
@@ -16,4 +16,4 @@ Feature: Add new member
     When I click on apply filters
     # Assert
     Then I find the member that have "test" in the name
-
+    Then I go to the homepage

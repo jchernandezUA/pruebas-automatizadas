@@ -1,4 +1,4 @@
-Feature: Add new member 
+Feature: Edit member 
 
   @user1 @web
   Scenario: As a user I want to new member
@@ -16,4 +16,4 @@ Feature: Add new member
     # Assert
     Then I click on members to validate the edit member
     Then I see the edit member "miembro test"
-    Then I navigate to page "http://localhost:2368"
+    Then I go to the homepage

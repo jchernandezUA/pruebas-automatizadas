@@ -1,4 +1,4 @@
-Feature: Delete member 
+Feature: Invite new admin
 
   @user1 @web
   Scenario: As a user I want to edit member
@@ -19,3 +19,4 @@ Feature: Delete member
     When I click on invited
     # Assert
     Then I find the email 'test@testadmin.com'
+    Then I go to the homepage
