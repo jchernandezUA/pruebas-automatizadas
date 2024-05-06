@@ -9,8 +9,9 @@ Scenario: Como usuario inicio sesión agrego un post, le agrego un tag al post y
   When I open the recent post
   When I open the post settings
   When I add a new tag named "TAG_NEW"
+  And I wait for 10 seconds
   When I open the recent post
-  And I wait for 2 seconds
+  And I wait for 10 seconds
   When I open the post settings
   When I erase the tag
   Then I verify that there is no post tag "TAG_NEW"
