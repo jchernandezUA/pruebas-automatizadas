@@ -3,18 +3,15 @@ const ProfilePageObject = require("../support/ProfilePageObject")
 
 describe('Testing change password', () => {
   it('Como usuario quiero cambiar contraseña', () => {
-    //Given I login as admin in Ghost
+    //Given
     LoginPageObject.signIn()
-    //When I open profile
+    //When
     ProfilePageObject.openProfile()
-    //When I change the password
     ProfilePageObject.changePassword()
-    //Then I validate the password changed
+    //Then
     ProfilePageObject.verifyUpdatedMessage()
     cy.wait(3000)
-    //CLEAN
+    //Tear down
     ProfilePageObject.resetPassword()
   })
-
-  
 })
