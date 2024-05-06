@@ -5,7 +5,7 @@ Feature: Edit member
     # Arrange
     Given I login as admin in Ghost
     # Act
-    When I click on members
+    When I click on members in edit
     And I wait for 1 seconds
     When I click on the member that I want to edit
     When I enter edit name "miembro test editado"

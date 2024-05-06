@@ -15,5 +15,5 @@ Feature: Add new member
     When I click on save button
     # Assert
     Then I click on members to validate the new member
-    Then I I see the new member "miembro test"
+    Then I see the new member "miembro test"
     Then I go to the homepage

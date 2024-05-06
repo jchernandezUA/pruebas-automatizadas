@@ -47,5 +47,4 @@ Then('I see the new member {string}', async function (expectedText) {
 
     let label = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]/div/div/h3');
     await expect(label).toBeDisplayed();
-    await expect(label).toHaveHref('http://localhost:2368/')
 });

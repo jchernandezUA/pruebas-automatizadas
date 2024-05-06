@@ -5,7 +5,7 @@ Feature: Filter members
     # Arrange
     Given I login as admin in Ghost
     # Act
-    When I click on members
+    When I click on member in filter
     And I wait for 1 seconds
     When I click in filter
     When I click on name

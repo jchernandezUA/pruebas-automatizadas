@@ -5,7 +5,7 @@ Feature: Delete member
     # Arrange
     Given I login as admin in Ghost
     # Act
-    When I click on member
+    When I click on member in delete
     And I wait for 1 seconds
     When I click on the member that I want to delete
     When I click in settings of member
@@ -13,5 +13,5 @@ Feature: Delete member
     When I click in delete member
     When I click in accept delete of member
     # Assert
-    Then I find the member that has been removed "miembro test".
+    Then I find the member that has been removed "miembro test"
     Then I go to the homepage

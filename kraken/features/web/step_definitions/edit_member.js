@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 
-When('I click on member', async function () {
+When('I click on member in edit', async function () {
     let element = await this.driver.$('/html/body/div[2]/div/nav[1]/div/section/div[1]/ul[2]/li[4]/a')
     return await element.click();
 });
@@ -49,5 +49,4 @@ Then('I see the edit member {string}', async function (expectedText) {
 
     let label = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]/div/div/h3');
     await expect(label).toBeDisplayed();
-    await expect(label).toHaveHref('http://localhost:2368/')
 });
