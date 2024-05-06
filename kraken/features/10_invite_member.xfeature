@@ -16,4 +16,4 @@ Feature: Add new member
     # Assert
     Then I click on members to validate the new member
     Then I I see the new member "miembro test"
-    Then I navigate to page "http://localhost:2368"
+    Then I go to the homepage
