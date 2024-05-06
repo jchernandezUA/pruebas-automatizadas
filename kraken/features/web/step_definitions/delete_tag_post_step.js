@@ -11,9 +11,9 @@ When('I erase the tag', async function () {
 })
 
 Then('I verify that there is no post tag {string}', async function (tag) {
+  const expect = (await import('expect-webdriverio')).expect;
   const pMeta = await utils.getPostMetadata(this.driver)
   for (item of pMeta) {
-    const text = await item.getElementText(item.elementId)
-    expect(text).to.not.equal(tag)
+    await expect(item).not.toHaveText(tag)
   }
 }) 

@@ -14,3 +14,5 @@ Feature: Delete member
     When I click in accept delete of member
     # Assert
     Then I find the member that has been removed "miembro test".
+    Then I go to the homepage
+
