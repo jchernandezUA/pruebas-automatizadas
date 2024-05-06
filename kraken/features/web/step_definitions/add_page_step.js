@@ -9,12 +9,12 @@ When('I add a new page with title {string}', async function (title) {
 })
 
 Then('I verify the published message', async function () {
+  const expect = (await import('expect-webdriverio')).expect;
   let publishDiv = await utils.waitForElementDisplayed(
     this.driver,
     'div.gh-publish-title'
   )
   let span = await publishDiv.$('span')
-  let text = await this.driver.getElementText(span.elementId)
-  expect(text).to.equal('Boom. It’s out there.')
+  await expect(span).toHaveText('Boom. It’s out there.')
 })
 

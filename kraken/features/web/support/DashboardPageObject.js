@@ -14,7 +14,7 @@ class DashboardPageObject extends BasePageObject {
   }
 
   async openFirstPublishedPost() {
-    const navElement = this.driver.$('a[title="Published"]')
+    const navElement = await this.driver.$('a[title="Published"]')
     await navElement.click()
     const selectorSearch = this.elementsSearch.selectorSearch
     const listPost = await utils.waitForElementsDisplayed(this.driver, selectorSearch)
