@@ -1,16 +1,16 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-When("I enter identification {string}", async function (email) {
+When("I enter identification scheduled {string}", async function (email) {
   let element = await this.driver.$("#identification");
   return await element.setValue(email);
 });
 
-When("I enter password {string}", async function (password) {
+When("I enter password scheduled {string}", async function (password) {
   let element = await this.driver.$("#password");
   return await element.setValue(password);
 });
 
-When("I click next", async function () {
+When("I click next scheduled", async function () {
   let element = await this.driver.$("#ember5");
   return await element.click();
 });

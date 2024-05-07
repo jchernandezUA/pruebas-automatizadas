@@ -11,8 +11,10 @@ When("I enter password {string}", async function (password) {
 });
 
 When("I click next", async function () {
-  let element = await this.driver.$("#ember5");
-  return await element.click();
+   // Wait until the button appears
+   let element = await this.driver.$("button[id^='ember']");
+   await element.waitForExist({ timeout: 5000 });
+   return element.click();
 });
 
 When("I enter post title {string}", async function (title) {
@@ -27,6 +29,7 @@ When("I enter post descripcion {string}", async function (desc) {
 
 When("I click post", async function () {
   let element = await this.driver.$(".gh-publish-trigger");
+  await element.waitForExist({ timeout: 5000 });
   return await element.click();
 });
 

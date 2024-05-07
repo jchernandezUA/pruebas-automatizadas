@@ -1,22 +1,22 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-When("I enter identification {string}", async function (email) {
+When("I enter identification delete {string}", async function (email) {
   let element = await this.driver.$("#identification");
   return await element.setValue(email);
 });
 
-When("I enter password {string}", async function (password) {
+When("I enter password delete {string}", async function (password) {
   let element = await this.driver.$("#password");
   return await element.setValue(password);
 });
 
-When("I click next", async function () {
+When("I click next delete", async function () {
   let element = await this.driver.$("#ember5");
   return await element.click();
 });
 
 When(
-    "I select and delete the post with title {string}",
+    "I select and delete the post with title delete {string}",
     async function (title) {
       let elements = await this.driver.$$(".gh-post-list-title h3");
   
@@ -46,7 +46,7 @@ When(
       }
   
       if (!postFound) {
-        throw new Error(`Post with title "${title}" not found`);
+        throw new Error(`Post with title delete"${title}" not found`);
       }
     }
   );
