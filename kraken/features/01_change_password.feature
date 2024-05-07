@@ -2,7 +2,7 @@ Feature: Change password
 
 @user1 @web
 Scenario: Como usuario quiero cambiar contraseña
-  Given I login as admin in Ghost
+  Given I login as admin in Ghost "change_password" "01"
   When I open profile
   And I wait for 3 seconds
   When I change the password
