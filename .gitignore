@@ -3,3 +3,4 @@ node_modules/
 kraken/reports/
 kraken/.kraken/
 ss_*.png
+.DS_Store
