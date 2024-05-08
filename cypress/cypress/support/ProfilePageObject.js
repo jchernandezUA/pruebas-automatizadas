@@ -3,19 +3,6 @@ import BasePageObject from "../support/BasePageObject";
 
 class ProfilePageObject extends BasePageObject {
 
-  
-
-  clickOnAvatar() {
-    let avatarIcon = cy.get('div.gh-user-avatar.relative')
-    avatarIcon.click()
-  }
-
-  openProfile() {
-    this.clickOnAvatar()
-    let profileItem = cy.get(this.elements.profileItem)
-    profileItem.click()
-  }
-
   changePassword() {
     this.updatePassword(
       this.properties['<GHOST_PASSWORD>'], 
@@ -49,18 +36,14 @@ class ProfilePageObject extends BasePageObject {
     )
   }
 
-  updateName() {
-    this.changeName(this.properties['<GHOST_NAME_NEW>'])
-  }
-
-  changeName(name) {
+  changeName() {
+    let name = this.properties['<GHOST_NAME_NEW>']
     cy.get('section[data-testid="user-detail-modal"]')
     .within(() => {
       cy.get('input[type="text"]').then(($inputs) => {
         cy.wrap($inputs[0]).clear().type(name)
       });
     });
-    this.saveAndClose()
   }
 
   saveAndClose() {
@@ -78,6 +61,19 @@ class ProfilePageObject extends BasePageObject {
     cy.contains('span', text).should('be.visible');
   }
 
+  resetName() {
+    let name = this.properties['<GHOST_NAME>']
+    cy.contains('button', 'View profile')
+    .click({force: true});
+    cy.get('section[data-testid="user-detail-modal"]')
+    .within(() => {
+      cy.get('input[type="text"]').then(($inputs) => {
+        cy.wrap($inputs[0]).clear().type(name)
+      });
+    });
+    this.saveAndClose()
+  }
+
   verifyName() {
     cy.get('div[data-testid="owner-user"]')
     .within(() => {
@@ -86,12 +82,6 @@ class ProfilePageObject extends BasePageObject {
       });
     })
   }
-
-  resetName() {
-    cy.contains('button', 'View profile').click({force: true});
-    this.changeName(this.properties['<GHOST_NAME>'])
-  }
-
 }
 
 export default new ProfilePageObject()

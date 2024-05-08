@@ -22,13 +22,20 @@ Scenario: Como usuario inicio sesión, agrego un post y le agrego un tag al post
 
     //Given
     LoginPageObject.signIn()
+    cy.screenshot("ss_add_page_01")
     //When
+    cy.screenshot("ss_add_page_02")
     DashboardPageObject.startNewPage()
-    PagePostPageObject.createNew()
+    cy.screenshot("ss_add_page_02")
+    PagePostPageObject.typeTitle()
+    cy.screenshot("ss_add_page_03")
+    PagePostPageObject.publish()
+    cy.screenshot("ss_add_page_04")
     PagePostPageObject.backPages('Pages')
+    cy.screenshot("ss_add_page_05")
     // Then
     DashboardPageObject.verifyPage()
-
+    cy.screenshot("ss_add_page_06")
     //Teardown
     DashboardPageObject.openFirstPublishedPage()
     PagePostPageObject.deletePage()

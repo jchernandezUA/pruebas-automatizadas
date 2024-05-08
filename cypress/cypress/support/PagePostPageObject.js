@@ -2,16 +2,14 @@ import BasePageObject from "../support/BasePageObject";
 
 class PagePostPageObject extends BasePageObject {
 
-
-  createNew() {
+  typeTitle() {
     const textArea = cy.get('textarea')
     textArea.type(this.properties['<NEW_POST>'])
-    const contentElement = cy.get('p[data-koenig-dnd-droppable="true"]')
-    contentElement.click()
-    this.pubish()
+    cy.get('p[data-koenig-dnd-droppable="true"]')
+    .click()
   }
 
-  pubish() {
+  publish() {
     cy.wait(1000)
     cy.contains('span', 'Publish')
     .click()

@@ -3,24 +3,21 @@ import BasePageObject from "../support/BasePageObject";
 class DashboardPageObject extends BasePageObject {
 
   startNewPost() {
-    const newPostButton = cy.get(this.elements.newPostBtn)
-    newPostButton.click()
+    cy.get(this.elements.newPostBtn)
+    .click()
   }
-
-  startNewPage() {
+  
+  startNewPage(flow = '') {
     cy.get(this.elements.pagesItem).click()
     cy.wait(1000)
     cy.get(this.elements.newPage).click()
   }
-
-
 
   openFirstPublishedPost() {
     const listPost = cy.get('div[role="menuitem"]').then($items => {
       cy.wrap($items[0]).click()
     }) 
   }
-  
 
   openFirstPublishedPage() {
     const listPost = cy.get('div[role="menuitem"]').then($items => {
@@ -32,7 +29,17 @@ class DashboardPageObject extends BasePageObject {
     cy.get('a[title="Published"]')
     .click()
   }
-  
+
+  openProfile() {
+    let profileItem = cy.get(this.elements.profileItem)
+    profileItem.click()
+  }
+
+  clickOnAvatar() {
+    let avatarIcon = cy.get('div.gh-user-avatar.relative')
+    avatarIcon.click()
+  }
+
   verifyTag() {
 
     this.clickPublished()
@@ -70,9 +77,7 @@ class DashboardPageObject extends BasePageObject {
     })
   }
 
-    
   verifyPage() {
-
     cy.get(this.elements.postList)
     .first()
     .find('a')
@@ -82,9 +87,6 @@ class DashboardPageObject extends BasePageObject {
       expect(text).to.equal(this.properties['<NEW_POST>']);
     })
   }
-
-  
-
 }
 
 export default new DashboardPageObject()
