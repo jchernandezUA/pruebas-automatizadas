@@ -10,7 +10,7 @@ Scenario: Editar un post existente
   And I wait for 4 seconds
   When I select the post with title for edit "New Post Title"
   And I wait for 5 seconds
-  And I edit post title  edit"Post editado"
+  And I edit post title edit"Post editado"
   And I wait for 5 seconds
   And I click post edit
   And I wait for 5 seconds
