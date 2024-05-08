@@ -1,4 +1,4 @@
-const LoginPageObject = require("../support/LoginPageObject");
+const LoginPageObject = require("../../support/LoginPageObject");
 describe("ghost invitar miembro", function () {
 
     it("Log in", function () {

@@ -1,6 +1,6 @@
-const DashboardPageObject = require("../support/DashboardPageObject")
-const LoginPageObject = require("../support/LoginPageObject")
-const ProfilePageObject = require("../support/ProfilePageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
+const LoginPageObject = require("../../support/LoginPageObject")
+const ProfilePageObject = require("../../support/ProfilePageObject")
 
 describe('Testing change password', () => {
   it('Como usuario quiero cambiar contraseña', () => {

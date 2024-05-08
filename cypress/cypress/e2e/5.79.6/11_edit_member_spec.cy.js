@@ -1,5 +1,5 @@
-const LoginPageObject = require("../support/LoginPageObject");
-const CreateMemberObject = require("../support/CreateMemberObject");
+const LoginPageObject = require("../../support/LoginPageObject");
+const CreateMemberObject = require("../../support/CreateMemberObject");
 describe("ghost edit member", function () {
 
     it("Edit member", function () {
