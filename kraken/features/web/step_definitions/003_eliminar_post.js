@@ -15,7 +15,7 @@ When("I click next delete", async function () {
   return await element.click();
 });
 
-When("I select and delete the post with title {string}", async function (title) {
+When("I select and delete the post with title {string} {string} {string}", async function (title , scenario, step) {
   // Navegar a la página para crear un nuevo post
   await this.driver.url('http://localhost:2368/ghost/#/editor/post');
   
@@ -26,14 +26,18 @@ When("I select and delete the post with title {string}", async function (title) 
   // Introducir el título y contenido del post
   await titleInput.setValue(title);
   let contentInput = await this.driver.$(".kg-prose");
+  await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_01.png`)
+
   await contentInput.click();
   await contentInput.keys('Este es el contenido del post');
 
   // Guardar el post
   let publishMenuButton = await this.driver.$(".gh-publish-trigger");
+  await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_02.png`)
   await publishMenuButton.click();
   let publishButton = await this.driver.$('.gh-btn-large');
   await publishButton.waitForDisplayed({ timeout: 5000 });
+  await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_03.png`)
   await publishButton.click();
 
   // Esperar a que el post se guarde correctamente
@@ -60,17 +64,21 @@ When("I select and delete the post with title {string}", async function (title) 
   for (let element of elements) {
     const elementTitle = await element.getText();
     if (elementTitle.trim() === title) {
+      await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_04.png`)
       await element.click();
       const settingsButton = await this.driver.$(".settings-menu-toggle");
       await settingsButton.waitForDisplayed({ timeout: 5000 });
+      await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_05.png`)
       await settingsButton.click();
 
       const deleteButton = await this.driver.$(".gh-btn-fullwidth");
       await deleteButton.waitForDisplayed({ timeout: 5000 });
+      await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_06.png`)
       await deleteButton.click();
 
       const confirmDeleteButton = await this.driver.$(".gh-btn-red");
       await confirmDeleteButton.waitForDisplayed({ timeout: 5000 });
+      await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_07.png`)
       await confirmDeleteButton.click();
 
       await this.driver.pause(2000);
