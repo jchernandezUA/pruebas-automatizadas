@@ -16,47 +16,66 @@ When("I click next delete", async function () {
 });
 
 When(
-    "I select and delete the post with title delete {string}",
-    async function (title) {
-      let elements = await this.driver.$$(".gh-post-list-title h3");
-  
-      let postFound = false;
-  
-      for (let element of elements) {
-        let elementTitle = await element.getText();
-        if (elementTitle.trim() === title.trim()) {
-          postFound = true;
-          await element.click();
-  
-          let settingsButton = await this.driver.$(".settings-menu-toggle");
-          await settingsButton.waitForDisplayed({ timeout: 5000 });
-          await settingsButton.click();
-  
-          let deleteButton = await this.driver.$(".gh-btn-fullwidth");
-          await deleteButton.waitForDisplayed({ timeout: 5000 });
-          await deleteButton.click();
-  
-          let confirmDeleteButton = await this.driver.$(".gh-btn-red");
-          await confirmDeleteButton.waitForDisplayed({ timeout: 5000 });
-          await confirmDeleteButton.click();
-  
-          await this.driver.pause(2000);
-          break;
-        }
-      }
-  
-      if (!postFound) {
-        throw new Error(`Post with title delete"${title}" not found`);
-      }
-    }
-  );
+  "I select and delete the post with title {string}",
+  async function (title) {
+    const titleSelector = `a.gh-list-data.gh-post-list-title h3.gh-content-entry-title`;
 
-  Then("I should see post with title {string} deleted", async function (title) {
-    let elements = await this.driver.$$(".gh-post-list-title h3");
+    await this.driver.waitUntil(
+      async () => {
+        const elements = await this.driver.$$(titleSelector);
+        return elements.length > 0;
+      },
+      {
+        timeout: 5000,
+        timeoutMsg: "Expected post title to be visible after 5 seconds",
+      }
+    );
+
+    const elements = await this.driver.$$(titleSelector);
+
+    let postFound = false;
     for (let element of elements) {
-        let elementTitle = await element.getText();
-        if (elementTitle.trim() === title.trim()) {
-            throw new Error(`Post with title "${title}" was not deleted`);
-        }
+      const elementTitle = await element.getText();
+      if (elementTitle.trim() === title) {
+        postFound = true;
+        await element.click();
+
+        // Esperar y hacer clic en el botón de configuración
+        const settingsButton = await this.driver.$(".settings-menu-toggle");
+        await settingsButton.waitForDisplayed({ timeout: 5000 });
+        await settingsButton.click();
+
+        const deleteButton = await this.driver.$(".gh-btn-fullwidth");
+        await deleteButton.waitForDisplayed({ timeout: 5000 });
+        await deleteButton.click();
+
+        const confirmDeleteButton = await this.driver.$(".gh-btn-red");
+        await confirmDeleteButton.waitForDisplayed({ timeout: 5000 });
+        await confirmDeleteButton.click();
+
+        await this.driver.pause(2000);
+        break;
+      }
     }
-});
+
+    if (!postFound) {
+      throw new Error(`Post with title "${title}" not found`);
+    }
+  }
+);
+
+Then(
+  "I should see that the post with title {string} is deleted",
+  async function (title) {
+    const titleSelector = `.gh-post-list-title h3`;
+    const elements = await this.driver.$$(titleSelector);
+    for (let element of elements) {
+      const elementTitle = await element.getText();
+      if (elementTitle.trim() === title.trim()) {
+        throw new Error(`Post with title "${title}" was not deleted`);
+      }
+    }   
+
+    console.log(`Post with title "${title}" has been successfully deleted.`);
+  }
+);

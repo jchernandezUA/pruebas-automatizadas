@@ -1,8 +1,7 @@
-Feature: Gestión de posts en Ghost CMS
+Feature: create_edit
 
 @user2 @web
 Scenario: Editar un post existente
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
   Given I login as admin in Ghost "create_edit" "002"
   And I wait for 1 seconds  
   And I wait for 1 seconds

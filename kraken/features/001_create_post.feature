@@ -1,8 +1,7 @@
-Feature: Gestión de posts en Ghost CMS
+Feature: Create post
 
 @user1 @web
 Scenario: Crear post
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
   Given I login as admin in Ghost "create_post" "001"
   And I wait for 1 seconds
   And I wait for 1 seconds

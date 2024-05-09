@@ -41,11 +41,13 @@ When("I select the post with title for edit {string}", async function (title) {
     return await element.click();
   });
 
-  When("I edit post title {string}", async function (title) {
-    const element = await this.driver.$(".gh-editor-title"); 
-    await element.waitForDisplayed();
-    await element.clearValue();
-    await element.setValue(title);  
+  When("I edit post title edit{string}", async function (title) {
+
+    const titleField = await this.driver.$(".gh-editor-title"); // Cambia el selector si es necesario
+    await titleField.waitForDisplayed();
+    await titleField.clearValue();
+    await titleField.setValue(title);
+   
   });
   
 
