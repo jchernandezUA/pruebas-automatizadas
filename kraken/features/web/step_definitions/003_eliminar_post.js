@@ -1,20 +1,5 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-When("I enter identification delete {string}", async function (email) {
-  let element = await this.driver.$("#identification");
-  return await element.setValue(email);
-});
-
-When("I enter password delete {string}", async function (password) {
-  let element = await this.driver.$("#password");
-  return await element.setValue(password);
-});
-
-When("I click next delete", async function () {
-  let element = await this.driver.$("#ember5");
-  return await element.click();
-});
-
 When("I select and delete the post with title {string} {string} {string}", async function (title , scenario, step) {
   // Navegar a la página para crear un nuevo post
   await this.driver.url('http://localhost:2368/ghost/#/editor/post');
