@@ -14,6 +14,7 @@ When("I click next", async function () {
    // Wait until the button appears
    let element = await this.driver.$("button[id^='ember']");
    await element.waitForExist({ timeout: 5000 });
+   await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}.png`)
    return element.click();
 });
 
@@ -30,6 +31,7 @@ When("I enter post descripcion {string}", async function (desc) {
 When("I click post", async function () {
   let element = await this.driver.$(".gh-publish-trigger");
   await element.waitForExist({ timeout: 5000 });
+  await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}.png`)
   return await element.click();
 });
 
