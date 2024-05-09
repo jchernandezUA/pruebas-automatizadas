@@ -21,7 +21,7 @@ describe('As a user I want to edit a menu item', () => {
     AddMenuPageObject.goToAdminPage()
     AddMenuPageObject.clickSettingsIcon()
     AddMenuPageObject.clickNavigationCustomizeButton()
-    AddMenuPageObject.deleteItemMenu()
+    AddMenuPageObject.deleteItemMenu(true)
     AddMenuPageObject.clickNavigationCustomizeOkButton()
   })
 })

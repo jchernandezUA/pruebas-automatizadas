@@ -15,10 +15,10 @@ class AddMenuPageObject extends BasePageObject {
   }
 
   enterNewLabel() {
-    cy.get('input.peer[placeholder="New item label"][id=":rs:"]')
-      .should('exist')
-      .click()
-      .type(this.properties['<NEW_LABEL>']);
+    cy.get('input.peer[placeholder="New item label"]:visible')
+    .should('exist')
+    .click()
+    .type(this.properties['<NEW_LABEL>']);
   }
 
   clickNavigationCustomizeOkButton() {
@@ -42,9 +42,28 @@ class AddMenuPageObject extends BasePageObject {
     cy.visit(this.properties['<URL>']);
   }
 
-  deleteItemMenu() {
-    cy.get(':nth-child(3) > [data-testid="navigation-item-editor"] > .cursor-pointer')
-      .click();
+  deleteItemMenu(edited = false) {
+    
+    var name = this.properties['<NEW_LABEL>']
+    if (edited) {
+      name = this.properties['<EDIT_LABEL>']
+    }
+
+    cy.get('section[data-testid="navigation-modal"]')
+    .within(() => {
+      cy.get('div.group')
+      .each(($div)=> {
+        cy.get($div)
+        .within(() => {
+          cy.get('input').invoke('val').then((inputValue) => {
+            if (inputValue == name) {
+              cy.wrap('button[type="button"]')
+              cy.get('button[type="button"]').click({multiple: true})
+            }
+          });
+        })
+      })
+    })
   }
 }
 
