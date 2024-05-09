@@ -1,16 +1,11 @@
-Feature: Gestión de posts en Ghost CMS
+Feature: Eliminar publicaciones
 
 @user3 @web
 Scenario: Eliminar un post existente
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
-  When I enter identification "<GHOST_MAIL_M>"
-  And I wait for 1 seconds
-  And I enter password  "<GHOST_PASSWORD_M>"
-  And I wait for 1 seconds
-  And I click next
+  Given I login as admin in Ghost "delete_post" "003"
   And I wait for 1 seconds
   And I navigate to page "http://localhost:2368/ghost/#/posts"
   And I wait for 4 seconds
-  When I select and delete the post with title "New Post Title"
+  When I select and delete the post with title "New Post Title for delete miguel" "delete_post" "003"
   And I wait for 5 seconds
-  Then I should see post with title "New Post Title" deleted
+  Then I should see that the post with title "New Post Title for delete miguel" is deleted

@@ -1,16 +1,16 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-When("I enter identification {string}", async function (email) {
+When("I enter identification edit {string}", async function (email) {
   let element = await this.driver.$("#identification");
   return await element.setValue(email);
 });
 
-When("I enter password {string}", async function (password) {
+When("I enter password edit {string}", async function (password) {
   let element = await this.driver.$("#password");
   return await element.setValue(password);
 });
 
-When("I click next", async function () {
+When("I click next edit", async function () {
   let element = await this.driver.$("#ember5");
   return await element.click();
 });
@@ -36,9 +36,18 @@ When("I select the post with title for edit {string}", async function (title) {
     }
   });
 
-  When("I edit post title {string}", async function (title) {
-    let element = await this.driver.$(".gh-editor-title");
-    return await element.setValue(title);
+  When("I click post edit", async function () {
+    let element = await this.driver.$(".gh-publish-trigger");
+    return await element.click();
+  });
+
+  When("I edit post title edit{string}", async function (title) {
+
+    const titleField = await this.driver.$(".gh-editor-title"); // Cambia el selector si es necesario
+    await titleField.waitForDisplayed();
+    await titleField.clearValue();
+    await titleField.setValue(title);
+   
   });
   
 
