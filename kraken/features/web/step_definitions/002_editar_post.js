@@ -1,22 +1,6 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-When("I enter identification edit {string}", async function (email) {
-  let element = await this.driver.$("#identification");
-  return await element.setValue(email);
-});
-
-When("I enter password edit {string}", async function (password) {
-  let element = await this.driver.$("#password");
-  return await element.setValue(password);
-});
-
-When("I click next edit", async function () {
-  let element = await this.driver.$("#ember5");
-  return await element.click();
-});
-
-
-When("I select the post with title for edit {string}", async function (title) {
+When("I select the post with title for edit {string} {string} {string}", async function (title , scenario, step) {
     let elements = await this.driver.$$(".gh-post-list-title h3");
   
     let postFound = false;
@@ -25,6 +9,7 @@ When("I select the post with title for edit {string}", async function (title) {
       let elementTitle = await element.getText();
       if (elementTitle.trim() === title.trim()) {
         postFound = true;
+        await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_01.png`);  
         await element.click();
         await this.driver.pause(2000);
         break;
@@ -36,24 +21,28 @@ When("I select the post with title for edit {string}", async function (title) {
     }
   });
 
-  When("I click post edit", async function () {
+  When("I click post edit {string} {string}", async function (scenario, step) {
     let element = await this.driver.$(".gh-publish-trigger");
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_02.png`);  
     return await element.click();
   });
 
-  When("I edit post title edit{string}", async function (title) {
+  When("I edit post title edit{string} {string} {string}", async function (title, scenario, step) {
 
-    const titleField = await this.driver.$(".gh-editor-title"); // Cambia el selector si es necesario
+    const titleField = await this.driver.$(".gh-editor-title"); 
     await titleField.waitForDisplayed();
     await titleField.clearValue();
     await titleField.setValue(title);
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_03.png`);  
+
    
   });
   
 
-  Then("I should see post title edited to {string}", async function (title) {
+  Then("I should see post title edited to {string} {string} {string}", async function (title, scenario, step) {
     let element = await this.driver.$(".gh-editor-title");
     let value = await element.getValue();
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_04.png`);  
     if (value !== title) {
         throw new Error(`Expected post title to be ${title} but got ${value}`);
     }
