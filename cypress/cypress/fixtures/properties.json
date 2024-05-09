@@ -1,10 +1,15 @@
 {
     "<URL>": "http://localhost:2368/ghost",
+    "<URL_HOME>": "http://localhost:2368",
     "<GHOST_MAIL>": "user@example.com",
     "<GHOST_PASSWORD>": "r7aHWhKneSw=",
     "<GHOST_PASSWORD_NEW>": "r7aHWhKneSw=S",
     "<GHOST_NAME>": "user",
     "<GHOST_NAME_NEW>": "user_ch_",
+    "<GHOST_PRIVATE_PASSWORD>": "12345678",
     "<NEW_POST>": "NEW Post",
+    "<NEW_LABEL>": "My new item",
+    "<EDIT_LABEL>": "My new itemV2",
+    "<NEW_DESC>": "Smile every day",
     "<NEW_TAG>": "NEW_TAG"
   }
