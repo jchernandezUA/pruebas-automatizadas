@@ -1,4 +1,4 @@
-import BasePageObject from "../support/BasePageObject";
+import BasePageObject from "./BasePageObject";
 
 class PagePostPageObject extends BasePageObject {
 

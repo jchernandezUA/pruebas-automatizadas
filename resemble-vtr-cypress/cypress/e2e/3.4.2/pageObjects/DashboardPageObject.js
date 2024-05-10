@@ -1,4 +1,4 @@
-import BasePageObject from "../support/BasePageObject";
+import BasePageObject from "./BasePageObject";
 
 class DashboardPageObject extends BasePageObject {
 
@@ -9,8 +9,10 @@ class DashboardPageObject extends BasePageObject {
   
   startNewPage(flow = '') {
     cy.get(this.elements.pagesItem).click()
-    cy.wait(1000)
-    cy.get(this.elements.newPage).click()
+    cy.wait(2000)
+    cy.get(this.elements.newPage).then(($buttons) => {
+      cy.wrap($buttons[0]).click();
+    });
   }
 
   openFirstPublishedPost() {
@@ -20,9 +22,9 @@ class DashboardPageObject extends BasePageObject {
   }
 
   openFirstPublishedPage() {
-    const listPost = cy.get('div[role="menuitem"]').then($items => {
-      cy.wrap($items[0]).click()
-    }) 
+    cy.get('li.gh-list-row.gh-posts-list-item')
+    .first()
+    .click()
   }
 
   clickPublished() {
@@ -37,6 +39,7 @@ class DashboardPageObject extends BasePageObject {
 
   clickOnAvatar() {
     cy.get('div.gh-user-avatar.relative')
+    .scrollIntoView()
     .click()
   }
 
@@ -77,14 +80,18 @@ class DashboardPageObject extends BasePageObject {
   }
 
   verifyPage() {
-    cy.get(this.elements.postList)
-    .first()
-    .find('a')
-    .first()
-    .find('h3.gh-content-entry-title').then(($title) => {
-      let text = $title.text().trim()
+    cy.contains('span', 'Newest')
+    .click()
+    cy.contains('li', 'Recently updated')
+    .click()
+  
+    cy.get('h3.gh-content-entry-title') 
+    .first() 
+    .invoke('text') 
+    .then((textContent) => { 
+      let text = textContent.trim();
       expect(text).to.equal(this.properties['<NEW_POST>']);
-    })
+    });
   }
 }
 
