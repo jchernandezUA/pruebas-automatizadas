@@ -16,9 +16,9 @@ class AddMenuPageObject extends BasePageObject {
 
   enterNewLabel() {
     cy.get('input.peer[placeholder="New item label"]:visible')
-    .should('exist')
-    .click()
-    .type(this.properties['<NEW_LABEL>']);
+      .should('exist')
+      .click()
+      .type(this.properties['<NEW_LABEL>']);
   }
 
   clickNavigationCustomizeOkButton() {
@@ -43,7 +43,7 @@ class AddMenuPageObject extends BasePageObject {
   }
 
   deleteItemMenu(edited = false) {
-    
+
     var name = this.properties['<NEW_LABEL>']
     if (edited) {
       name = this.properties['<EDIT_LABEL>']

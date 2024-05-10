@@ -9,14 +9,14 @@ class EditSiteDescPageObject extends BasePageObject {
   }
 
   editDescription() {
-    cy.get('input.peer[id=":rn:"][placeholder="Site description"]')
+    cy.get('input.peer[placeholder="Site description"]')
       .should('exist')
       .clear()
       .type(this.properties['<NEW_DESC>']);
   }
 
   putDefaultDescription() {
-    cy.get('input.peer[id=":rn:"][placeholder="Site description"]')
+    cy.get('input.peer[placeholder="Site description"]')
       .should('exist')
       .clear()
       .type('Thoughts, stories and ideas.');
