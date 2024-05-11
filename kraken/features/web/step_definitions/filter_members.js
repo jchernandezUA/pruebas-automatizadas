@@ -1,46 +1,48 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+const FilterMemberObject = require('../support/FilterMemberObject');
+const DeleteMemberPage = require('./../support/DeleteMemberObject');
+ 
 
-When('I click on member', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/nav[1]/div/section/div[1]/ul[2]/li[4]/a')
-    return await element.click();
+Given('I am on the members page, create a member that I want to filter', async function () {
+    const filterMemberObject = new FilterMemberObject(this.driver);
+    await filterMemberObject.clickOnMembers();
+    await filterMemberObject.clickOnNewMember();
+    await filterMemberObject.enterName();
+    await filterMemberObject.enterEmail();
+    await filterMemberObject.enterNote();
+    await filterMemberObject.clickSave();
 });
 
-When('I click in filter', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/section/div/header/section/div[2]/div[1]')
-    return await element.click();
+When('I proceed to filter a member that dont exist {string} {string}', async function  (scenario, step) {
+    const filterMemberObject = new FilterMemberObject(this.driver);
+    await filterMemberObject.clickOnMembers();
+    await filterMemberObject.enterFilter();
+    await filterMemberObject.clickNameFilter();
+    await filterMemberObject.clickLabelFilter();
+    await filterMemberObject.clickContainFilter();
+    await filterMemberObject.enterFilterText();
+    await filterMemberObject.waitFor()
+    await filterMemberObject.clickAplicateFilter();
+    await this.driver.pause(1000)
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_02.png`)
 });
 
-When('I click on name', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]')
-    return await element.click();
-});
-
-When('I click on label', async function () {
-    let element = await this.driver.$('/html/body/div[1]/div/div/section/div[1]/div/div/span[2]/select')
-    return await element.click();
-});
-
-When('I click on contain', async function () {
-    let element = await this.driver.$('/html/body/div[1]/div/div/section/div[1]/div/div/span[2]/select/option[2]')
-    return await element.click();
-});
-
-When('I want to filter by name that contain {string}', async function (note) { return await whenEnterNote(this.driver, note) });
-
-async function whenEnterNote(driver, label) {
-    let element = await driver.$('/html/body/div[1]/div/div/section/div[1]/div/div/input');
-    return await element.setValue(label);
-}
-
-When('I click on apply filters', async function () {
-    let element = await this.driver.$('/html/body/div[1]/div/div/div/button[2]')
-    return await element.click();
-});
-
-Then('I find the member that have {string} in the name', async function (expectedText) {
+Then('I find the member that dont exist {string} {string}', async function  (scenario, step) {
     const expect = (await import('expect-webdriverio')).expect;
-    let label = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]');
-    await expect(label).not.toHaveText(expectedText)
+    let label = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/a');
+    await expect(label).toExist()
+    await this.driver.pause(1000)
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_03.png`)
 });
 
-
+Then('I delete member that has been create to filter', async function (){
+    const filterMemberObject = new FilterMemberObject(this.driver);
+    const deleteMemberPage = new DeleteMemberPage(this.driver);
+    await filterMemberObject.waitFor()
+    await filterMemberObject.clickCleanFilter();
+    await deleteMemberPage.clickOnMembers();
+    await deleteMemberPage.clickOnMemberOptions();
+    await deleteMemberPage.clickInSettingsOfMember();
+    await deleteMemberPage.clickDeleteMember();
+    await deleteMemberPage.acceptDelete();
+})

@@ -1,22 +1,15 @@
 Feature: Invite new admin
 
   @user1 @web
-  Scenario: As a user I want to edit member
+  Scenario: As a user I want to invite admin
     # Arrange
-    Given I login as admin in Ghost
+    Given I login as admin in Ghost "inviteadmin" "01"
+    Given I am admin, i want to invite new admin
     # Act
-    When I click on member to new admin
-    And I wait for 1 seconds
-    When I click on setting to invite new admin
-    When I click on staff
-    And I wait for 1 seconds
-    When I click on invite people
-    When I enter new email to invite new admin 'test@testadmin.com'
-    When I click on administrator
-    When I click on send invitation now
     And I wait for 2 seconds
-    When I click on back
-    When I click on invited
+    When I proceed to invite a new admin "invite_admin" "02"
+    And I wait for 5 seconds
     # Assert
-    Then I find the email 'test@testadmin.com'
-    Then I go to the homepage
+    Then I find the email "nuevo@miembro.com" "invitea:dmin" "03"
+    And I wait for 2 seconds
+    Then I delete member invited

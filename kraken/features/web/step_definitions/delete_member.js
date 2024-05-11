@@ -1,36 +1,35 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+const DeleteMemberPage = require('./../support/DeleteMemberObject');
 
-When('I click on member', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/nav[1]/div/section/div[1]/ul[2]/li[4]/a')
-    return await element.click();
-});
-
-When('I click on the member that I want to delete', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]')
-    return await element.click();
-});
-
-When('I click in settings of member', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/section/div[1]/header/section/span/button')
-    return await element.click();
-});
-
-
-When('I click in delete member', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/section/div[1]/header/section/span/ul/li[3]/button')
-    return await element.click();
-});
-
-When('I click in accept delete of member', async function () {
-    let element = await this.driver.$('/html/body/div[5]/div/div/div[2]/button[2]')
-    return await element.click();
-});
-
-Then('I find the member that has been removed {string}', async function (expectedText) {
+Given('I am on the members page, create a member that I want to delete', async function () {
+    const deleteMemberPage = new DeleteMemberPage(this.driver);
+    await deleteMemberPage.clickOnMembers();
+    await deleteMemberPage.clickOnNewMember();
+    await deleteMemberPage.enterName();
+    await deleteMemberPage.enterEmail();
+    await deleteMemberPage.enterNote();
+    await deleteMemberPage.clickSave();
     
-    const expect = (await import('expect-webdriverio')).expect;
-
-    let label = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]');
-    await expect(label).not.toHaveText(expectedText)
 });
 
+When('I proceed to delete a member {string} {string}', async function (scenario, step) {
+    const deleteMemberPage = new DeleteMemberPage(this.driver);
+    await deleteMemberPage.clickOnMembers();
+    await this.driver.pause(1000)
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_02.png`)
+    await deleteMemberPage.clickOnMemberOptions();
+    await deleteMemberPage.clickInSettingsOfMember();
+    await deleteMemberPage.clickDeleteMember();
+    await deleteMemberPage.acceptDelete();
+    await this.driver.pause(1000)
+    return await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_03.png`)
+});
+
+Then('the member should be deleted {string} {string} {string}', async function (expectedText, scenario, step) {
+
+    const expect = (await import('expect-webdriverio')).expect;
+    const label = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]');
+    await expect(label).not.toExist();
+    await this.driver.pause(1000)
+    return await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_04.png`)
+});
