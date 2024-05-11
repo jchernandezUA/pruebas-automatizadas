@@ -78,6 +78,7 @@ class PagePostPageObject extends BasePageObject {
   }
 
   back(type) {
+    cy.wait(2000)
     cy.contains('a', 'Posts')
     .click()
   }
