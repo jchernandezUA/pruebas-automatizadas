@@ -7,6 +7,7 @@ describe('Gestión de posts en Ghost CMS', () => {
             LoginPageObject.signIn()
             cy.screenshot("ss_create_post_navigate_login")
             cy.visit('/ghost/#/editor/post');
+            cy.wait(2000)
             cy.screenshot("ss_create_post_navigate_editor");            
 
             cy.get('.gh-editor-title').type('New Post Title');

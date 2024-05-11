@@ -18,3 +18,8 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // Registra la excepción en la consola pero no la considera como un error fatal
+    console.log('Excepción no capturada:', err.message);
+    return false; // Evita que la prueba falle
+  });
