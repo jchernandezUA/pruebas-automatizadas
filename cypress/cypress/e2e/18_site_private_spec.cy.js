@@ -1,5 +1,5 @@
 const LoginPageObject = require("../support/LoginPageObject")
-const AddMenuPageObject = require("../support/AddMenuPageObject")
+const DashboardPageObject = require("../support/DashboardPageObject")
 const SitePrivatePageObject = require("../support/SitePrivatePageObject");
 
 describe('As a user I want to make the site private', () => {
@@ -8,19 +8,19 @@ describe('As a user I want to make the site private', () => {
     LoginPageObject.signIn()
 
     // Act
-    AddMenuPageObject.clickSettingsIcon()
+    DashboardPageObject.clickSettingsIcon()
     SitePrivatePageObject.clickSitePrivateButton()
     SitePrivatePageObject.switchPrivate()
     SitePrivatePageObject.setPrivatePassword()
     SitePrivatePageObject.clickSavePrivateButton()
 
     // Assert
-    AddMenuPageObject.goToHomepage()
+    DashboardPageObject.goToHomepage()
     SitePrivatePageObject.seePrivateWarningText();
 
     // Tear down
-    AddMenuPageObject.goToAdminPage()
-    AddMenuPageObject.clickSettingsIcon()
+    DashboardPageObject.goToAdminPage()
+    DashboardPageObject.clickSettingsIcon()
     SitePrivatePageObject.clickSitePrivateButton()
     SitePrivatePageObject.switchPrivate()
     SitePrivatePageObject.clickSavePrivateButton()

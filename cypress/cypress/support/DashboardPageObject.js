@@ -87,6 +87,20 @@ class DashboardPageObject extends BasePageObject {
       expect(text).to.equal(this.properties['<NEW_POST>']);
     })
   }
+
+  clickSettingsIcon() {
+    cy.get('.ember-view.gh-nav-bottom-tabicon')
+      .should('exist')
+      .click();
+  }
+
+  goToHomepage() {
+    cy.visit(this.properties['<URL_HOME>']);
+  }
+
+  goToAdminPage() {
+    cy.visit(this.properties['<URL>']);
+  }
 }
 
 export default new DashboardPageObject()
