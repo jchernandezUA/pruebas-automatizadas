@@ -1,18 +1,16 @@
 Feature: Delete member 
 
   @user1 @web
-  Scenario: As a user I want to edit member
+  Scenario: As a user I want to delete member
     # Arrange
-    Given I login as admin in Ghost
+    Given I login as admin in Ghost "delete_member" "01"
+    And I wait for 2 seconds
+    Given I am on the members page, create a member that I want to delete
     # Act
-    When I click on member
+    And I wait for 2 seconds
+    When I proceed to delete a member "delete_member" "03"
     And I wait for 1 seconds
-    When I click on the member that I want to delete
-    When I click in settings of member
-    And I wait for 1 seconds
-    When I click in delete member
-    When I click in accept delete of member
     # Assert
-    Then I find the member that has been removed "miembro test".
-    Then I go to the homepage
+    Then the member should be deleted "memberDelete" "delete_member" "04"
+
 

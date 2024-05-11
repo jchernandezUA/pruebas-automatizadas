@@ -1,19 +1,15 @@
 Feature: Filter members
 
   @user1 @web
-  Scenario: As a user I want to new member
+  Scenario: As a user I want to filter member
     # Arrange
-    Given I login as admin in Ghost
+    Given I login as admin in Ghost "filter_member" "01"
+    Given I am on the members page, create a member that I want to filter
+    And I wait for 2 seconds
     # Act
-    When I click on members
-    And I wait for 1 seconds
-    When I click in filter
-    When I click on name
-    When I click on label
-    When I click on contain
-    When I want to filter by name that contain "test"
-    And I wait for 1 seconds
-    When I click on apply filters
+    And I wait for 2 seconds
+    When I proceed to filter a member that dont exist "filter_member" "02"
+    And I wait for 2 seconds
     # Assert
-    Then I find the member that have "test" in the name
-    Then I go to the homepage
+    Then I find the member that dont exist "filter_member" "03"
+    Then I delete member that has been create to filter

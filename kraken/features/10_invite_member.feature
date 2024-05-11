@@ -1,19 +1,13 @@
-Feature: Add new member 
+Feature: Invite member 
 
   @user1 @web
   Scenario: As a user I want to new member
     # Arrange
-    Given I login as admin in Ghost
+    Given I login as admin in Ghost "invite_member" "01"
     # Act
-    When I click on members
+    And I wait for 5 seconds
+    When I am on the members page, create a member "invite_member" "01"
     And I wait for 1 seconds
-    When I click on new members button
-    When I enter new name "miembro test"
-    When I enter new email "miembro@test.com"
-    When I add note "esto es un texto de prueba"
-    And I wait for 1 seconds
-    When I click on save button
     # Assert
-    Then I click on members to validate the new member
-    Then I I see the new member "miembro test"
-    Then I go to the homepage
+    Then the member name should be "Miembro para creado test" "invite_member" "01"
+    Then I delete member that has been create
