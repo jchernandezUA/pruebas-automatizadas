@@ -1,9 +1,9 @@
-import BasePageObject from "../support/BasePageObject";
+import BasePageObject from "./BasePageObject";
 
-class PagePostPageObject extends BasePageObject {
+class PagePageObject extends BasePageObject {
 
   typeTitle() {
-    const textArea = cy.get('textarea[placeholder="Post Title"]')
+    const textArea = cy.get('textarea[placeholder="Page Title"]')
     textArea.type(this.properties['<NEW_POST>'])
     cy.get('div.koenig-editor__editor-wrapper')
     .click()
@@ -44,11 +44,6 @@ class PagePostPageObject extends BasePageObject {
       cy.wait(1000)
       cy.contains('span', 'Update')
       .click()
-      /*const continueButton = cy.get(this.elements.continueBtn)
-      continueButton.click()
-      const publishNowBtn = cy.get(this.elements.publishNowBtn)
-      publishNowBtn.click()
-      cy.get('button[data-test-button="close-publish-flow"]').click()*/
       cy.get('button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view')
       .click()
   }
@@ -92,16 +87,11 @@ class PagePostPageObject extends BasePageObject {
     cy.contains('span', 'Delete')
     .scrollIntoView()
     .click()
-
-    cy.get('span[data-test-task-button-state="idle"]')
-    .each(($span)  => {
-      const spanText = $span.text().trim();
-      if (spanText == 'Delete') {
-        $span.click()
-      }
+    cy.get('button.gh-btn.gh-btn-red.gh-btn-icon.ember-view').then($buttons => {
+      cy.wait(1000)
+      cy.wrap($buttons[0]).click()
     })
-
   }
 }
 
-export default new PagePostPageObject()
+export default new PagePageObject()

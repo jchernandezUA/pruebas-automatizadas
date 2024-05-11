@@ -11,7 +11,7 @@ const elements = {
   postList: 'li.gh-list-row.gh-posts-list-item.gh-post-list-plain-status',
   contentEntryMeta: 'span.gh-content-entry-meta',
   profileItem: 'a[data-test-nav="user-profile"]',
-  changePassword: 'Change password',
+  changePassword: 'Change Password',
   passwordUpdated: 'Updated',
   postSettingsBtn: 'button[title="Settings"]',
   saveClose: 'Save & close',
