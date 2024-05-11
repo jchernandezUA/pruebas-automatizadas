@@ -1,9 +1,9 @@
-const DashboardPageObject = require("../support/DashboardPageObject")
-const LoginPageObject = require("../support/LoginPageObject")
-const ProfilePageObject = require("../support/ProfilePageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
+const LoginPageObject = require("../../support/LoginPageObject")
+const ProfilePageObject = require("../../support/ProfilePageObject")
 
-describe('Testing change password', () => {
-  it('Como usuario quiero cambiar contraseña', () => {
+describe('Edit profile ', () => {
+  it('Change admin full name ', () => {
     //Given 
     LoginPageObject.signIn()
     cy.screenshot("ss_edit_profile_01")

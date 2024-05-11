@@ -3,7 +3,7 @@ const LoginPageObject = require("../../support/LoginPageObject")
 const ProfilePageObject = require("../../support/ProfilePageObject")
 
 describe('Testing change password', () => {
-  it('Como usuario quiero cambiar contraseña', () => {
+  it('Test change user admin password', () => {
     //Given
     LoginPageObject.signIn()
     cy.screenshot("ss_change_password_01")
