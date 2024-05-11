@@ -1,6 +1,6 @@
-const LoginPageObject = require("../support/LoginPageObject")
-const AddMenuPageObject = require("../support/AddMenuPageObject")
-const EditSiteDescPageObject = require("../support/EditSiteDescPageObject");
+const LoginPageObject = require("../../support/LoginPageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
+const EditSiteDescPageObject = require("../../support/EditSiteDescPageObject");
 
 describe('As a user I want to edit the site description', () => {
   it('Edit site description', () => {
@@ -8,18 +8,18 @@ describe('As a user I want to edit the site description', () => {
     LoginPageObject.signIn()
 
     // Act
-    AddMenuPageObject.clickSettingsIcon()
+    DashboardPageObject.clickSettingsIcon()
     EditSiteDescPageObject.clickDescButton()
     EditSiteDescPageObject.editDescription()
     EditSiteDescPageObject.clickSaveDescButton()
 
     // Assert
-    AddMenuPageObject.goToHomepage()
+    DashboardPageObject.goToHomepage()
     EditSiteDescPageObject.seeDescriptionContainsNewDescription();
 
     // Tear down
-    AddMenuPageObject.goToAdminPage()
-    AddMenuPageObject.clickSettingsIcon()
+    DashboardPageObject.goToAdminPage()
+    DashboardPageObject.clickSettingsIcon()
     EditSiteDescPageObject.clickDescButton()
     EditSiteDescPageObject.putDefaultDescription()
     EditSiteDescPageObject.clickSaveDescButton()
