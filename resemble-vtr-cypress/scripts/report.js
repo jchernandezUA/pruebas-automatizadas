@@ -8,39 +8,54 @@ const { viewportHeight, viewportWidth, browsers, options } = config;
 
 
 
-async function getReport() {
+async function getReport(res) {
+  await createResultsDir()
   let datetime = new Date().toISOString().replace(/:/g,".");
   let directoryPath = './cypress/screenshots';
   const fileMap = buildFileMap(directoryPath);
   let resultFies = []
   for (const [name, files] of Object.entries(fileMap)) {
-    let package = []
+    let package = {}
+    package["name"] = name.replace('.png','')
+    package["files"] = []
     if (files.length == 2) {
       for (let i = 0; i < files.length; i++) {
         await copyFiles(name, files[i], i)
-        package.push(`v${i}/${name}`)
+        package["files"].push(`v${i}/${name}`)
       }
+      const data = await compareImages(
+        fs.readFileSync(files[0].toString()),
+        fs.readFileSync(files[1].toString()),
+        options
+      );
+      let compareFile = `${name}_compare.png`
+      fs.writeFileSync(`./vtr-results/${compareFile}`, data.getBuffer());
+      package["files"].push(compareFile)
+      console.log(package)
+      resultFies.push(package)
     }
-
-    const data = await compareImages(
-      fs.readFileSync(files[0].toString()),
-      fs.readFileSync(files[1].toString()),
-      options
-    );
-    let compareFile = `${name}_compare.png`
-    fs.writeFileSync(`./results/${compareFile}`, data.getBuffer());
-    package.push(compareFile)
-    console.log(package)
-    resultFies.push(package)
   }
-  let reportFilenName = `./results/report.html`
-  fs.writeFileSync(`./results/report.html`, createReport(datetime, resultFies));
-  fs.copyFileSync('./index.css', `./results/index.css`);
-  return createReport(datetime, resultFies)
+  let reportFilenName = `./vtr-results/report.html`
+  fs.writeFileSync(`./vtr-results/report.html`, createReport(datetime, resultFies));
+  fs.copyFileSync('./index.css', `./vtr-results/index.css`);
+  const report = await createReport(datetime, resultFies)
+  res.send(report)
+}
+
+async function createResultsDir() {
+  const directoryPath = 'vtr-results'
+  if (!fs.existsSync(directoryPath)) {
+    // If it doesn't exist, create the directory
+    fs.mkdirSync(directoryPath);
+  
+    console.log(`Directory '${directoryPath}' created.`);
+  } else {
+    console.log(`Directory '${directoryPath}' already exists.`);
+  }
 }
 
 async function copyFiles(name, originalFile, position) {
-  let dirPath = `./results/v${position}`
+  let dirPath = `./vtr-results/v${position}`
   let copyFile = `${dirPath}/${name}`
   if (!fs.existsSync(dirPath)) {
     fs.mkdir(dirPath, { recursive: true }, (err) => {
@@ -91,22 +106,24 @@ function buildFileMap(directoryPath, fileMap = {}) {
   }
   
   
-  function browser(file){
+  function packages(package){
     return `<div class=" browser" id="test0">
+    <h2>Screen: ${package["name"].replace('ss_','')}</h2>
+
     <div class="imgline">
       <div class="imgcontainer">
-        <span class="imgname">Reference</span>
-        <img class="img2" src="${file[0]}" id="refImage" label="Reference">
+        <span class="imgname">3.42</span>
+        <img class="img2" src="${package["files"][1]}" id="refImage" label="Reference">
       </div>
       <div class="imgcontainer">
-        <span class="imgname">Test</span>
-        <img class="img2" src="${file[1]}" id="testImage" label="Test">
+        <span class="imgname">5.79.6</span>
+        <img class="img2" src="${package["files"][2]}" id="testImage" label="Test">
       </div>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Diff</span>
-        <img class="imgfull" src="${file[2]}" id="diffImage" label="Diff">
+        <img class="imgfull" src="${package["files"][2]}" id="diffImage" label="Diff">
       </div>
     </div>
   </div>`
@@ -124,7 +141,7 @@ function buildFileMap(directoryPath, fileMap = {}) {
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
-              ${files.map((p)=>browser(p))}
+              ${files.map((p)=>packages(p))}
             </div>
         </body>
     </html>`

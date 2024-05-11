@@ -2,8 +2,8 @@ const LoginPageObject = require("../../support/LoginPageObject")
 const PagePostPageObject = require("../../support/PagePostPageObject")
 const DashboardPageObject = require("../../support/DashboardPageObject")
 
-describe('Testing change password', () => {
-  it('Como usuario quiero cambiar contraseña', () => { 
+describe('Testing delete tag to post', () => {
+  it('Test add post, add tag to post and delete tag', () => {
     //Given
     LoginPageObject.signIn()
     cy.screenshot("ss_add_tag_post_01")
@@ -16,9 +16,18 @@ describe('Testing change password', () => {
     PagePostPageObject.openSettings()
     cy.screenshot("ss_add_tag_post_05")
     PagePostPageObject.addTag()
-    cy.screenshot("ss_add_tag_post_06")
+    cy.screenshot("ss_delete_tag_post_06")
+    DashboardPageObject.clickPublished()
+    cy.screenshot("ss_delete_tag_post_07")
+    DashboardPageObject.openFirstPublishedPost()
+    cy.screenshot("ss_delete_tag_post_08")
+    PagePostPageObject.deleteTag()
+    cy.screenshot("ss_delete_tag_post_09")
     // Then
-    DashboardPageObject.verifyTag()
-    cy.screenshot("ss_add_tag_post_07")
+    DashboardPageObject.verifyPostWithNoTag()
+    cy.screenshot("ss_delete_tag_post_10")
+    //Teardown
+    DashboardPageObject.openFirstPublishedPage()
+    PagePostPageObject.deletePage()
   })
 })

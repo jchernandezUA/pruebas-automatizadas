@@ -3,7 +3,7 @@ const { spawn } = require('child_process');
 function runCypressTests(res) {
     return new Promise((resolve, reject) => {
         
-        const cypressProcess = spawn('npx', ['cypress', 'run']);
+        const cypressProcess = spawn('npx', ['cypress', 'run', '../cypress']);
 
         cypressProcess.stdout.on('data', (data) => {
             res.write(`data: ${data.toString().trim()}\n\n`);

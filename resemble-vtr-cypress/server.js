@@ -12,9 +12,7 @@ const app = express();
 const port = 3001;
 
 
-app.use(express.static(path.join(__dirname, 'results')));
-app.use(express.static(path.join(__dirname, 'cypress/screenshots/3.4.2')));
-app.use(express.static(path.join(__dirname, 'cypress/screenshots/5.79.6')));
+app.use(express.static(path.join(__dirname, 'vtr-results')));
 
 app.get('/', async (req, res) => {
     const filePath = path.join(__dirname, '/html/', 'home.html');
@@ -33,20 +31,20 @@ app.get('/fire-cypress', async (req, res) => {
             Finalizado ver el reporte en /report
         ********
         `)
-        report.getReport()
         res.write(`<script>window.location='/report';</script>`)
         res.end()
     })
     .catch((error) => {
       let err = 'Error al ejecutar las pruebas de Cypress: ' + error
       console.error(err);
-      res.end(err)
+      res.write(err)
+      res.write(`<script>window.location='/report';</script>`)
+      res.end()
     });
 });
 
 app.get('/report', (req, res) => {
-  const reportPath = `${__dirname}/results/report.html`;
-  res.sendFile(reportPath);
+  report.getReport(res);
 });
 
 app.listen(port, () => {

@@ -1,9 +1,9 @@
-const LoginPageObject = require("../support/LoginPageObject")
-const PagePostPageObject = require("../support/PagePostPageObject")
-const DashboardPageObject = require("../support/DashboardPageObject")
+const LoginPageObject = require("../../support/LoginPageObject")
+const PagePostPageObject = require("../../support/PagePostPageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
 
-describe('Testing change password', () => {
-  it('Como usuario quiero cambiar contraseña', () => { 
+describe('Add tag to a post', () => {
+  it('Test add post and add tag', () => { 
     //Given
     LoginPageObject.signIn()
     cy.screenshot("ss_add_tag_post_01")
