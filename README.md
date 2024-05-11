@@ -1,3 +1,38 @@
+## Semana 6
+
+**Wiki info** :
+**Entrega Semana 5**
+- [WIKI Entrega Semana 6](https://github.com/jchernandezUA/tswdc-project/wiki#semana-6)
+
+**Resemble JS**
+
+- Clonar repositorio
+    ```
+    git clone https://github.com/jchernandezUA/tswdc-project.git
+    ```
+
+- Ir a la carpeta:
+    ```
+    cd resemble-vtr-cypress
+    ```
+
+- Instalar dependencias:
+    ```
+    npm install
+    ```
+
+- Iniciar app:
+    ```
+    node server.js
+    ```
+
+- Ingresar a app : http://localhost:3001
+
+- Correr pruebas en cypress
+
+- Esperar resultados
+
+
 ## Semana 5
 **Wiki Info**:
 **Entrega Semana 5**

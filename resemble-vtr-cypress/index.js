@@ -2,20 +2,32 @@ const playwright = require('playwright');
 const compareImages = require("resemblejs/compareImages")
 const config = require("./config.json");
 const fs = require('fs');
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 const path = require('path');
 
 
 // Función para ejecutar las pruebas de Cypress
+
 function runCypressTests() {
   return new Promise((resolve, reject) => {
-    exec('npx cypress run', (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error al ejecutar Cypress: ${error}`);
-        reject(error);
+    const cypressProcess = spawn('npx', ['cypress', 'run']);
+
+    cypressProcess.stdout.on('data', (data) => {
+      console.log(`Cypress: ${data.toString().trim()}`);
+    });
+
+    cypressProcess.stderr.on('data', (data) => {
+      console.error(`Error de Cypress: ${data.toString().trim()}`);
+    });
+
+    cypressProcess.on('close', (code) => {
+      if (code === 0) {
+        console.log('Cypress ejecutado exitosamente.');
+        resolve();
       } else {
-        console.log(`Cypress ejecutado exitosamente:\n${stdout}`);
-        resolve(stdout); 
+        const errorMessage = `Error al ejecutar Cypress. Código de salida: ${code}`;
+        console.error(errorMessage);
+        reject(new Error(errorMessage));
       }
     });
   });

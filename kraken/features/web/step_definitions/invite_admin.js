@@ -1,58 +1,39 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+const ActionAdminObject = require('../support/ActionAdminObject');
 
-When('I click on member to new admin', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/nav[1]/div/section/div[1]/ul[2]/li[4]/a')
-    return await element.click();
-});
 
-When('I click on setting to invite new admin', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/nav[1]/div/section/div[2]/div/div/div[2]/a')
-    return await element.click();
-});
+Given('I am admin, i want to invite new admin', async function () {
+    const actionAdminObject = new ActionAdminObject(this.driver);
+    await actionAdminObject.clickSettingsIcon();
 
-When('I click on staff', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[1]/div/div/nav/ul[1]/li[9]/a')
-    return await element.click();
 });
 
 
-When('I click on invite people', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[2]/div/div[1]/div/div[9]/div[2]/div[2]/button')
-    return await element.click();
+When('I proceed to invite a new admin {string} {string}', async function (scenario, step) {
+    const actionAdminObject = new ActionAdminObject(this.driver);
+    await actionAdminObject.clickStaff();
+    await actionAdminObject.clickInvite();
+    await actionAdminObject.EnterEmail();
+    await actionAdminObject.SelectAdminOption();
+    await actionAdminObject.ClickSendInvitation();
+    await this.driver.pause(1000)
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_02.png`)
 });
 
-When('I enter new email to invite new admin {string}', async function (email) { return await whenEnterEmail(this.driver, email) });
-
-async function whenEnterEmail(driver, label) {
-    let element = await driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[4]/section/div[1]/div/div[1]/div/input');   
-    return await element.setValue(label);
-}
-
-When('I click on administrator', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[4]/section/div[1]/div/div[2]/div/div/label[4]/input')
-    return await element.click();
-});
-
-When('I click on send invitation now', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[4]/section/div[2]/div[2]/div/button')
-    return await element.click();
-});
-
-When('I click on back', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[2]')
-    return await element.click();
-});
-
-When('I click on invited', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[2]/div/div[1]/div/div[9]/section/div[1]/div[5]/button')
-    return await element.click();
-});
-
-Then('I find the email {string}', async function (expectedText) {
-    
+Then('I find the email {string} {string} {string}', async function (expectedText, scenario, step) {  
+    const actionAdminObject = new ActionAdminObject(this.driver);
+    await actionAdminObject.backMenu();
+    await actionAdminObject.ClickInvited();
     const expect = (await import('expect-webdriverio')).expect;
+    let label = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[2]/div/div[1]/div/div[9]/section/div[6]/div/section/div/div/div[1]/div[2]/span[1]');
+    await expect(label).toHaveText(expectedText);
+    await this.driver.pause(1000)
+    await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_03.png`)
+});
 
-    let label = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[2]/div/div[1]/div/div[9]/section/div[6]/div/section/div/div[2]/div[1]/div[2]/span[1]');
-    await expect(label).not.toBeDisplayed();
+Then('I delete member invited', async function () {  
+    const actionAdminObject = new ActionAdminObject(this.driver);
+    await actionAdminObject.DeleteInvited();
+
 });
 
