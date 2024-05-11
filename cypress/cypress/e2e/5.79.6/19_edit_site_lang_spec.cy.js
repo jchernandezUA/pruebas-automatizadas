@@ -1,6 +1,6 @@
-const LoginPageObject = require("../support/LoginPageObject")
-const DashboardPageObject = require("../support/DashboardPageObject")
-const EditSiteLangPageObject = require("../support/EditSiteLangPageObject");
+const LoginPageObject = require("../../support/LoginPageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
+const EditSiteLangPageObject = require("../../support/EditSiteLangPageObject");
 
 describe('As a user I want to edit the site language', () => {
   it('Edit site language', () => {

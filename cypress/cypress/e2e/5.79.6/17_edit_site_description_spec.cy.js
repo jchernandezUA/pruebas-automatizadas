@@ -1,6 +1,6 @@
-const LoginPageObject = require("../support/LoginPageObject")
-const DashboardPageObject = require("../support/DashboardPageObject")
-const EditSiteDescPageObject = require("../support/EditSiteDescPageObject");
+const LoginPageObject = require("../../support/LoginPageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
+const EditSiteDescPageObject = require("../../support/EditSiteDescPageObject");
 
 describe('As a user I want to edit the site description', () => {
   it('Edit site description', () => {

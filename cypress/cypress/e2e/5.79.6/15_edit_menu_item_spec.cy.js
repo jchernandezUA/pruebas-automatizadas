@@ -1,7 +1,7 @@
-const LoginPageObject = require("../support/LoginPageObject")
-const AddMenuPageObject = require("../support/AddMenuPageObject")
-const EditMenuPageObject = require("../support/EditMenuPageObject");
-const DashboardPageObject = require("../support/DashboardPageObject")
+const LoginPageObject = require("../../support/LoginPageObject")
+const AddMenuPageObject = require("../../support/AddMenuPageObject")
+const EditMenuPageObject = require("../../support/EditMenuPageObject");
+const DashboardPageObject = require("../../support/DashboardPageObject")
 
 describe('As a user I want to edit a menu item', () => {
   it('Edit menu item', () => {

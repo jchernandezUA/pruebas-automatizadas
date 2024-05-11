@@ -1,6 +1,6 @@
-const LoginPageObject = require("../support/LoginPageObject")
-const DashboardPageObject = require("../support/DashboardPageObject")
-const SitePrivatePageObject = require("../support/SitePrivatePageObject");
+const LoginPageObject = require("../../support/LoginPageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
+const SitePrivatePageObject = require("../../support/SitePrivatePageObject");
 
 describe('As a user I want to make the site private', () => {
   it('Make the site private', () => {

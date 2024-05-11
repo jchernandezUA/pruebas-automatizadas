@@ -1,6 +1,6 @@
-const LoginPageObject = require("../support/LoginPageObject")
-const AddMenuPageObject = require("../support/AddMenuPageObject")
-const DashboardPageObject = require("../support/DashboardPageObject")
+const LoginPageObject = require("../../support/LoginPageObject")
+const AddMenuPageObject = require("../../support/AddMenuPageObject")
+const DashboardPageObject = require("../../support/DashboardPageObject")
 
 describe('As a user I want to add a menu item', () => {
   it('Add menu item', () => {
