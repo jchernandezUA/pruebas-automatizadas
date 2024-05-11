@@ -1,6 +1,11 @@
 import BasePageObject from "../support/BasePageObject";
 
 class EditSiteLangPageObject extends BasePageObject {
+
+  screenshot(number) {
+    cy.screenshot('ss_edit_site_lang_0' + number);
+  }
+
   clickLangButton() {
     cy.get('[data-testid="publication-language"] button.cursor-pointer')
       .should('exist')

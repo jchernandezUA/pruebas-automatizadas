@@ -2,6 +2,10 @@ import BasePageObject from "../support/BasePageObject";
 
 class SitePrivatePageObject extends BasePageObject {
 
+  screenshot(number) {
+    cy.screenshot('ss_site_private_0' + number);
+  }
+
   clickSitePrivateButton() {
     cy.get('[data-testid="locksite"] button.cursor-pointer')
       .should('exist')

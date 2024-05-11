@@ -2,6 +2,10 @@ import BasePageObject from "../support/BasePageObject";
 
 class AddMenuPageObject extends BasePageObject {
 
+  screenshot(number) {
+    cy.screenshot('ss_add_menu_item_0' + number);
+  }
+
   clickNavigationCustomizeButton() {
     cy.get('[data-testid="navigation"] button.cursor-pointer')
       .should('exist')
@@ -29,27 +33,26 @@ class AddMenuPageObject extends BasePageObject {
   }
 
   deleteItemMenu(edited = false) {
-
-    var name = this.properties['<NEW_LABEL>']
+    let name = this.properties['<NEW_LABEL>'];
     if (edited) {
       name = this.properties['<EDIT_LABEL>']
     }
 
     cy.get('section[data-testid="navigation-modal"]')
-    .within(() => {
-      cy.get('div.group')
-      .each(($div)=> {
-        cy.get($div)
-        .within(() => {
-          cy.get('input').invoke('val').then((inputValue) => {
-            if (inputValue == name) {
-              cy.wrap('button[type="button"]')
-              cy.get('button[type="button"]').click({multiple: true})
-            }
-          });
-        })
+      .within(() => {
+        cy.get('div.group')
+          .each(($div)=> {
+            cy.get($div)
+              .within(() => {
+                cy.get('input').invoke('val').then((inputValue) => {
+                  if (inputValue == name) {
+                    cy.wrap('button[type="button"]')
+                    cy.get('button[type="button"]').click({multiple: true})
+                  }
+                });
+              })
+          })
       })
-    })
   }
 }
 

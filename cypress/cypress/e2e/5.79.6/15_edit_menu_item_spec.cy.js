@@ -13,11 +13,16 @@ describe('As a user I want to edit a menu item', () => {
     AddMenuPageObject.clickNavigationCustomizeOkButton()
     // Act
     AddMenuPageObject.clickNavigationCustomizeButton()
+    EditMenuPageObject.screenshot(1)
     EditMenuPageObject.editLabel()
+    EditMenuPageObject.screenshot(2)
     AddMenuPageObject.clickNavigationCustomizeOkButton()
+    EditMenuPageObject.screenshot(3)
     // Assert
     DashboardPageObject.goToHomepage()
+    EditMenuPageObject.screenshot(4)
     EditMenuPageObject.seeTheEditedItemMenu()
+    EditMenuPageObject.screenshot(5)
     // Tear down
     DashboardPageObject.goToAdminPage()
     DashboardPageObject.clickSettingsIcon()
