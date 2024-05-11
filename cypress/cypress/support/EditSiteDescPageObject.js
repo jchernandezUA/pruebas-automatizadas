@@ -1,6 +1,11 @@
 import BasePageObject from "../support/BasePageObject";
 
 class EditSiteDescPageObject extends BasePageObject {
+
+  screenshot(number) {
+    cy.screenshot('ss_edit_site_description_0' + number);
+  }
+
   clickDescButton() {
     cy.get('[data-testid="title-and-description"] button.cursor-pointer')
       .contains('Edit')
