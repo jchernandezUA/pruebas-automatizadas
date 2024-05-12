@@ -1,5 +1,5 @@
 const LoginPageObject = require("../support/LoginPageObject");
-const ActionAdmiObject = require("../support/ActionAdmiObject");
+const ActionAdmiObject = require("./pageObjects/ActionAdmiObject");
 
 
 describe("ghost invite admin", function () {
