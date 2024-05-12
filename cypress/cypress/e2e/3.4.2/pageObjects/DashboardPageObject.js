@@ -93,6 +93,26 @@ class DashboardPageObject extends BasePageObject {
       expect(text).to.equal(this.properties['<NEW_POST>']);
     });
   }
+
+  clickSettingsIcon() {
+    cy.contains('ul.gh-nav-list.gh-nav-settings a', 'General')
+      .should('exist')
+      .click();
+  }
+
+  goToHomepage() {
+    cy.visit(this.properties['<URL_HOME_3_4_2>']);
+  }
+
+  goToAdminPage() {
+    cy.visit(this.properties['<URL_3_4_2>']);
+  }
+
+  clickSaveSettingsButton() {
+    cy.get('section.view-actions button.gh-btn')
+      .contains('Save settings')
+      .click();
+  }
 }
 
 export default new DashboardPageObject()

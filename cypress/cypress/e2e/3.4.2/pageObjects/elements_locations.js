@@ -2,7 +2,7 @@ const elements = {
   isLocal: true,
   email: 'input[name="identification"]',
   password: 'input[name="password"]',
-  signIn: '#ember12',
+  signIn: 'form#login button.login',
   continueBtn: 'button.gh-btn.gh-btn-black.gh-btn-large',
   publishNowBtn: 'button.gh-btn.gh-btn-large.gh-btn-pulse.ember-view',
   newPostBtn: 'a[title="New post"]',
