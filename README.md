@@ -56,12 +56,20 @@
 ### S0
 Probado en:
 
-- Windows 10, 23H2
+- Windows 10, 23H2 (64 bits)
 - MacOS 14.4.1 (23E224) (Apple Chip)
 
+### Ghost v3.42.0
+[Ghost 3.42](https://ghost-nziq.onrender.com/)
+#### Node JS
+- [Instalar Node v14.21.3](https://nodejs.org/en/download)
+
+* En Windows 10 o superior, para Ghost 3 es necesario tener instalado Python [3.10](https://www.python.org/downloads/windows/) pues es necesario para sqlite3 durante la instalación, así como
+[Visual Studio C++ 2019 BuildTools](https://winstall.app/apps/Microsoft.VisualStudio.2019.BuildTools)
+
 ### Ghost v5.79.6
-[Ghost](http://3.83.87.188/)
-### Node JS
+[Ghost 5.79](http://3.83.87.188/)
+#### Node JS
 - [Instalar Node 18.20.1](https://nodejs.org/en/download)
 
 ### Cypress
