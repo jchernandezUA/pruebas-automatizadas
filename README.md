@@ -47,7 +47,7 @@ Probado en:
 - MacOS 14.4.1 (23E224) (Apple Chip)
 
 ### Ghost v3.42.0
-[Ghost]()
+[Ghost 3.42](https://ghost-nziq.onrender.com/)
 #### Node JS
 - [Instalar Node v14.21.3](https://nodejs.org/en/download)
 
@@ -55,7 +55,7 @@ Probado en:
 [Visual Studio C++ 2019 BuildTools](https://winstall.app/apps/Microsoft.VisualStudio.2019.BuildTools)
 
 ### Ghost v5.79.6
-[Ghost](http://3.83.87.188/)
+[Ghost 5.79](http://3.83.87.188/)
 #### Node JS
 - [Instalar Node 18.20.1](https://nodejs.org/en/download)
 
