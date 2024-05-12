@@ -101,11 +101,11 @@ class DashboardPageObject extends BasePageObject {
   }
 
   goToHomepage() {
-    cy.visit(this.properties['<URL_HOME>']);
+    cy.visit(this.properties['<URL_HOME_3_4_2>']);
   }
 
   goToAdminPage() {
-    cy.visit(this.properties['<URL>']);
+    cy.visit(this.properties['<URL_3_4_2>']);
   }
 
   clickSaveSettingsButton() {
