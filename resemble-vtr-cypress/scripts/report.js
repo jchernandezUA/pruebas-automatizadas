@@ -112,11 +112,11 @@ function buildFileMap(directoryPath, fileMap = {}) {
 
     <div class="imgline">
       <div class="imgcontainer">
-        <span class="imgname">3.42</span>
+        <span class="imgname">Reference</span>
         <img class="img2" src="${package["files"][1]}" id="refImage" label="Reference">
       </div>
       <div class="imgcontainer">
-        <span class="imgname">5.79.6</span>
+        <span class="imgname">Test</span>
         <img class="img2" src="${package["files"][2]}" id="testImage" label="Test">
       </div>
     </div>

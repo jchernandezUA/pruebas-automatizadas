@@ -1,8 +1,21 @@
 ## Semana 6
 
 **Wiki info** :
-**Entrega Semana 5**
+**Entrega Semana 6**
 - [WIKI Entrega Semana 6](https://github.com/jchernandezUA/tswdc-project/wiki#semana-6)
+
+**Escenarios Ghost 5.79.6 **
+[Escenarios](https://github.com/jchernandezUA/tswdc-project/wiki/Escenarios#5796)
+
+**Escenarios Ghost 3.42 **
+[Escenarios](https://github.com/jchernandezUA/tswdc-project/wiki/Escenarios#v342)
+
+** Diferencias visuales **
+- [Issue 46](https://github.com/jchernandezUA/tswdc-project/issues/46)
+- [Issue 47](https://github.com/jchernandezUA/tswdc-project/issues/47)
+- [Issue 48](https://github.com/jchernandezUA/tswdc-project/issues/48)
+- [Issue 49](https://github.com/jchernandezUA/tswdc-project/issues/49)
+- [Issue 50](https://github.com/jchernandezUA/tswdc-project/issues/50)
 
 **Resemble JS**
 
