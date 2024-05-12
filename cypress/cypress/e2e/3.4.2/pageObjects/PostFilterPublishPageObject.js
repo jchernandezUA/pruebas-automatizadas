@@ -1,13 +1,14 @@
 // pageObjects/PostFilterPageObject.js
-
-class PostFilterPageObject {
+import BasePageObject from "./BasePageObject";
+class PostFilterPageObject extends BasePageObject {
     constructor() {
+        super();
         this.filterMenuTrigger = '.gh-contentfilter-menu .ember-basic-dropdown-trigger';
         this.filterOption = '.ember-power-select-option';
     }
 
     navigateToPosts() {
-        cy.visit('http://localhost:2370/ghost/#/posts');
+        cy.visit(`${this.properties["<URL>"]}/#/posts`);
         cy.wait(4000); // Espera para asegurar que la página cargue completamente
         cy.screenshot('ss_filter_publish_posts_page_loaded');
     }

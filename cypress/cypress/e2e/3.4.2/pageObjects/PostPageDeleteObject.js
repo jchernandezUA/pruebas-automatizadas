@@ -1,7 +1,8 @@
 // pageObjects/PostManagerPageObject.js
-
-class PostManagerPageObject {
+import BasePageObject from "./BasePageObject";
+class PostManagerPageObject extends BasePageObject{
     constructor() {
+        super();
         this.titleInput = '.gh-editor-title';
         this.contentInput = '.koenig-editor__editor-wrapper';
         this.publishMenuTrigger = '.gh-publishmenu-trigger';
@@ -9,11 +10,11 @@ class PostManagerPageObject {
         this.settingsButton = '.post-settings';
         this.deleteButton = '.settings-menu-delete-button';
         this.confirmDeleteButton = '.gh-btn-red';
-        this.postsScreenUrl = 'http://localhost:2370/ghost/#/posts';
+        this.postsScreenUrl = `${this.properties["<URL>"]}/#/posts`;
     }
 
     createPost(title, content) {
-        cy.visit('http://localhost:2370/ghost/#/editor/post');
+        cy.visit(`${this.properties["<URL>"]}/#/editor/post`);
         cy.get(this.titleInput).type(title);
         cy.get(this.contentInput).type(content);
         cy.screenshot('ss_delete_post_create-post-step-1');

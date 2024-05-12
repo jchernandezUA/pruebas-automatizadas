@@ -5,7 +5,7 @@ Scenario: Crear post
   Given I login as admin in Ghost "create_post" "001"
   And I wait for 1 seconds
   And I wait for 1 seconds
-  And I navigate to page "http://localhost:2368/ghost/#/editor/post"
+  And I navigate to page "<URL_POST>"
   And I wait for 1 seconds
   And I enter post title "New Post Title" "create_post" "001"
   And I wait for 1 seconds
