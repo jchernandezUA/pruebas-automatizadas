@@ -12,13 +12,20 @@ describe("ghost invite member", function () {
         });
         //Given 
         LoginPageObject.signIn()
+        cy.screenshot("ss_invite_member_01")
         actionMemberObject.clickOnNewMember()
+        cy.screenshot("ss_invite_member_02")
         //When 
         actionMemberObject.clickOnMemberOptions()
+        cy.screenshot("ss_invite_member_03")
         actionMemberObject.enterName()
+        cy.screenshot("ss_invite_member_04")
         actionMemberObject.enterEmail()
+        cy.screenshot("ss_invite_member_05")
         actionMemberObject.enterNote()
+        cy.screenshot("ss_invite_member_06")
         actionMemberObject.clickSave()
+        cy.screenshot("ss_invite_member_07")
         actionMemberObject.back()
         //Then
         //validación
@@ -28,6 +35,8 @@ describe("ghost invite member", function () {
             .find('a').first()
             .find('h3')
             .should('have.text', 'miembro test para editar');
+        cy.screenshot("ss_invite_member_08")
+
         //Then
         DeleteMemberObject.clickInSettingsOfMember()
         DeleteMemberObject.clickDeleteMember()

@@ -11,6 +11,7 @@ describe("ghost edit member", function () {
         });
         //Given 
         LoginPageObject.signIn()
+        cy.screenshot("ss_edit_member_01")
         EditMemberObject.clickOnNewMember()
         EditMemberObject.clickOnMemberOptions()
         EditMemberObject.enterName()
@@ -18,12 +19,18 @@ describe("ghost edit member", function () {
         EditMemberObject.enterNote()
         EditMemberObject.clickSave()
         EditMemberObject.back()
+        cy.screenshot("ss_edit_member_02")
         //When 
         DeleteMemberObject.clickInSettingsOfMember()
+        cy.screenshot("ss_edit_member_03")
         EditMemberObject.enterNameEdit()
+        cy.screenshot("ss_edit_member_04")
         EditMemberObject.enterEmailEdit()
+        cy.screenshot("ss_edit_member_05")
         EditMemberObject.enterNoteEdit()
+        cy.screenshot("ss_edit_member_06")
         EditMemberObject.clickSave()
+        cy.screenshot("ss_edit_member_07")
         EditMemberObject.back()
         //Then
         //validación
@@ -33,6 +40,8 @@ describe("ghost edit member", function () {
             .find('a').first()
             .find('h3')
             .should('have.text', 'Miembro creado editado para test!');
+        cy.screenshot("ss_edit_member_08")
+    
         //Then
         DeleteMemberObject.clickInSettingsOfMember()
         DeleteMemberObject.clickDeleteMember()

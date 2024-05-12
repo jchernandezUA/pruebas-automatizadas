@@ -11,6 +11,7 @@ describe("ghost filter member", function () {
         });
         //Given 
         LoginPageObject.signIn()
+        cy.screenshot("ss_filter_member_01")
         FilterMemberObject.clickOnNewMember()
         FilterMemberObject.clickOnMemberOptions()
         FilterMemberObject.enterName()
@@ -18,11 +19,16 @@ describe("ghost filter member", function () {
         FilterMemberObject.enterNote()
         FilterMemberObject.clickSave()
         FilterMemberObject.back()
+        cy.screenshot("ss_filter_member_02")
         //When 
         FilterMemberObject.enterFilter()
+        cy.screenshot("ss_filter_member_03")
         FilterMemberObject.clickContainFilter()
+        cy.screenshot("ss_filter_member_04")
         FilterMemberObject.enterFilterText()
+        cy.screenshot("ss_filter_member_05")
         FilterMemberObject.clickAplicateFilter()
+        cy.screenshot("ss_filter_member_06")
         //Then
         //validación
         cy.get('div.gh-members-empty').within(() => {
@@ -32,6 +38,7 @@ describe("ghost filter member", function () {
             .and('contain.text', 'Show all members')
             .click()
           });
+        cy.screenshot("ss_filter_member_07")
         //Then
         DeleteMemberObject.clickInSettingsOfMember()
         DeleteMemberObject.clickDeleteMember()
