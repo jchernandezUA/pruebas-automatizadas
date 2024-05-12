@@ -9,13 +9,13 @@ class PostEditorPageObject extends BasePageObject {
         this.contentInput = '.koenig-editor__editor-wrapper';
         this.publishMenuTrigger = '.gh-publishmenu-trigger';
         this.publishButton = '.gh-btn-blue';
-        this.postsScreenUrl = `${this.properties["<URL>"]}/#/posts`;
+        this.postsScreenUrl = `${this.properties["<URL_3_4_2>"]}/#/posts`;
         this.number = 1;
     }
 
     createPost(title, content) {
        
-        cy.visit(`${this.properties["<URL>"]}/#/editor/post`);
+        cy.visit(`${this.properties["<URL_3_4_2>"]}/#/editor/post`);
         cy.get(this.titleInput).type(title);
         cy.get(this.contentInput).type(content);      
         cy.screenshot('ss_edit_post_create-post-step-1' + this.number, {

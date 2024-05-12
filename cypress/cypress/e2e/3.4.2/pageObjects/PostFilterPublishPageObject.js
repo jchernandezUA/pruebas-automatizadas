@@ -8,7 +8,7 @@ class PostFilterPageObject extends BasePageObject {
     }
 
     navigateToPosts() {
-        cy.visit(`${this.properties["<URL>"]}/#/posts`);
+        cy.visit(`${this.properties["<URL_3_4_2>"]}/#/posts`);
         cy.wait(4000); // Espera para asegurar que la página cargue completamente        
         cy.screenshot('ss_filter_publish_posts_page_loaded' + this.number, {
             capture: 'viewport',
