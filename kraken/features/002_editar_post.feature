@@ -5,7 +5,7 @@ Scenario: Editar un post existente
   Given I login as admin in Ghost "edit_post" "002"
   And I wait for 1 seconds  
   And I wait for 1 seconds
-  And I navigate to page "http://localhost:2368/ghost/#/posts"
+  And I navigate to page "<URL_POST>"
   And I wait for 4 seconds
   When I select the post with title for edit "New Post Title" "edit_post" "002"
   And I wait for 5 seconds

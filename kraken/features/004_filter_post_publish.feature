@@ -4,7 +4,7 @@ Feature: Filtrar publicaciones
 Scenario: Filtrar un post
   Given I login as admin in Ghost "publish_post" "004"
   And I wait for 1 seconds
-  And I navigate to page "http://localhost:2368/ghost/#/posts"
+  And I navigate to page "<URL_POST>"
   And I wait for 4 seconds
   When I select the post filter "Published posts"
   And I wait for 5 seconds
