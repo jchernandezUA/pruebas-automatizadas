@@ -18,8 +18,11 @@ class PostManagementPageObject {
 
     createPost(title, content) {
         cy.get(this.titleInput).type(title);
-        cy.get(this.contentInput).type(content);
-        cy.screenshot('ss_delete_post_create-post-step-1');
+        cy.get(this.contentInput).type(content);     
+        cy.screenshot('ss_delete_post_create-post-step-1' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 
     publishPost() {
@@ -29,13 +32,16 @@ class PostManagementPageObject {
             }
             $buttons.first().click();
         });
-        cy.wait(5000); 
-        cy.screenshot('ss_delete_post_create-post-step-2');
+        cy.wait(3000);       
+        cy.screenshot('ss_delete_post_create-post-step-2' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 
     navigateToPosts() {
         cy.visit(this.postsUrl);
-        cy.wait(5000);
+        cy.wait(3000);
     }
 
     selectAndDeletePost(title) {
@@ -43,8 +49,11 @@ class PostManagementPageObject {
         cy.screenshot('ss_delete_post_delete-post-step-1');
         cy.get(this.settingsMenuToggle).click();
         cy.get(this.deleteButton).click();
-        cy.get(this.confirmDeleteButton).click();
-        cy.screenshot('ss_delete_post_delete-post-step-2');
+        cy.get(this.confirmDeleteButton).click();       
+        cy.screenshot('ss_delete_post_delete-post-step-2' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 }
 

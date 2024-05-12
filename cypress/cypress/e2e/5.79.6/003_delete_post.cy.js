@@ -1,5 +1,5 @@
 const LoginPageObject = require("../../support/LoginPageObject");
-const PostManagementPageObject = require("../../support/PostManagementPageObject");
+const PostManagementPageObject = require("../../support/PostDeletionPageObject");
 
 describe('Gestión de posts en Ghost CMS', () => {  
     it('should create and delete a post', () => {

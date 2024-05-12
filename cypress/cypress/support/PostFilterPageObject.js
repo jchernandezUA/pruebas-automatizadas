@@ -9,8 +9,11 @@ class PostFilterPageObject {
 
     navigateToPosts() {
         cy.visit(this.postsUrl);
-        cy.wait(4000); // Asegúrate de que la página de posts esté completamente cargada
-        cy.screenshot('ss_filter_posts_page_loaded');
+        cy.wait(4000); // Asegúrate de que la página de posts esté completamente cargada       
+        cy.screenshot('ss_filter_posts_page_loaded' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 
     applyFilter(filterName) {
@@ -19,8 +22,11 @@ class PostFilterPageObject {
     }
 
     openFilterDropdown() {
-        cy.get(this.filterMenuTrigger).first().click();
-        cy.screenshot('ss_filter_dropdown_opened');
+        cy.get(this.filterMenuTrigger).first().click();      
+        cy.screenshot('ss_filter_dropdown_opened' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
         cy.wait(1000); // Espera para que el desplegable se abra completamente
     }
 

@@ -7,6 +7,7 @@ class PostEditorPageObject {
         this.titleInput = '.gh-editor-title';
         this.contentInput = '.kg-prose';
         this.publishTrigger = '.gh-publish-trigger';
+        this.number =1;
     }
 
     navigateToEditor() {
@@ -16,8 +17,11 @@ class PostEditorPageObject {
 
     enterPostDetails(title, content) {
         cy.get(this.titleInput).type(title);
-        cy.get(this.contentInput).type(content);
-        cy.screenshot('ss_edit_post_create-post-step-1');
+        cy.get(this.contentInput).type(content);       
+        cy.screenshot('ss_edit_post_create-post-step-1' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 
     publishPost() {
@@ -27,8 +31,11 @@ class PostEditorPageObject {
             }
             $buttons.first().click();
         });
-        cy.wait(5000); // Adjust timeout based on your app's response time
-        cy.screenshot('ss_edit_post_create-post-step-2');
+        cy.wait(5000); // Adjust timeout based on your app's response time       
+        cy.screenshot('ss_edit_post_create-post-step-2' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 
     navigateToPosts() {
@@ -37,16 +44,25 @@ class PostEditorPageObject {
     }
 
     selectPost(title) {
-        cy.contains('h3', title).click({ force: true });
-        cy.screenshot('ss_edit_post_select_post');
+        cy.contains('h3', title).click({ force: true });     
+        cy.screenshot('ss_edit_post_select_post' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 
     editPost(updatedTitle, updatedContent) {
         cy.get(this.titleInput).clear().type(updatedTitle);
-        cy.get(this.contentInput).clear().type(updatedContent);
-        cy.screenshot('ss_edit_post_edit-post-step-1');
-        this.publishPost(); // Reuse the publish method
-        cy.screenshot('ss_edit_post_edit-post-step-2');
+        cy.get(this.contentInput).clear().type(updatedContent);  
+        cy.screenshot('ss_edit_post_edit-post-step-1' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
+        this.publishPost(); // Reuse the publish method      
+        cy.screenshot('ss_edit_post_edit-post-step-2' + this.number, {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+          });
     }
 
     verifyPostUpdate(updatedTitle, updatedContent) {
