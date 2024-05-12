@@ -1,6 +1,6 @@
-const LoginPageObject = require("../support/LoginPageObject");
-const ActionMemberObject = require("../support/ActionMemberObject");
-const DeleteMemberObject = require("../support/DeleteMemberObject");
+const LoginPageObject = require("../../support/LoginPageObject");
+const ActionMemberObject = require("../../support/ActionMemberObject");
+const DeleteMemberObject = require("../../support/DeleteMemberObject");
 
 describe("ghost invite member", function () {
     let actionMemberObject = new ActionMemberObject;

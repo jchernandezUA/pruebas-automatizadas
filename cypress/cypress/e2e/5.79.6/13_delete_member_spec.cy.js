@@ -1,5 +1,5 @@
-const LoginPageObject = require("../support/LoginPageObject");
-const DeleteMemberObject = require("../support/DeleteMemberObject");
+const LoginPageObject = require("../../support/LoginPageObject");
+const DeleteMemberObject = require("../../support/DeleteMemberObject");
 describe("ghost Delete member", function () {
 
     it("Delete member", function () {

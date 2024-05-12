@@ -1,6 +1,6 @@
-const LoginPageObject = require("../support/LoginPageObject");
-const DeleteMemberObject = require("../support/DeleteMemberObject");
-const FilterMemberObject = require("../support/FilterMemberObject");
+const LoginPageObject = require("../../support/LoginPageObject");
+const DeleteMemberObject = require("../../support/DeleteMemberObject");
+const FilterMemberObject = require("../../support/FilterMemberObject");
 
 describe("ghost filter member", function () {
     it("filter member", function () {
