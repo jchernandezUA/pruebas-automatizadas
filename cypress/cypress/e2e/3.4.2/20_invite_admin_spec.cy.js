@@ -1,4 +1,4 @@
-const LoginPageObject = require("../support/LoginPageObject");
+const LoginPageObject = require("./pageObjects/LoginPageObject");
 const ActionAdmiObject = require("./pageObjects/ActionAdmiObject");
 
 
