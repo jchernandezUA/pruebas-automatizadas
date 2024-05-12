@@ -20,6 +20,12 @@ const element5796 = {
   newPage: 'a[href="#/editor/page/"]'
 }
 
+const element3420 = {
+  email: 'input[name="identification"]',
+  password: 'input[name="password"]',
+  signIn: 'form#login button.login'
+}
+
 function getEnvElements() {
   return element5796
 }
