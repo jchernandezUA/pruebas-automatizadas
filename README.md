@@ -92,15 +92,14 @@ Tener instalado Kraken
 
 **Resemble JS**
 
-- Clonar repositorio
-    ```
-    git clone https://github.com/jchernandezUA/tswdc-project.git
-    ```
-
 - Ir a la carpeta:
     ```
     cd resemble-vtr-cypress
     ```
+
+- Abrir el reporte ubicado en vtr-results/report.html
+
+Para crear un nuevo reporte:
 
 - Instalar dependencias:
     ```
@@ -112,4 +111,4 @@ Tener instalado Kraken
     node server.js
     ```
 
-- Ingresar a app : http://localhost:3001/report
+- Ingresar a app : http://localhost:3001/
