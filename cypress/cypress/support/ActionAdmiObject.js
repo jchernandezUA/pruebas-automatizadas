@@ -44,9 +44,7 @@ class ActionAdmiObject {
     }
 
     clickInvited() {
-        cy.get('button#invited')
-            .should('be.visible')
-            .click();
+        cy.get('button[aria-selected="true"][title="Invited"]').should('be.visible').click(); 
     }
 
 
