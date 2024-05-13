@@ -112,3 +112,26 @@ Para crear un nuevo reporte:
     ```
 
 - Ingresar a app : http://localhost:3001/
+
+
+**Backstop JS**
+
+
+- Ir a la carpeta:
+    ```
+    cd backstop
+    ```
+- Ir al reporte
+    ```
+    cd html_report
+    ```
+- Abrir el archivo index.html
+
+- Para correr un nuevo reporte
+    ```
+        npm install -g backstopjs
+    ```  
+    
+    ```
+        npx node script.js
+    ```
