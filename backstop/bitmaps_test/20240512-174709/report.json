@@ -1,0 +1,54 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_ss_site_private_01_0_document_0_desktop.png",
+        "test": "..\\bitmaps_test\\20240512-174709\\backstop_default_ss_site_private_01_0_document_0_desktop.png",
+        "selector": "document",
+        "fileName": "backstop_default_ss_site_private_01_0_document_0_desktop.png",
+        "label": "ss_site_private_01",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:2370",
+        "expect": 0,
+        "viewportLabel": "desktop",
+        "error": "Reference file not found C:\\Users\\nicoi\\autotest\\cypress\\backstop_data\\bitmaps_reference\\backstop_default_ss_site_private_01_0_document_0_desktop.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_ss_site_private_02_0_document_0_desktop.png",
+        "test": "..\\bitmaps_test\\20240512-174709\\backstop_default_ss_site_private_02_0_document_0_desktop.png",
+        "selector": "document",
+        "fileName": "backstop_default_ss_site_private_02_0_document_0_desktop.png",
+        "label": "ss_site_private_02",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:2370",
+        "expect": 0,
+        "viewportLabel": "desktop",
+        "error": "Reference file not found C:\\Users\\nicoi\\autotest\\cypress\\backstop_data\\bitmaps_reference\\backstop_default_ss_site_private_02_0_document_0_desktop.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_ss_site_private_03_0_document_0_desktop.png",
+        "test": "..\\bitmaps_test\\20240512-174709\\backstop_default_ss_site_private_03_0_document_0_desktop.png",
+        "selector": "document",
+        "fileName": "backstop_default_ss_site_private_03_0_document_0_desktop.png",
+        "label": "ss_site_private_03",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:2370",
+        "expect": 0,
+        "viewportLabel": "desktop",
+        "error": "Reference file not found C:\\Users\\nicoi\\autotest\\cypress\\backstop_data\\bitmaps_reference\\backstop_default_ss_site_private_03_0_document_0_desktop.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "backstop_default"
+}
