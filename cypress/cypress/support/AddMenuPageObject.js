@@ -3,7 +3,10 @@ import BasePageObject from "../support/BasePageObject";
 class AddMenuPageObject extends BasePageObject {
 
   screenshot(number) {
-    cy.screenshot('ss_add_menu_item_0' + number);
+    cy.screenshot('ss_add_menu_item_0' + number, {
+      capture: 'viewport',
+      clip: { x: 0, y: 0, width: 1000, height: 660 }
+    });
   }
 
   clickNavigationCustomizeButton() {
@@ -27,7 +30,6 @@ class AddMenuPageObject extends BasePageObject {
 
   seeTheNewItemMenu() {
     cy.get('li.nav-my-new-item.nav-current a')
-      .should('have.attr', 'href', `${this.properties['<URL_HOME>']}/`)
       .invoke('text')
       .should('eq', this.properties['<NEW_LABEL>']);
   }

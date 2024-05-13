@@ -75,6 +75,7 @@ class ProfilePageObject extends BasePageObject {
   }
 
   verifyName() {
+    cy.wait(2000)
     cy.get('div[data-testid="owner-user"]')
     .within(() => {
       cy.get('span').invoke('text').then((text) => {

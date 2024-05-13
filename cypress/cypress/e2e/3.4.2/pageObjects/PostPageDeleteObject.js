@@ -16,8 +16,8 @@ class PostManagerPageObject extends BasePageObject{
 
     createPost(title, content) {
         cy.visit(`${this.properties["<URL_3_4_2>"]}/#/editor/post`);
-        cy.get(this.titleInput).type(title);
-        cy.get(this.contentInput).type(content);        
+        cy.get(this.titleInput).type(content).should('be.visible');
+        cy.get(this.contentInput).type(content).should('be.visible');     
         cy.screenshot('ss_delete_post_create-post-step-1' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }

@@ -1,8 +1,8 @@
 {
-    "<URL>": "http://localhost:2368/ghost",
-    "<URL_3_4_2>": "http://localhost:2369/ghost",
-    "<URL_HOME>": "http://localhost:2368",
-    "<URL_HOME_3_4_2>": "http://localhost:2369",
+    "<URL>": "http://3.83.87.188/ghost",
+    "<URL_3_4_2>": "https://ghost-nziq.onrender.com/ghost",
+    "<URL_HOME>": "http://3.83.87.188",
+    "<URL_HOME_3_4_2>": "https://ghost-nziq.onrender.com",
     "<GHOST_MAIL>": "user@example.com",
     "<GHOST_PASSWORD>": "r7aHWhKneSw=",
     "<GHOST_PASSWORD_NEW>": "r7aHWhKneSw=",
