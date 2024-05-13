@@ -18,11 +18,7 @@ class PostCreationAndPublishPageObject {
     }
 
     enterPostDetails(title, description) {
-        cy.get(this.titleInput).type(title);      
-        cy.screenshot('ss_title_entered' + this.number, {
-            capture: 'viewport',
-            clip: { x: 0, y: 0, width: 1000, height: 660 }
-          });
+        cy.get('.gh-editor-title', { timeout: 10000 }).should('be.visible').type(title);
         cy.get(this.descriptionInput).type(description);        
         cy.screenshot('ss_create_post_description_entered' + this.number, {
             capture: 'viewport',
