@@ -16,19 +16,20 @@ async function getReport(res) {
   let resultFies = []
   for (const [name, files] of Object.entries(fileMap)) {
     let package = {}
+    let fileName = name.replace('ss_','')
     package["name"] = name.replace('.png','')
     package["files"] = []
     if (files.length == 2) {
       for (let i = 0; i < files.length; i++) {
-        await copyFiles(name, files[i], i)
-        package["files"].push(`v${i}/${name}`)
+        await copyFiles(fileName, files[i], i)
+        package["files"].push(`v${i}/${fileName}`)
       }
       const data = await compareImages(
         fs.readFileSync(files[0].toString()),
         fs.readFileSync(files[1].toString()),
         options
       );
-      let compareFile = `${name}_compare.png`
+      let compareFile = `${fileName}_compare.png`
       fs.writeFileSync(`./vtr-results/${compareFile}`, data.getBuffer());
       package["files"].push(compareFile)
       console.log(package)
@@ -117,7 +118,7 @@ function buildFileMap(directoryPath, fileMap = {}) {
       </div>
       <div class="imgcontainer">
         <span class="imgname">Test</span>
-        <img class="img2" src="${package["files"][2]}" id="testImage" label="Test">
+        <img class="img2" src="${package["files"][0]}" id="testImage" label="Test">
       </div>
     </div>
     <div class="imgline">
