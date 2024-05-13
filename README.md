@@ -1,4 +1,4 @@
-## Semana 6
+# Semana 6
 
 **Wiki info** :
 **Entrega Semana 6**
@@ -17,41 +17,9 @@
 - [Issue 49](https://github.com/jchernandezUA/tswdc-project/issues/49)
 - [Issue 50](https://github.com/jchernandezUA/tswdc-project/issues/50)
 
-**Resemble JS**
+## E2E Screenshots (Cypress & Kraken)
 
-- Clonar repositorio
-    ```
-    git clone https://github.com/jchernandezUA/tswdc-project.git
-    ```
-
-- Ir a la carpeta:
-    ```
-    cd resemble-vtr-cypress
-    ```
-
-- Instalar dependencias:
-    ```
-    npm install
-    ```
-
-- Iniciar app:
-    ```
-    node server.js
-    ```
-
-- Ingresar a app : http://localhost:3001
-
-- Correr pruebas en cypress
-
-- Esperar resultados
-
-
-## Semana 5
-**Wiki Info**:
-**Entrega Semana 5**
-- [WIKI Entrega Semana 5](https://github.com/jchernandezUA/tswdc-project/wiki#semana-5)
-
-## Pre requisitos para pruebas E2E
+### Pre requisitos para pruebas E2E
 
 ### S0
 Probado en:
@@ -61,6 +29,7 @@ Probado en:
 
 ### Ghost v3.42.0
 [Ghost 3.42](https://ghost-nziq.onrender.com/)
+
 #### Node JS
 - [Instalar Node v14.21.3](https://nodejs.org/en/download)
 
@@ -69,6 +38,7 @@ Probado en:
 
 ### Ghost v5.79.6
 [Ghost 5.79](http://3.83.87.188/)
+
 #### Node JS
 - [Instalar Node 18.20.1](https://nodejs.org/en/download)
 
@@ -93,19 +63,12 @@ Tener instalado Kraken
 
 ### Cypress:
  - Dirigirse al folder /Cypress y ejecutar el siguiente comando
-- Para instalar cypress se 
-
- - Correr el siguiente comando
-    ```
-    cypress open 
-    ```
-
-- Se abrirá la interface de cypress y se podran ejecutar de forma independiente las funcionalidades de cada ing automatizador por **/e2e/{{nombre_archivo}}_spec.cy.js**
-
- - También se puede correr el siguiente comando para correr las pruebas headless
+ - Correr el siguiente comando para correr las pruebas headless
     ```
         cypress run --headless
     ```
+ - Consultar pantallas en cypress/cypress/screenshots
+
 ### Kraken
 - Para ejecutar las pruebas E2E de Kraken se debe dirigit al path: **/kraken** ahí se encuentran los archivos .feature donde se describen los escenarios de prueba.
 
@@ -125,3 +88,28 @@ Tener instalado Kraken
     ```
          ./node_modules/kraken-node/bin/kraken-node run
     ```
+ - Consultar pantallas en kraken/screenshots
+
+**Resemble JS**
+
+- Clonar repositorio
+    ```
+    git clone https://github.com/jchernandezUA/tswdc-project.git
+    ```
+
+- Ir a la carpeta:
+    ```
+    cd resemble-vtr-cypress
+    ```
+
+- Instalar dependencias:
+    ```
+    npm install
+    ```
+
+- Iniciar app:
+    ```
+    node server.js
+    ```
+
+- Ingresar a app : http://localhost:3001/report
