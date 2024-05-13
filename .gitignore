@@ -2,6 +2,6 @@ node_modules/
 .idea/
 kraken/reports/
 kraken/.kraken/
-ss_*.png
+
 .DS_Store
 vtr-results/

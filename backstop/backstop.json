@@ -1,0 +1,374 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 800,
+      "height": 600
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "ss_add_tag_post_01.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_01.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_01.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_add_tag_post_02.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_02.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_02.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_add_tag_post_03.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_03.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_03.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_add_tag_post_05.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_05.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_05.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_add_tag_post_06.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_06.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_06.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_add_tag_post_07.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_07.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_add_tag_post_07.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_change_password_01.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_01.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_01.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_change_password_02.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_02.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_02.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_change_password_03.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_03.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_03.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_change_password_04.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_04.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_04.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_change_password_05.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_05.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_change_password_05.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_edit_site_description_01.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_01.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_01.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_edit_site_description_02.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_02.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_02.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_edit_site_description_03.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_03.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_03.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_edit_site_description_04.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_04.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_04.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_edit_site_description_05.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_05.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_05.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "ss_edit_site_description_06.png",
+      "url": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_06.png",
+      "referenceUrl": "file://C:/Users/nicoi/autotest/cypress/cypress/screenshots/ghost5/ss_edit_site_description_06.png",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [
+        "document"
+      ],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": [
+    "browser"
+  ],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
