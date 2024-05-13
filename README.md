@@ -4,6 +4,8 @@
 **Entrega Semana 6**
 - [WIKI Entrega Semana 6](https://github.com/jchernandezUA/tswdc-project/wiki#semana-6)
 
+- [Link del vídeo en la semana en la Wiki](https://github.com/jchernandezUA/tswdc-project/wiki)
+
 **Escenarios Ghost 5.79.6 **
 [Escenarios](https://github.com/jchernandezUA/tswdc-project/wiki/Escenarios#5796)
 
