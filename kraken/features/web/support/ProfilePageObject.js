@@ -35,12 +35,17 @@ class ProfilePageObject extends BasePageObject {
     await item.click()
   }
 
-  async changeName(name) {
+  async changeProfile(name, location) {
     await this.driver.pause(2000)
     let inputs = await this.driver.$$('input[type="text"]')
-    let nameInput = inputs[this.elementsSearch.fullNamePosition]
-    await nameInput.setValue('')
-    await nameInput.setValue(name)
+    await this.updateValue(inputs[this.elementsSearch.fullNamePosition], name)
+    await this.updateValue(inputs[4], location)
+    await this.driver.pause(1000)
+  }
+
+  async updateValue(selector, text) {
+    await selector.setValue('')
+    await selector.setValue(text)
   }
 
   async saveAndClose() {
