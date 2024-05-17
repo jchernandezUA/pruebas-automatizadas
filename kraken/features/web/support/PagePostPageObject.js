@@ -24,6 +24,14 @@ class PagePostPageObject extends BasePageObject {
     await publishNowBtn.click()
   }
 
+
+  async pubishLongPage() {
+    await this.driver.pause(1000)
+    const publishButton = await utils.findElementByText(this.driver, 'span', 'Publish')
+    await publishButton.click()
+  }
+
+
   async addTag(tag) {
     const inputSearch = 'input.ember-power-select-trigger-multiple-input'
     const listInput = await utils.waitForElementsDisplayed(this.driver, inputSearch)

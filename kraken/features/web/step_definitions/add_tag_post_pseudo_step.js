@@ -29,5 +29,5 @@ Then('I verify the requested tag {string} {string}', async function(scenario, st
       return await this.driver.saveScreenshot(`./screenshots/ss_${scenario}_${step}_01.png`)
     }
   }
-  throw Error('not finding mathces')
+  throw Error('not finding mathces '+TEMP_TAG)
 })

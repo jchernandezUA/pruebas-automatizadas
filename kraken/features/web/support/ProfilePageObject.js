@@ -9,7 +9,7 @@ class ProfilePageObject extends BasePageObject {
   }
 
   async clickOnAvatar() {
-    let avatarIcon = await this.driver.$('div.gh-user-avatar.relative')
+    let avatarIcon = await this.driver.$('div.pe-all')
     await avatarIcon.click()
   }
 

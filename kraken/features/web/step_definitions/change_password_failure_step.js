@@ -20,4 +20,5 @@ Then('I validate the error on password {string} {string}', async function (scena
   const expect = (await import('expect-webdriverio')).expect;
   let error = await this.driver.$('//*[@id="modal-backdrop"]/section/div[1]/div/div[2]/div[4]/div[3]/span')
   await expect(error).toBeDisplayed();
+  return await this.driver.pause(2000)
 });

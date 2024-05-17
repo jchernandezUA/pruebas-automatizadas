@@ -2,7 +2,7 @@ const {Given, When, Then} = require('@cucumber/cucumber');
 const DashboardPageObject = require('../support/DashboardPageObject');
 const PagePostPageObject = require('../support/PagePostPageObject');
 
-When('I add a new post with title {string} {string} {string}', async function (title, scenario, step) {
+When('I add a new post with title {kraken-string} {string} {string}', async function (title, scenario, step) {
 
   let dashboardPO = new DashboardPageObject(this.driver)
 
