@@ -1,4 +1,5 @@
 const {getEnvElements} = require('./elements')
+const axios = require('axios')
 
 
 async function findElementByText(driver, selector, text) {
@@ -46,10 +47,23 @@ async function getPostMetadata(driver) {
   return pMeta
 }
 
+async function getDataJson(url) {
+  try {
+      const response = await axios.get(url);
+      const jArray = response.data;
+      console.log(jArray);
+      return jArray
+  } catch (error) {
+      console.error('Error al consultar el JSON en Mockaroo:', error);
+      return []
+  }
+}
+
 
 module.exports = {
   findElementByText,
   waitForElementsDisplayed,
   waitForElementDisplayed,
-  getPostMetadata
+  getPostMetadata,
+  getDataJson
 };
