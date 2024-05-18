@@ -8,17 +8,20 @@ class EditSiteLangPageObject extends BasePageObject {
 
   async clickLangButton() {
     let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[2]/div/div[1]/div/div[3]/div[2]/div[2]/div/button');
+    await element.waitForClickable();
     return await element.click();
   }
 
   async editLanguage(label) {
     let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[2]/div/div[1]/div/div[3]/div[3]/div/div/input');
+    await element.waitForDisplayed();
     element.value = '';
     await element.setValue(label);
   }
 
   async clickSaveLangButton() {
     let element = await this.driver.$('/html/body/div[2]/div/main/div[1]/div/div/div[3]/div[2]/div/div[1]/div/div[3]/div[2]/div[2]/div/button[2]');
+    await element.waitForClickable();
     return await element.click();
   }
 
