@@ -7,7 +7,12 @@ When('I click the Site language button', async function () {
   await editSitePO.clickLangButton();
 });
 
-When('I edit the site language to {kraken-string}', async function(label) {
+When('I edit the site lang to {kraken-string}', async function(label) {
+  let editSitePO = new EditSiteLangPageObject(this.driver);
+  await editSitePO.editLanguage(label);
+});
+
+When('I edit the site language to {string}', async function(label) {
   let editSitePO = new EditSiteLangPageObject(this.driver);
   await editSitePO.editLanguage(label);
 });

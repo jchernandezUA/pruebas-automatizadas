@@ -3,7 +3,7 @@ Feature: Edit site language a priori
 @user1 @web
 Scenario Outline: As a user I want to edit the site language
   # Set up
-  Given I login as admin in Ghost "edit_site_lang" "00"
+  Given I login as admin in ghost
   # Act
   When I click the settings icon
   And I click the Site language button

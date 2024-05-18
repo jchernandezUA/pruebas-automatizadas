@@ -3,11 +3,11 @@ Feature: Edit site language random
   @user1 @web
   Scenario: As a user I want to edit the site language
     # Set up
-    Given I login as admin in Ghost "edit_site_lang" "00"
+    Given I login as admin in ghost
     # Act
     When I click the settings icon
     And I click the Site language button
-    And I edit the site language to "$string_1"
+    And I edit the site lang to "$string_1"
     And I save the site language
     # Assert
     Then I go to the homepage
