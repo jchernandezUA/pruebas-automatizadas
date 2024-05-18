@@ -40,7 +40,7 @@ class DashboardPageObject extends BasePageObject {
     avatarIcon.click()
   }
 
-  verifyTag() {
+  verifyTag(tag = this.properties['<NEW_TAG>']) {
 
     this.clickPublished()
 
@@ -53,7 +53,6 @@ class DashboardPageObject extends BasePageObject {
       var matches = false
       cy.get('span').each(($span) => {
         const spanText = $span.text().trim();
-        const tag = this.properties['<NEW_TAG>']
         if (spanText == tag) {
           matches = true
         }
