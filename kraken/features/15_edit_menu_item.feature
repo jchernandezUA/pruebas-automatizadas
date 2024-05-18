@@ -3,7 +3,7 @@ Feature: Edit menu item
   @user1 @web
   Scenario: As a user I want to edit a menu item
     # Set up
-    Given I login as admin in Ghost "edit_menu_item" "00"
+    Given I login as admin in ghost
     # Act
     When I add menu item "My new item"
     And I edit the last item to "V2"

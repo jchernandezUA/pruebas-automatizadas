@@ -3,7 +3,7 @@ Feature: Edit site description
   @user1 @web
   Scenario: As a user I want to edit the site description
     # Set up
-    Given I login as admin in Ghost "edit_site_desc" "00"
+    Given I login as admin in ghost
     # Act
     When I click the settings icon
     And I click the Title and Description button

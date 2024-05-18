@@ -3,7 +3,7 @@ Feature: Make the site private
   @user1 @web
   Scenario: As a user I want to make the site private
     # Set up
-    Given I login as admin in Ghost "site_private" "00"
+    Given I login as admin in ghost
     # Act
     When I click the settings icon
     And I click the site private button
