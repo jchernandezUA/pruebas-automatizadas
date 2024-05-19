@@ -11,7 +11,6 @@ describe("ghost filter member , use a-priori data ,Validate IS in email", functi
     it("filter member", function () {;
         //Given 
         LoginPageObject.signIn()
-        cy.screenshot("ss_filter_member_01")
         FilterMemberObject.clickOnNewMember()
         FilterMemberObject.clickOnMemberOptions()
         FilterMemberObject.enterName(this.testData[0].name)
@@ -19,17 +18,13 @@ describe("ghost filter member , use a-priori data ,Validate IS in email", functi
         FilterMemberObject.enterNote(this.testData[0].note)
         FilterMemberObject.clickSave()
         FilterMemberObject.back()
-        cy.screenshot("ss_filter_member_02")
         //When 
         FilterMemberObject.enterFilter()
         FilterMemberObject.clickEmailFilter()
-        cy.screenshot("ss_filter_member_03")
         FilterMemberObject.clickIsFilter()
-        cy.screenshot("ss_filter_member_04")
         FilterMemberObject.enterFilterText(this.testData[0].email)
-        cy.screenshot("ss_filter_member_05")
+        cy.screenshot("ss_filter_member_01")
         FilterMemberObject.clickAplicateFilter()
-        cy.screenshot("ss_filter_member_06")
         //Then
         //validación
         cy.get('tr[data-test-list="members-list-item"]')
@@ -38,7 +33,7 @@ describe("ghost filter member , use a-priori data ,Validate IS in email", functi
             .find('a').first()
             .find('h3')
             .should('have.text', this.testData[0].name);
-        cy.screenshot("ss_filter_member_07")
+        cy.screenshot("ss_filter_member_02")
         //Then
         DeleteMemberObject.clickInSettingsOfMember()
         DeleteMemberObject.clickDeleteMember()

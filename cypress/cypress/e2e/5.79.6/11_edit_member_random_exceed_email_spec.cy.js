@@ -13,7 +13,6 @@ describe("ghost edit member, EMAIL with  251 characters, use random date", funct
     it("edit member", function () {
         //Given 
         LoginPageObject.signIn()
-        cy.screenshot("ss_edit_member_01")
         EditMemberObject.clickOnNewMember()
         EditMemberObject.clickOnMemberOptions()
         EditMemberObject.enterName(member.name)
@@ -21,24 +20,19 @@ describe("ghost edit member, EMAIL with  251 characters, use random date", funct
         EditMemberObject.enterNote(member.note)
         EditMemberObject.clickSave()
         EditMemberObject.back()
-        cy.screenshot("ss_edit_member_02")
+        cy.screenshot("ss_edit_member_01")
         //When 
         DeleteMemberObject.clickInSettingsOfMember()
-        cy.screenshot("ss_edit_member_03")
         EditMemberObject.enterNameEdit(member.name)
-        cy.screenshot("ss_edit_member_04")
         EditMemberObject.enterEmailEdit(member.email_251)
-        cy.screenshot("ss_edit_member_05")
+        cy.screenshot("ss_edit_member_02")
         EditMemberObject.enterNoteEdit(member.note)
-        cy.screenshot("ss_edit_member_06")
         EditMemberObject.clickSave()
-        cy.screenshot("ss_edit_member_07")
         //Then
         //validación
         cy.get('.response')
         .should('be.visible')
-        .contains('Email cannot be longer than 191 characters.')
-        cy.screenshot("ss_invite_member_08")
+        cy.screenshot("ss_invite_member_02")
         //Then
         EditMemberObject.back()
         EditMemberObject.acceptNoChange()

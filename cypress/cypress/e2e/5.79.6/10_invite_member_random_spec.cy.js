@@ -1,7 +1,8 @@
 const LoginPageObject = require("../../support/LoginPageObject");
 const ActionMemberObject = require("../../support/ActionMemberObject");
+const DeleteMemberObject = require("../../support/DeleteMemberObject");
 
-describe("ghost invite member, LABEL with  251 characters, use random date ", function () {
+describe("ghost invite member, NOTE with  501 characters, use random date ", function () {
   let actionMemberObject = new ActionMemberObject;
   let member;
 
@@ -19,16 +20,22 @@ describe("ghost invite member, LABEL with  251 characters, use random date ", fu
     actionMemberObject.clickOnMemberOptions()
     actionMemberObject.enterName(member.name)
     actionMemberObject.enterEmail(member.email)
-    actionMemberObject.enterLabel(member.label_251)
+    actionMemberObject.enterNote(member.note)
     cy.screenshot("ss_invite_member_01")
     actionMemberObject.clickSave()
+    actionMemberObject.back()
     //Then
     //validación
-    cy.get('.response')
-      .should('be.visible')
-      .contains('Validation failed for name.')
-    actionMemberObject.back()
-    actionMemberObject.acceptNoChange()
-
+    cy.get('tr[data-test-list="members-list-item"]')
+      .should('be.visible');
+    cy.get('tr[data-test-list="members-list-item"]')
+      .find('a').first()
+      .find('h3')
+      .should('have.text', member.name);
+    cy.screenshot("ss_invite_member_02")
+    //Then
+    DeleteMemberObject.clickInSettingsOfMember()
+    DeleteMemberObject.clickDeleteMember()
+    DeleteMemberObject.acceptDelete()
   });
 });

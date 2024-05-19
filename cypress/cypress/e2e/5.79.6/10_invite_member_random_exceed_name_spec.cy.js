@@ -15,21 +15,17 @@ describe("ghost invite member, NAME with  251 characters, use random date ", fun
 
         //Given 
         LoginPageObject.signIn()
-        cy.screenshot("ss_invite_member_01")
         actionMemberObject.clickOnNewMember()
-        cy.screenshot("ss_invite_member_02")
         //When 
         actionMemberObject.clickOnMemberOptions()
-        cy.screenshot("ss_invite_member_03")
         actionMemberObject.enterName(member.name_251)
-        cy.screenshot("ss_invite_member_04")
+        cy.screenshot("ss_invite_member_01")
         actionMemberObject.enterEmail(member.email)
-        cy.screenshot("ss_invite_member_05")
         actionMemberObject.enterNote(member.note)
-        cy.screenshot("ss_invite_member_06")
         actionMemberObject.clickSave()
-        cy.screenshot("ss_invite_member_07")
+        cy.screenshot("ss_invite_member_02")
         //Then
         actionMemberObject.back()
+        actionMemberObject.acceptNoChange()
     });
 });

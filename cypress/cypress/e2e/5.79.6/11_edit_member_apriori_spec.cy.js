@@ -10,7 +10,6 @@ describe("ghost edit member, use a-priori data", function () {
     it("edit member", function () {
         //Given 
         LoginPageObject.signIn()
-        cy.screenshot("ss_edit_member_01")
         EditMemberObject.clickOnNewMember()
         EditMemberObject.clickOnMemberOptions()
         EditMemberObject.enterName(this.testData[2].name)
@@ -18,18 +17,13 @@ describe("ghost edit member, use a-priori data", function () {
         EditMemberObject.enterNote(this.testData[2].note)
         EditMemberObject.clickSave()
         EditMemberObject.back()
-        cy.screenshot("ss_edit_member_02")
+        cy.screenshot("ss_edit_member_01")
         //When 
         DeleteMemberObject.clickInSettingsOfMember()
-        cy.screenshot("ss_edit_member_03")
         EditMemberObject.enterNameEdit(this.testData[1].name)
-        cy.screenshot("ss_edit_member_04")
         EditMemberObject.enterEmailEdit(this.testData[1].email)
-        cy.screenshot("ss_edit_member_05")
         EditMemberObject.enterNoteEdit(this.testData[1].note)
-        cy.screenshot("ss_edit_member_06")
         EditMemberObject.clickSave()
-        cy.screenshot("ss_edit_member_07")
         EditMemberObject.back()
         //Then
         //validación 
@@ -39,7 +33,7 @@ describe("ghost edit member, use a-priori data", function () {
             .find('a').first()
             .find('h3')
             .should('have.text', this.testData[1].name);
-        cy.screenshot("ss_edit_member_08")
+        cy.screenshot("ss_edit_member_02")
         //Then
         DeleteMemberObject.clickInSettingsOfMember()
         DeleteMemberObject.clickDeleteMember()

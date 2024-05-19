@@ -14,26 +14,20 @@ describe("ghost invite member,  email invalid use Pseudo data", function () {
     it("Invite member", function () {
         //Given 
         LoginPageObject.signIn()
-        cy.screenshot("ss_invite_member_01")
         actionMemberObject.clickOnNewMember()
-        cy.screenshot("ss_invite_member_02")
         //When 
         actionMemberObject.clickOnMemberOptions()
-        cy.screenshot("ss_invite_member_03")
         actionMemberObject.enterName(this.testData.name)
-        cy.screenshot("ss_invite_member_04")
         actionMemberObject.enterEmail(this.testData.email)
-        cy.screenshot("ss_invite_member_05")
         actionMemberObject.enterNote(this.testData.note)
-        cy.screenshot("ss_invite_member_06")
+        cy.screenshot("ss_invite_member_01")
         actionMemberObject.clickSave()
-        cy.screenshot("ss_invite_member_07")
         //Then
         //validación
         cy.get('.response')
             .should('be.visible')
             .contains('Invalid Email.')
-        cy.screenshot("ss_invite_member_08")
+        cy.screenshot("ss_invite_member_02")
         actionMemberObject.back()
         actionMemberObject.acceptNoChange()
     });

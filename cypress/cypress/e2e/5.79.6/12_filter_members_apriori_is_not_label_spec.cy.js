@@ -11,7 +11,6 @@ describe("ghost filter member , use a-priori data ,Validate IS NOT in label", fu
     it("filter member", function () {
         //Given 
         LoginPageObject.signIn()
-        // cy.screenshot("ss_filter_member_01")
         FilterMemberObject.clickOnNewMember()
         FilterMemberObject.clickOnMemberOptions()
         FilterMemberObject.enterName(this.testData[0].name)
@@ -20,17 +19,13 @@ describe("ghost filter member , use a-priori data ,Validate IS NOT in label", fu
         FilterMemberObject.enterNote(this.testData[0].note)
         FilterMemberObject.clickSave()
         FilterMemberObject.back()
-        cy.screenshot("ss_filter_member_02")
         //When 
         FilterMemberObject.enterFilter()
         FilterMemberObject.clickLabelFilter()
-        cy.screenshot("ss_filter_member_03")
         FilterMemberObject.clickIsNotFilter()
-        cy.screenshot("ss_filter_member_04")
         FilterMemberObject.ClickFilterLabel()
-        cy.screenshot("ss_filter_member_05")
+        cy.screenshot("ss_filter_member_01")
         FilterMemberObject.clickAplicateFilter()
-        cy.screenshot("ss_filter_member_06")
         //Then
         //validación
         cy.get('div.gh-members-empty').within(() => {
@@ -40,7 +35,7 @@ describe("ghost filter member , use a-priori data ,Validate IS NOT in label", fu
                 .and('contain.text', 'Show all members')
                 .click()
         });
-        cy.screenshot("ss_filter_member_07")
+        cy.screenshot("ss_filter_member_02")
         //Then
         DeleteMemberObject.clickInSettingsOfMember()
         DeleteMemberObject.clickDeleteMember()

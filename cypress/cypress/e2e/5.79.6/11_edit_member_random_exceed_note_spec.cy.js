@@ -13,24 +13,20 @@ describe("ghost edit member,  NOTE with  501 characters, use random date", funct
     it("edit member", function () {
         //Given 
         LoginPageObject.signIn()
-        cy.screenshot("ss_edit_member_01")
         EditMemberObject.clickOnNewMember()
         EditMemberObject.clickOnMemberOptions()
         EditMemberObject.enterName(member.name)
         EditMemberObject.enterEmail(member.email)
         EditMemberObject.enterNote(member.note)
+        cy.screenshot("ss_edit_member_01")
         EditMemberObject.clickSave()
         EditMemberObject.back()
-        cy.screenshot("ss_edit_member_02")
         //When 
         DeleteMemberObject.clickInSettingsOfMember()
-        cy.screenshot("ss_edit_member_03")
         EditMemberObject.enterNameEdit(member.name)
-        cy.screenshot("ss_edit_member_04")
         EditMemberObject.enterEmailEdit(member.email)
-        cy.screenshot("ss_edit_member_05")
         EditMemberObject.enterNoteEdit(member.note_501)
-        cy.screenshot("ss_edit_member_06")
+        cy.screenshot("ss_edit_member_02")
         EditMemberObject.clickSave()
         //Then
         //validación
@@ -38,7 +34,7 @@ describe("ghost edit member,  NOTE with  501 characters, use random date", funct
         cy.get('.response')            
         .should('be.visible')
         .contains('Note is too long.')
-        cy.screenshot("ss_edit_member_07")
+        cy.screenshot("ss_edit_member_03")
         //Then
         EditMemberObject.back()
         EditMemberObject.acceptNoChange()

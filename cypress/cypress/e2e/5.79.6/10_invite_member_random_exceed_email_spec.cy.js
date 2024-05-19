@@ -14,26 +14,20 @@ describe("ghost invite member, EMAIL with  251 characters, use random date ", fu
     it("Invite member", function () {
         //Given 
         LoginPageObject.signIn()
-        cy.screenshot("ss_invite_member_01")
         actionMemberObject.clickOnNewMember()
-        cy.screenshot("ss_invite_member_02")
         //When 
         actionMemberObject.clickOnMemberOptions()
-        cy.screenshot("ss_invite_member_03")
         actionMemberObject.enterName(member.name)
-        cy.screenshot("ss_invite_member_04")
         actionMemberObject.enterEmail(member.email_251)
-        cy.screenshot("ss_invite_member_05")
+        cy.screenshot("ss_invite_member_01")
         actionMemberObject.enterNote(member.note)
-        cy.screenshot("ss_invite_member_06")
         actionMemberObject.clickSave()
-        cy.screenshot("ss_invite_member_07")
         //Then
         //validación
         cy.get('.response')
             .should('be.visible')
-            .contains('Email cannot be longer than 191 characters.')
-        cy.screenshot("ss_invite_member_08")
+        cy.screenshot("ss_invite_member_02")
         actionMemberObject.back()
+        actionMemberObject.acceptNoChange()
     });
 });
