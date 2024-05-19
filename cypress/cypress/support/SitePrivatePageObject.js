@@ -1,6 +1,6 @@
 import BasePageObject from "../support/BasePageObject";
+import { faker } from '@faker-js/faker';
 import passwords from '../fixtures/aanieves/password.json';
-const { faker } = require('@faker-js/faker');
 
 class SitePrivatePageObject extends BasePageObject {
 
@@ -19,34 +19,24 @@ class SitePrivatePageObject extends BasePageObject {
       url: 'https://my.api.mockaroo.com/password.json?key=6d151b10'
     }).then(response => {
       const passwordArray = response.body;
-      const randomNumber = Math.floor(Math.random() * passwordArray.length);
-      return passwordArray[randomNumber].password;
+      return passwordArray[Math.floor(Math.random() * passwordArray.length)].password;
     });
   }
 
   setRandomPrivatePassword() {
     const password = this.getRandomPassword();
-    cy.get('input[placeholder="Enter password"]')
-      .should('exist')
-      .clear()
-      .type(password);
+    this.enterPassword(password);
   }
 
   setRandomPrivatePasswordFromAPI() {
     this.getRandomPasswordFromAPI().then(password => {
-      cy.get('input[placeholder="Enter password"]')
-        .should('exist')
-        .clear()
-        .type(password);
+      this.enterPassword(password);
     });
   }
 
   setFakerPrivatePassword(){
-    let password = faker.location.countryCode();
-    cy.get('input[placeholder="Enter password"]')
-      .should('exist')
-      .clear()
-      .type(password);
+    const password = faker.location.countryCode();
+    this.enterPassword(password);
   }
 
   clickSitePrivateButton() {
@@ -63,10 +53,8 @@ class SitePrivatePageObject extends BasePageObject {
   }
 
   setPrivatePassword() {
-    cy.get('input[placeholder="Enter password"]')
-      .should('exist')
-      .clear()
-      .type(this.properties['<GHOST_PRIVATE_PASSWORD>']);
+    const ghostPassword = this.properties['<GHOST_PRIVATE_PASSWORD>'];
+    this.enterPassword(ghostPassword);
   }
 
   clickSavePrivateButton() {
@@ -80,6 +68,13 @@ class SitePrivatePageObject extends BasePageObject {
       .invoke('text')
       .should('eq', 'This site is private.');
   }
+
+  enterPassword(password) {
+    cy.get('input[placeholder="Enter password"]')
+      .should('exist')
+      .clear()
+      .type(password);
+  }
 }
 
-export default new SitePrivatePageObject()
+export default new SitePrivatePageObject();
