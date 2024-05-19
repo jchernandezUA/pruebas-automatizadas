@@ -1,9 +1,10 @@
 const {When, Then} = require('@cucumber/cucumber');
 const AddMenuPageObject = require('../support/AddMenuPageObject');
+const DashboardPageObject = require('../support/DashboardPageObject');
 
 When('I click the settings icon', async function () {
-  let addMenuPO = new AddMenuPageObject(this.driver)
-  await addMenuPO.clickSettingsIcon();
+  let dashboardPO = new DashboardPageObject(this.driver)
+  await dashboardPO.clickSettingsIcon();
 })
 
 When('I click the Navigation Customize button', async function () {
@@ -22,8 +23,8 @@ When('I click the Navigation Customize button OK button', async function () {
 });
 
 Then('I go to admin page', async function() {
-  let addMenuPO = new AddMenuPageObject(this.driver)
-  await addMenuPO.goToAdminPage();
+  let dashboardPO = new DashboardPageObject(this.driver)
+  await dashboardPO.goToAdminPage();
 });
 
 Then('I see item menu {string}', async function (expectedText) {
@@ -32,8 +33,8 @@ Then('I see item menu {string}', async function (expectedText) {
 });
 
 Then('I go to the homepage', async function() {
-  let addMenuPO = new AddMenuPageObject(this.driver)
-  await addMenuPO.goToHomepage();
+  let dashboardPO = new DashboardPageObject(this.driver)
+  await dashboardPO.goToHomepage();
 });
 
 Then('I delete item menu', async function () {

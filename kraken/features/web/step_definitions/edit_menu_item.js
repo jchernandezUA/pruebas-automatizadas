@@ -1,10 +1,12 @@
 const {Given, When, Then} = require('@cucumber/cucumber');
 const AddMenuPageObject = require('../support/AddMenuPageObject');
 const EditItemPageObject = require('../support/EditItemPageObject');
+const DashboardPageObject = require('../support/DashboardPageObject');
 
 Given('I add menu item {string}', async function(label) {
+  let dashboardPO = new DashboardPageObject(this.driver)
   let addMenuPO = new AddMenuPageObject(this.driver)
-  await addMenuPO.clickSettingsIcon();
+  await dashboardPO.clickSettingsIcon();
   await addMenuPO.clickNavigationCustomizeButton();
   await addMenuPO.enterNewLabel(label);
   await addMenuPO.clickNavigationCustomizeOkButton();
