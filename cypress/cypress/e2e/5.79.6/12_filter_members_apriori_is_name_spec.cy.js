@@ -9,11 +9,6 @@ describe("ghost filter member , use a-priori data", function () {
     });
 
     it("filter member", function () {
-        cy.on("uncaught:exception", (err) => {
-            if (err.message.includes("The play() request was interrupted")) {
-                return false;
-            }
-        });
         //Given 
         LoginPageObject.signIn()
         cy.screenshot("ss_filter_member_01")

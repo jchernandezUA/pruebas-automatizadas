@@ -11,11 +11,6 @@ describe("ghost Delete member, data random", function () {
     });
 
     it("Delete member", function () {
-        cy.on("uncaught:exception", (err) => {
-            if (err.message.includes("The play() request was interrupted")) {
-                return false;
-            }
-        });
         //Given 
         LoginPageObject.signIn()
         cy.screenshot("ss_delete_member_01")

@@ -8,12 +8,7 @@ describe("ghost filter member , use a-priori data ,Validate IS in email", functi
         cy.fixture('dataApriori.json').as('testData');
     });
 
-    it("filter member", function () {
-        cy.on("uncaught:exception", (err) => {
-            if (err.message.includes("The play() request was interrupted")) {
-                return false;
-            }
-        });
+    it("filter member", function () {;
         //Given 
         LoginPageObject.signIn()
         cy.screenshot("ss_filter_member_01")

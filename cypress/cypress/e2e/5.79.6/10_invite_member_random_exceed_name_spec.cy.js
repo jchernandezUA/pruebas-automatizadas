@@ -12,11 +12,7 @@ describe("ghost invite member, NAME with  251 characters, use random date ", fun
         });
       });
     it("Invite member", function () {
-        cy.on("uncaught:exception", (err) => {
-            if (err.message.includes("The play() request was interrupted")) {
-                return false;
-            }
-        });
+
         //Given 
         LoginPageObject.signIn()
         cy.screenshot("ss_invite_member_01")

@@ -12,11 +12,6 @@ describe("ghost invite member, LABEL with  251 characters, use random date ", fu
         });
       });
     it("Invite member", function () {
-        cy.on("uncaught:exception", (err) => {
-            if (err.message.includes("The play() request was interrupted")) {
-                return false;
-            }
-        });
         //Given 
         LoginPageObject.signIn()
         cy.screenshot("ss_invite_member_01")
@@ -32,13 +27,11 @@ describe("ghost invite member, LABEL with  251 characters, use random date ", fu
         actionMemberObject.enterLabel(member.label_251)
         cy.screenshot("ss_invite_member_06")
         actionMemberObject.clickSave()
-        cy.screenshot("ss_invite_member_07")
         //Then
         //validación
         cy.get('.response')
             .should('be.visible')
             .contains('Validation failed for name.')
-        cy.screenshot("ss_invite_member_08")
         actionMemberObject.back()
     });
 });

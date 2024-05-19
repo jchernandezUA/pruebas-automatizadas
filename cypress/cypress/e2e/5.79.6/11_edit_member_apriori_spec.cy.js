@@ -8,11 +8,6 @@ describe("ghost edit member, use a-priori data", function () {
         cy.fixture('dataApriori.json').as('testData');
     });
     it("edit member", function () {
-        cy.on("uncaught:exception", (err) => {
-            if (err.message.includes("The play() request was interrupted")) {
-                return false;
-            }
-        });
         //Given 
         LoginPageObject.signIn()
         cy.screenshot("ss_edit_member_01")
