@@ -1,4 +1,4 @@
-Feature: Make the site private
+Feature: Make the site private random
 
   @user1 @web
   Scenario: As a user I want to make the site private

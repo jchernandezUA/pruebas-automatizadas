@@ -1,4 +1,4 @@
-Feature: Make the site private
+Feature: Make the site private a priori
 
   @user1 @web
   Scenario Outline: As a user I want to make the site private
