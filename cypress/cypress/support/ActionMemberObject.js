@@ -12,20 +12,32 @@ class ActionMemberObject {
             .should('be.visible')
             .click();
     }
-    enterName() {
+    enterName(name) {
         cy.get("input#member-name")
             .should('be.visible')
-            .type("miembro test para editar");
+            .type(name);
     }
-    enterEmail() {
+    enterEmail(email) {
         cy.get("input#member-email")
             .should('be.visible')
-            .type("miembro@test.com");
+            .type(email);
     }
-    enterNote() {
+    enterLabel(label) {
+
+        cy.get('.ember-basic-dropdown').within(() => {
+            cy.get('input.ember-power-select-trigger-multiple-input')
+                .should('be.visible')
+                .type(label);
+        })
+        cy.get('.ember-basic-dropdown-content', { timeout: 10000 })
+        .should('be.visible');
+        cy.get('.ember-power-select-options').first()
+            .click();
+    }
+    enterNote(note) {
         cy.get("textarea#member-note")
             .should('be.visible')
-            .type("Esto es un texto de prueba");
+            .type(note);
     }
     clickSave() {
         cy.contains('button', 'Save')
@@ -34,6 +46,13 @@ class ActionMemberObject {
     back() {
         cy.wait(1000);
         cy.go('back');
+    }
+
+    acceptNoChange() {
+        cy.get('button[data-test-leave-button]')
+            .should('be.visible')
+            .click();
+
     }
 
 }

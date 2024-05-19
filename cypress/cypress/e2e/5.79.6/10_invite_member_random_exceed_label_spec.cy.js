@@ -1,0 +1,44 @@
+const LoginPageObject = require("../../support/LoginPageObject");
+const ActionMemberObject = require("../../support/ActionMemberObject");
+
+describe("ghost invite member, LABEL with  251 characters, use random date ", function () {
+    let actionMemberObject = new ActionMemberObject;
+    let member;
+
+    //Given 
+    beforeEach(() => {
+        cy.generateFakerData().then((generatedData) => {
+          member = generatedData;
+        });
+      });
+    it("Invite member", function () {
+        cy.on("uncaught:exception", (err) => {
+            if (err.message.includes("The play() request was interrupted")) {
+                return false;
+            }
+        });
+        //Given 
+        LoginPageObject.signIn()
+        cy.screenshot("ss_invite_member_01")
+        actionMemberObject.clickOnNewMember()
+        cy.screenshot("ss_invite_member_02")
+        //When 
+        actionMemberObject.clickOnMemberOptions()
+        cy.screenshot("ss_invite_member_03")
+        actionMemberObject.enterName(member.name)
+        cy.screenshot("ss_invite_member_04")
+        actionMemberObject.enterEmail(member.email)
+        cy.screenshot("ss_invite_member_05")
+        actionMemberObject.enterLabel(member.label_251)
+        cy.screenshot("ss_invite_member_06")
+        actionMemberObject.clickSave()
+        cy.screenshot("ss_invite_member_07")
+        //Then
+        //validación
+        cy.get('.response')
+            .should('be.visible')
+            .contains('Validation failed for name.')
+        cy.screenshot("ss_invite_member_08")
+        actionMemberObject.back()
+    });
+});

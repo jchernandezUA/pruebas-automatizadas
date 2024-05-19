@@ -1,6 +1,14 @@
 const LoginPageObject = require("../../support/LoginPageObject");
 const DeleteMemberObject = require("../../support/DeleteMemberObject");
-describe("ghost Delete member", function () {
+describe("ghost Delete member, data random", function () {
+
+    let member;
+    //then
+    beforeEach(() => {
+        cy.generateFakerData().then((generatedData) => {
+            member = generatedData;
+        });
+    });
 
     it("Delete member", function () {
         cy.on("uncaught:exception", (err) => {
@@ -13,9 +21,9 @@ describe("ghost Delete member", function () {
         cy.screenshot("ss_delete_member_01")
         DeleteMemberObject.clickOnNewMember()
         DeleteMemberObject.clickOnMemberOptions()
-        DeleteMemberObject.enterName()
-        DeleteMemberObject.enterEmail()
-        DeleteMemberObject.enterNote()
+        DeleteMemberObject.enterName(member.name)
+        DeleteMemberObject.enterEmail(member.email)
+        DeleteMemberObject.enterNote(member.note)
         DeleteMemberObject.clickSave()
         DeleteMemberObject.back()
         cy.screenshot("ss_delete_member_02")

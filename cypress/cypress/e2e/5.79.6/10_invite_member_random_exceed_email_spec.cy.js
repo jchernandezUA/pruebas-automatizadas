@@ -1,9 +1,16 @@
 const LoginPageObject = require("../../support/LoginPageObject");
 const ActionMemberObject = require("../../support/ActionMemberObject");
-const DeleteMemberObject = require("../../support/DeleteMemberObject");
 
-describe("ghost invite member", function () {
+describe("ghost invite member, EMAIL with  251 characters, use random date ", function () {
     let actionMemberObject = new ActionMemberObject;
+    let member;
+
+    //Given 
+    beforeEach(() => {
+        cy.generateFakerData().then((generatedData) => {
+          member = generatedData;
+        });
+      });
     it("Invite member", function () {
         cy.on("uncaught:exception", (err) => {
             if (err.message.includes("The play() request was interrupted")) {
@@ -18,28 +25,20 @@ describe("ghost invite member", function () {
         //When 
         actionMemberObject.clickOnMemberOptions()
         cy.screenshot("ss_invite_member_03")
-        actionMemberObject.enterName()
+        actionMemberObject.enterName(member.name)
         cy.screenshot("ss_invite_member_04")
-        actionMemberObject.enterEmail()
+        actionMemberObject.enterEmail(member.email_251)
         cy.screenshot("ss_invite_member_05")
-        actionMemberObject.enterNote()
+        actionMemberObject.enterNote(member.note)
         cy.screenshot("ss_invite_member_06")
         actionMemberObject.clickSave()
         cy.screenshot("ss_invite_member_07")
-        actionMemberObject.back()
         //Then
         //validación
-        cy.get('tr[data-test-list="members-list-item"]')
-            .should('be.visible');
-        cy.get('tr[data-test-list="members-list-item"]')
-            .find('a').first()
-            .find('h3')
-            .should('have.text', 'miembro test para editar');
+        cy.get('.response')
+            .should('be.visible')
+            .contains('Email cannot be longer than 191 characters.')
         cy.screenshot("ss_invite_member_08")
-
-        //Then
-        DeleteMemberObject.clickInSettingsOfMember()
-        DeleteMemberObject.clickDeleteMember()
-        DeleteMemberObject.acceptDelete()
+        actionMemberObject.back()
     });
 });
