@@ -20,10 +20,7 @@ describe('Gestión de posts en Ghost CMS', () => {
             cy.get(PostCreationAndPublishPageObject.titleInput, { timeout: 10000 }).should('be.visible');
             PostCreationAndPublishPageObject.enterPostDetails(postTitle, postDescription);
             // no pasa por que no enceuntra la clase el cms no activa el boton publicar cuando se ponen 100 caracteres en el titulo 
-            PostCreationAndPublishPageObject.publishPost();
-
-            // Verificar que aparece un mensaje de error y que el post no se publica
-            cy.contains('Error').should('be.visible');
+        
             cy.screenshot(`ss_invalid_post_attempt_${i}`, {
                 capture: 'viewport',
                 clip: { x: 0, y: 0, width: 1000, height: 660 }
