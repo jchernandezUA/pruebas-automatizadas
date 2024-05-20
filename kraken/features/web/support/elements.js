@@ -17,7 +17,7 @@ const element5141 = {
   saveClose: 'Save',
   fullNamePosition: 0,
   pagesItem: 'a[href="#/pages/"]',
-  newPage: 'a[href="#/editor/page/"]',
+  newPage: 'a[href="#/editor/z/"]',
   backSettings: 'button[data-testid="exit-settings"]'
 }
 
@@ -40,7 +40,7 @@ const element5796 = {
   saveClose: 'Save & close',
   fullNamePosition: 1,
   pagesItem: 'a[href="#/pages/"]',
-  newPage: 'a[href="#/editor/post/"]',
+  newPage: 'a[href="#/editor/page/"]',
   backSettings: 'button[data-testid="exit-settings"]'
 }
 

@@ -10,6 +10,7 @@ class PostManagementPageObject {
         this.settingsMenuToggle = '.settings-menu-toggle';
         this.deleteButton = '.settings-menu-delete-button';
         this.confirmDeleteButton = '.gh-btn-red';
+        this.cancelDeleteButton = '.gh-btn';
     }
 
     navigateToEditor() {
@@ -54,6 +55,16 @@ class PostManagementPageObject {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
+    }
+    cancelDelete() {
+        cy.get(this.cancelDeleteButton, { timeout: 10000 }).should('be.visible').then(($buttons) => {             
+            cy.screenshot('ss_click_cancel_delete_button' + this.number, {
+                capture: 'viewport',
+                clip: { x: 0, y: 0, width: 1000, height: 660 }
+            });
+        });
+
+       
     }
 }
 

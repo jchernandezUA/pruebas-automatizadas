@@ -1,4 +1,6 @@
+import { fa, th } from "@faker-js/faker";
 import BasePageObject from "../support/BasePageObject";
+import { expect } from "chai";
 
 
 class ProfilePageObject extends BasePageObject {
@@ -29,19 +31,45 @@ class ProfilePageObject extends BasePageObject {
     changePasswordTxt.click()
   }
 
-  resetPassword() {
+  resetPassword(current) {
     this.updatePassword(
-      this.properties['<GHOST_PASSWORD_NEW>'],
+      current,
       this.properties['<GHOST_PASSWORD>']
     )
   }
 
-  changeName() {
-    let name = this.properties['<GHOST_NAME_NEW>']
+  changeName(name = this.properties['<GHOST_NAME_NEW>']) {
     cy.get('section[data-testid="user-detail-modal"]')
     .within(() => {
       cy.get('input[type="text"]').then(($inputs) => {
         cy.wrap($inputs[0]).clear().type(name)
+      });
+    });
+  }
+
+  changeWebsite(website) {
+    cy.get('section[data-testid="user-detail-modal"]')
+    .within(() => {
+      cy.get('input[type="text"]').then(($inputs) => {
+        cy.wrap($inputs[4]).clear().type(website)
+      });
+    });
+  }
+
+  changeBio(bio) {
+    cy.get('section[data-testid="user-detail-modal"]')
+    .within(() => {
+      cy.get('textArea')
+      .clear()
+      .type(`${bio}`)
+    });
+  }
+
+  changeValue(position, value) {
+    cy.get('section[data-testid="user-detail-modal"]')
+    .within(() => {
+      cy.get('input[type="text"]').then(($inputs) => {
+        cy.wrap($inputs[position]).clear().type(`${value}`)
       });
     });
   }
@@ -61,6 +89,24 @@ class ProfilePageObject extends BasePageObject {
     cy.contains('span', text).should('be.visible');
   }
 
+  verifyError(error) {
+    var found = false
+    cy.get('span.mt-1.inline-block').each($span => {
+      const textoDelSpan = $span.text();
+      if (textoDelSpan === error) {
+        found = true
+        expect(textoDelSpan).to.equal(error);
+      }
+    }).then(() => {
+      if (!found)
+        throw new Error(`Ningún span encontrado con el texto "${error}"`);
+    });
+  }
+
+  verifyPopupError() {
+    cy.get('div.flex.items-start.gap-3').should('be.visible')
+  }
+
   resetName() {
     let name = this.properties['<GHOST_NAME>']
     cy.contains('button', 'View profile')
@@ -74,12 +120,12 @@ class ProfilePageObject extends BasePageObject {
     this.saveAndClose()
   }
 
-  verifyName() {
+  verifyName(name = this.properties['<GHOST_NAME>']) {
     cy.wait(2000)
     cy.get('div[data-testid="owner-user"]')
     .within(() => {
       cy.get('span').invoke('text').then((text) => {
-        expect(text).to.include(this.properties['<GHOST_NAME_NEW>']);
+        expect(text).to.include(name);
       });
     })
   }

@@ -1,4 +1,6 @@
-import BasePageObject from "../support/BasePageObject";
+import BasePageObject from '../support/BasePageObject';
+import {faker} from '@faker-js/faker';
+import ITEMS from '../fixtures/aanieves/new_item.json';
 
 class AddMenuPageObject extends BasePageObject {
 
@@ -16,10 +18,16 @@ class AddMenuPageObject extends BasePageObject {
   }
 
   enterNewLabel() {
+    const label = this.properties['<NEW_LABEL>'];
+    this.addLabel(label)
+    return label;
+  }
+
+  addLabel(label) {
     cy.get('input.peer[placeholder="New item label"]:visible')
       .should('exist')
       .click()
-      .type(this.properties['<NEW_LABEL>']);
+      .type(label);
   }
 
   clickNavigationCustomizeOkButton() {
@@ -28,34 +36,60 @@ class AddMenuPageObject extends BasePageObject {
       .click();
   }
 
-  seeTheNewItemMenu() {
-    cy.get('li.nav-my-new-item.nav-current a')
+  seeTheNewItemMenu(label) {
+    cy.get('nav.gh-navigation-menu ul.nav li:nth-child(3) a')
       .invoke('text')
-      .should('eq', this.properties['<NEW_LABEL>']);
+      .should('eq', label);
   }
 
-  deleteItemMenu(edited = false) {
-    let name = this.properties['<NEW_LABEL>'];
-    if (edited) {
-      name = this.properties['<EDIT_LABEL>']
-    }
+  deleteItemMenu(label) {
+    const name = label;
 
-    cy.get('section[data-testid="navigation-modal"]')
-      .within(() => {
-        cy.get('div.group')
-          .each(($div)=> {
-            cy.get($div)
-              .within(() => {
-                cy.get('input').invoke('val').then((inputValue) => {
-                  if (inputValue == name) {
-                    cy.wrap('button[type="button"]')
-                    cy.get('button[type="button"]').click({multiple: true})
-                  }
-                });
-              })
-          })
-      })
+    cy.get('section[data-testid="navigation-modal"]').within(() => {
+      cy.get('div.group').each(($div) => {
+        cy.wrap($div).within(() => {
+          cy.get('input[type="text"]').then(($input) => {
+            const inputValue = $input.val();
+            if (inputValue === name) {
+              cy.wrap($div).within(() => {
+                cy.get('button[type="button"]')
+                  .last()
+                  .should('exist')
+                  .click();
+              });
+            }
+          });
+        });
+      });
+    });
+  }
+
+  addMenuItemWithRandomLabel() {
+    const label = faker.lorem.word();
+    this.addLabel(label);
+    return label;
+  }
+
+  addMenuItemWithLabelFromJSON() {
+    const randomIndex = Math.floor(Math.random() * ITEMS.length);
+    const label = ITEMS[randomIndex].label;
+    this.addLabel(label);
+    return label;
+  }
+
+  addMenuItemFromAPI() {
+    let label = '';
+    label = cy.request({
+      method: 'GET',
+      url: 'https://my.api.mockaroo.com/new_item.json?key=6d151b10'
+    }).then(response => {
+      const itemArray = response.body;
+      const randomIndex = Math.floor(Math.random() * itemArray.length);
+      label = itemArray[randomIndex].label;
+      return this.addLabel(label);
+    });
+    return label;
   }
 }
 
-export default new AddMenuPageObject()
+export default new AddMenuPageObject();

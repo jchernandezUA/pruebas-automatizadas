@@ -6,7 +6,8 @@ class DeleteMemberObject extends ActionMemberObject {
 
     clickInSettingsOfMember() {
         cy.wait(1000);
-        cy.get('tr[data-test-list="members-list-item"]')
+        cy.get('tr[data-test-list="members-list-item"]').first()
+        .scrollIntoView()
         .should('be.visible')
         .first()
         .click()

@@ -20,11 +20,11 @@ class PagePostPageObject extends BasePageObject {
     cy.get('button[data-test-button="close-publish-flow"]').click()
   }
 
-  addTag() {
+  addTag(tag = this.properties['<NEW_TAG>']) {
     const inputSearch = 'input.ember-power-select-trigger-multiple-input'
     cy.get(inputSearch).then(($inputs) => {
       cy.wrap($inputs[0]).clear()
-      .type(this.properties['<NEW_TAG>'], {force: true})
+      .type(tag, {force: true})
       .type('{enter}', {force: true});
     })
     this.openSettings()
@@ -83,7 +83,30 @@ class PagePostPageObject extends BasePageObject {
         $span.click()
       }
     })
+  }
 
+  deletePost() {
+    this.openSettings()
+    cy.contains('span', 'Delete')
+    .scrollIntoView()
+    .click()
+
+    cy.get('span[data-test-task-button-state="idle"]')
+    .each(($span)  => {
+      const spanText = $span.text().trim();
+      if (spanText == 'Delete') {
+        $span.click()
+      }
+    })
+  }
+
+  verifyError() {
+    cy.get('div.gh-alert-content').should('contain.text','Validation error, cannot edit post. Validation failed for name.')
+  }
+
+  leavePost() {
+    cy.get('button.gh-btn.gh-btn-red')
+    .click()
   }
 }
 
