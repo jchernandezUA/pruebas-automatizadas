@@ -14,7 +14,7 @@ describe('As a user I want to edit a menu item', () => {
     // Act
     AddMenuPageObject.clickNavigationCustomizeButton()
     EditMenuPageObject.screenshot(1)
-    label = EditMenuPageObject.editLabel()
+    label = EditMenuPageObject.editMenuItemWithFakerLabel()
     EditMenuPageObject.screenshot(2)
     AddMenuPageObject.clickNavigationCustomizeOkButton()
     EditMenuPageObject.screenshot(3)

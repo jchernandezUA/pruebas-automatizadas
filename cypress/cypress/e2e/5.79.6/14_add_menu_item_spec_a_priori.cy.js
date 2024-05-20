@@ -1,28 +1,27 @@
 const LoginPageObject = require("../../support/LoginPageObject")
 const AddMenuPageObject = require("../../support/AddMenuPageObject")
-const EditMenuPageObject = require("../../support/EditMenuPageObject");
 const DashboardPageObject = require("../../support/DashboardPageObject")
 
-describe('As a user I want to edit a menu item', () => {
-  it('Edit menu item', () => {
+describe('As a user I want to add a menu item', () => {
+  it('Add menu item', () => {
     // Set up
     LoginPageObject.signIn()
-    DashboardPageObject.clickSettingsIcon()
-    AddMenuPageObject.clickNavigationCustomizeButton()
-    let label = AddMenuPageObject.enterNewLabel()
-    AddMenuPageObject.clickNavigationCustomizeOkButton()
     // Act
+    DashboardPageObject.clickSettingsIcon()
+    AddMenuPageObject.screenshot(1)
     AddMenuPageObject.clickNavigationCustomizeButton()
-    EditMenuPageObject.screenshot(1)
-    label = EditMenuPageObject.editLabel()
-    EditMenuPageObject.screenshot(2)
+    AddMenuPageObject.screenshot(2)
+    let label = AddMenuPageObject.addMenuItemWithLabelFromJSON()
+    AddMenuPageObject.screenshot(3)
     AddMenuPageObject.clickNavigationCustomizeOkButton()
-    EditMenuPageObject.screenshot(3)
+    AddMenuPageObject.screenshot(4)
+    AddMenuPageObject.clickNavigationCustomizeButton()
+    AddMenuPageObject.screenshot(5)
     // Assert
     DashboardPageObject.goToHomepage()
-    EditMenuPageObject.screenshot(4)
-    EditMenuPageObject.seeTheEditedItemMenu(label)
-    EditMenuPageObject.screenshot(5)
+    AddMenuPageObject.screenshot(6)
+    AddMenuPageObject.seeTheNewItemMenu(label)
+    AddMenuPageObject.screenshot(7)
     // Tear down
     DashboardPageObject.goToAdminPage()
     DashboardPageObject.clickSettingsIcon()

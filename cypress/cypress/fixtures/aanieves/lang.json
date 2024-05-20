@@ -1,0 +1,38 @@
+[
+    {
+        "lang": "not_a_language_code"
+    },
+    {
+        "lang": "123456"
+    },
+    {
+        "lang": "en-US"
+    },
+    {
+        "lang": "español"
+    },
+    {
+        "lang": "fr"
+    },
+    {
+        "lang": "de-DE"
+    },
+    {
+        "lang": "jp-JP"
+    },
+    {
+        "lang": "es_mx"
+    },
+    {
+        "lang": "EN"
+    },
+    {
+        "lang": "pt-BR"
+    },
+    {
+        "lang": "ru_RU"
+    },
+    {
+        "lang": "ZH-CN"
+    }
+]
