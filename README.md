@@ -28,7 +28,7 @@ Probado en:
 - Windows 10, 23H2 (64 bits)
 - MacOS 14.4.1 (23E224) (Apple Chip)
 
-### Ghost 5.79.6
+### Ghost 5.82.6
 [Ghost](http://54.205.168.32/)
 
 #### Node JS
@@ -61,7 +61,7 @@ Tener instalado Kraken
  - Dirigirse al folder /Cypress y ejecutar el siguiente comando
  - Correr el siguiente comando para correr las pruebas headless
     ```
-        cypress run --headless
+        cypress run --spec cypress/e2e/data_generation/ --headless
     ```
 ### Kraken
 - Para ejecutar las pruebas de Kraken se debe dirigit al path: **/kraken** ahí se encuentran los archivos .feature donde se describen los escenarios de prueba.
