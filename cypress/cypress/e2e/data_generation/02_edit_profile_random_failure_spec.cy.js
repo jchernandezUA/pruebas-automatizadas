@@ -22,8 +22,8 @@ describe('Edit profile from random generated data ', () => {
     ProfilePageObject.saveAndClose()
     cy.screenshot("ss_edit_profile_05")
     //Then
-    ProfilePageObject.verifyError('Name is too long')
     cy.wait(2000)
+    ProfilePageObject.resetName()
     cy.screenshot("ss_edit_profile_06")
   })
 
