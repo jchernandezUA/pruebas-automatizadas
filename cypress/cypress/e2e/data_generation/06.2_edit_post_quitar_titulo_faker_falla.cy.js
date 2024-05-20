@@ -21,7 +21,7 @@ describe('Gestión de posts en Ghost CMS', () => {
     it('should create and edit multiple posts', function() {
        
         postData.forEach((post, index) => {
-            const updatedTitle = ''; /
+            const updatedTitle = '';
             const updatedContent = faker.lorem.paragraph(); 
 
             cy.log(`Creating post ${index + 1} with title: ${post.postTitle}`);
