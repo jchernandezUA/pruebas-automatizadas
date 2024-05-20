@@ -81,3 +81,5 @@ Tener instalado Kraken
     ```
          ./node_modules/kraken-node/bin/kraken-node run
     ```s
+
+NOTA: Se cambiaron los archivos de pruebas pasadas de .feature a .xfeature para evitar que corrarn para las pruebas de esta semana.
