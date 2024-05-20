@@ -4,14 +4,14 @@ const { faker } = require('@faker-js/faker');
 
 class EditMenuPageObject extends BasePageObject {
 
-  LABEL = '';
-
   screenshot(number) {
     cy.screenshot('ss_edit_menu_item_0' + number);
   }
 
   editLabel() {
-    this.updateLabel(this.properties['<EDIT_LABEL>'])
+    const label = this.properties['<EDIT_LABEL>'];
+    this.updateLabel(label);
+    return label;
   }
 
   updateLabel(label) {
@@ -22,15 +22,16 @@ class EditMenuPageObject extends BasePageObject {
     this.LABEL = label;
   }
 
-  seeTheEditedItemMenu() {
+  seeTheEditedItemMenu(label) {
     cy.get('ul.nav > li:nth-child(3) > a')
       .invoke('text')
-      .should('eq', this.LABEL);
+      .should('eq', label);
   }
 
   editMenuItemWithFakerLabel() {
     const label = faker.lorem.word();
     this.updateLabel(label);
+    return label;
   }
 
   editMenuItemWithAPI() {
@@ -47,32 +48,13 @@ class EditMenuPageObject extends BasePageObject {
     const randomIndex = Math.floor(Math.random() * ITEMS.length);
     const label = ITEMS[randomIndex].label;
     this.updateLabel(label);
+    return label;
   }
 
   getLabelFromResponse(response) {
     const itemsArray = response.body;
     const randomIndex = Math.floor(Math.random() * itemsArray.length);
     return itemsArray[randomIndex].label;
-  }
-
-  deleteItemMenu() {
-    let name = this.LABEL;
-
-    cy.get('section[data-testid="navigation-modal"]')
-      .within(() => {
-        cy.get('div.group')
-          .each(($div) => {
-            cy.get($div)
-              .within(() => {
-                cy.get('input').invoke('val').then((inputValue) => {
-                  if (inputValue === name) {
-                    cy.wrap('button[type="button"]');
-                    cy.get('button[type="button"]').click({ multiple: true });
-                  }
-                });
-              });
-          });
-      });
   }
 }
 
