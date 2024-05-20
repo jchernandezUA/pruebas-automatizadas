@@ -20,7 +20,7 @@ describe('As a user I want to add a menu item', () => {
     // Assert
     DashboardPageObject.goToHomepage()
     AddMenuPageObject.screenshot(6)
-    // AddMenuPageObject.seeTheNewItemMenu()
+    AddMenuPageObject.seeTheNewItemMenu()
     AddMenuPageObject.screenshot(7)
     // Tear down
     DashboardPageObject.goToAdminPage()

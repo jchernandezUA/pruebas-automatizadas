@@ -43,7 +43,7 @@ class AddMenuPageObject extends BasePageObject {
       .should('eq', this.MENU_LABEL);
   }
 
-  deleteItemMenu(edited = false) {
+  deleteItemMenu() {
     let name = this.MENU_LABEL;
 
     cy.get('section[data-testid="navigation-modal"]')
