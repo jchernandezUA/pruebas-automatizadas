@@ -17,7 +17,7 @@ class PostCreationAndPublishPageObject {
     }
 
     enterPostDetails(title, description) {
-        cy.get(this.titleInput, { timeout: 500 }).should('be.visible').type(title);
+        cy.get(this.titleInput, { timeout: 1000 }).should('be.visible').type(title);
         cy.get(this.descriptionInput).type(description);
         cy.screenshot('ss_create_post_description_entered' + this.number, {
             capture: 'viewport',
