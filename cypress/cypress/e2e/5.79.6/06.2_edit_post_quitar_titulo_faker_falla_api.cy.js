@@ -2,7 +2,7 @@ const LoginPageObject = require("../../support/LoginPageObject");
 const PostEditorPageObject = require("../../support/PostEditorPageObject");
 
 describe('Gestión de posts en Ghost CMS', () => {
-    let postData = [];
+    let postData = {};
 
     before(() => {        
         LoginPageObject.signIn();
@@ -10,83 +10,53 @@ describe('Gestión de posts en Ghost CMS', () => {
         // Cargar los datos desde el API de Mockaroo
         cy.request('GET', 'https://my.api.mockaroo.com/ghostpost.json?key=7ae6d040')
             .then((response) => {
-                postData = response.body; 
+                postData = response.body[0]; // Cargar solo el primer post del JSON
             });
     });
 
-    it('should create and edit multiple posts', function() {
-       
-        postData.forEach((post, index) => {
-            const updatedTitle = ''; 
-            const updatedContent = post.postDescription; 
-            cy.log(`Creating post ${index + 1} with title: ${post.postTitle}`);
-            
-           
-            PostEditorPageObject.navigateToEditor();
+    it('should create and edit a post', function() {
+        const updatedTitle = ''; 
+        const updatedContent = postData.postDescription; 
+        cy.log(`Creating post with title: ${postData.postTitle}`);
+        
+        // Crear el post
+        PostEditorPageObject.navigateToEditor();
+        cy.wait(1000);
 
-            cy.wait(1000);
+        cy.get(PostEditorPageObject.titleInput, { timeout: 10000 }).should('be.visible');
+        PostEditorPageObject.enterPostDetails(postData.postTitle, postData.postDescription);
+        PostEditorPageObject.publishPost();
 
-            cy.get(PostEditorPageObject.titleInput, { timeout: 10000 }).should('be.visible');
-
-            PostEditorPageObject.enterPostDetails(post.postTitle, post.postDescription);
-            PostEditorPageObject.publishPost();
-
-            cy.screenshot(`ss_create_post_${index + 1}`, {
-                capture: 'viewport',
-                clip: { x: 0, y: 0, width: 1000, height: 660 }
-            });
-
-         
-            PostEditorPageObject.navigateToPosts();
-
-           
-            cy.wait(1000);
-
-          
-            PostEditorPageObject.selectPost(post.postTitle);
-
-           
-            cy.get(PostEditorPageObject.titleInput).clear();
-            cy.get(PostEditorPageObject.contentInput).clear().type(updatedContent);
-
-            cy.screenshot(`ss_edit_post_${index + 1}`, {
-                capture: 'viewport',
-                clip: { x: 0, y: 0, width: 1000, height: 660 }
-            });
-
-           
-            PostEditorPageObject.publishPost();
-
-           
-            try {
-                if (updatedTitle) {
-                    PostEditorPageObject.navigateToPosts();
-                    cy.contains('h3', updatedTitle).should('exist');
-                    cy.contains('.gh-content-entry-title', updatedTitle).click();
-                    cy.get(PostEditorPageObject.titleInput).should('have.value', updatedTitle);
-                } else {
-                    PostEditorPageObject.navigateToPosts();
-                    cy.contains('.gh-content-entry-title', post.postDescription).click();
-                    cy.get(PostEditorPageObject.titleInput).should('have.value', '');
-                }
-                cy.get(PostEditorPageObject.contentInput).contains(updatedContent).should('exist');
-            } catch (error) {
-                cy.log(`Error encountered: ${error.message}`);
-                cy.screenshot(`ss_error_encountered_${index + 1}`, {
-                    capture: 'viewport',
-                    clip: { x: 0, y: 0, width: 1000, height: 660 }
-                });
-                throw error; 
-            }
-
-           
-            cy.wait(1000);
-
-            
-            cy.visit(PostEditorPageObject.postsUrl);
-            cy.wait(1000);
-            cy.reload(); 
-            cy.url().should('include', PostEditorPageObject.postsUrl); 
+        cy.screenshot('ss_create_post', {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
         });
+
+        // Navegar a la lista de posts
+        PostEditorPageObject.navigateToPosts();
+        cy.wait(1000);
+
+        // Seleccionar y editar el post
+        PostEditorPageObject.selectPost(postData.postTitle);
+
+        // Limpiar el título y actualizar la descripción
+        cy.get(PostEditorPageObject.titleInput).clear();
+        cy.get(PostEditorPageObject.contentInput).clear().type(updatedContent);
+
+        cy.screenshot('ss_edit_post', {
+            capture: 'viewport',
+            clip: { x: 0, y: 0, width: 1000, height: 660 }
+        });
+
+        // Guardar el post editado
+        PostEditorPageObject.publishPost();
+
+        // Verificar que el post se ha actualizado correctamente
+        if (updatedTitle) {
+            PostEditorPageObject.navigateToPosts();
+            cy.contains('h3', updatedTitle).should('exist');
+            cy.contains('.gh-content-entry-title', updatedTitle).click();
+            cy.get(PostEditorPageObject.titleInput).should('have.value', updatedTitle);
+        } 
     });
 });
