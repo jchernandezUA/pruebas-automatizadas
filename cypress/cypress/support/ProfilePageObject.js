@@ -31,7 +31,7 @@ class ProfilePageObject extends BasePageObject {
     changePasswordTxt.click()
   }
 
-  resetPassword(current) {
+  resetPassword(current = this.properties['<GHOST_NAME_NEW>']) {
     this.updatePassword(
       current,
       this.properties['<GHOST_PASSWORD>']

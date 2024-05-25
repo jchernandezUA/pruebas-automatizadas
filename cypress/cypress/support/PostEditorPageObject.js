@@ -1,4 +1,5 @@
 // pageObjects/PostEditorPageObject.js
+const Utils = require('./Utils')
 
 class PostEditorPageObject {
     constructor() {
@@ -12,13 +13,13 @@ class PostEditorPageObject {
 
     navigateToEditor() {
         cy.visit(this.editorUrl);
-        cy.screenshot('ss_edit_post_navigate_to_editor');
+        Utils.screenshot('ss_edit_post_navigate_to_editor');
     }
 
     enterPostDetails(title, content) {
         cy.get(this.titleInput).type(title);
         cy.get(this.contentInput).type(content);       
-        cy.screenshot('ss_edit_post_create-post-step-1' + this.number, {
+        Utils.screenshot('ss_edit_post_create-post-step-1' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
@@ -32,7 +33,7 @@ class PostEditorPageObject {
             $buttons.first().click();
         });
         cy.wait(5000); // Adjust timeout based on your app's response time       
-        cy.screenshot('ss_edit_post_create-post-step-2' + this.number, {
+        Utils.screenshot('ss_edit_post_create-post-step-2' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
@@ -45,7 +46,7 @@ class PostEditorPageObject {
 
     selectPost(title) {
         cy.contains('h3', title).click({ force: true });     
-        cy.screenshot('ss_edit_post_select_post' + this.number, {
+        Utils.screenshot('ss_edit_post_select_post' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
@@ -54,12 +55,12 @@ class PostEditorPageObject {
     editPost(updatedTitle, updatedContent) {
         cy.get(this.titleInput).clear().type(updatedTitle);
         cy.get(this.contentInput).clear().type(updatedContent);  
-        cy.screenshot('ss_edit_post_edit-post-step-1' + this.number, {
+        Utils.screenshot('ss_edit_post_edit-post-step-1' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
         this.publishPost(); // Reuse the publish method      
-        cy.screenshot('ss_edit_post_edit-post-step-2' + this.number, {
+        Utils.screenshot('ss_edit_post_edit-post-step-2' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });

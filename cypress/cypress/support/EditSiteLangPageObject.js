@@ -1,12 +1,13 @@
 import BasePageObject from "../support/BasePageObject";
 import { faker } from '@faker-js/faker';
 import langs from '../fixtures/aanieves/lang.json';
+const Utils = require('./Utils')
 
 class EditSiteLangPageObject extends BasePageObject {
   LANG = '';
 
   screenshot(number) {
-    cy.screenshot('ss_edit_site_lang_0' + number);
+    Utils.screenshot('ss_edit_site_lang_0' + number);
   }
 
   clickLangButton() {

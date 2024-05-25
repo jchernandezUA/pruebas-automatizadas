@@ -1,9 +1,8 @@
 const { spawn } = require('child_process');
 
-function runCypressTests(res) {
+function runCypressTests(res, browser = 'chrome') {
     return new Promise((resolve, reject) => {
-        
-        const cypressProcess = spawn('npx', ['cypress', 'run', '../cypress']);
+        const cypressProcess = spawn('npx', ['cypress', 'run', '-b webkit']);
 
         cypressProcess.stdout.on('data', (data) => {
             res.write(`data: ${data.toString().trim()}\n\n`);

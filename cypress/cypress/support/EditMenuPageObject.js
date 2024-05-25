@@ -1,11 +1,12 @@
 import BasePageObject from "../support/BasePageObject";
 import ITEMS from '../fixtures/aanieves/new_item.json';
 const { faker } = require('@faker-js/faker');
+const Utils = require('./Utils')
 
 class EditMenuPageObject extends BasePageObject {
 
   screenshot(number) {
-    cy.screenshot('ss_edit_menu_item_0' + number);
+    Utils.screenshot('ss_edit_menu_item_0' + number);
   }
 
   editLabel() {

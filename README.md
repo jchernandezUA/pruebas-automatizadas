@@ -1,85 +1,90 @@
-# Semana 7
 
-**Wiki info** :
-**Entrega Semana 7**
-- [WIKI Entrega Semana 7](https://github.com/jchernandezUA/tswdc-project/wiki#semana-7)
+# Entrega semana 8
 
-** Incidencias reportadas **
-- [Issue 66](https://github.com/jchernandezUA/tswdc-project/issues/66)
-- [Issue 67](https://github.com/jchernandezUA/tswdc-project/issues/67)
-- [Issue 68](https://github.com/jchernandezUA/tswdc-project/issues/68)
-- [Issue 69](https://github.com/jchernandezUA/tswdc-project/issues/69)
-- [Issue 70](https://github.com/jchernandezUA/tswdc-project/issues/70)
-- [Issue 71](https://github.com/jchernandezUA/tswdc-project/issues/71)
-- [Issue 72](https://github.com/jchernandezUA/tswdc-project/issues/72)
-- [Issue 73](https://github.com/jchernandezUA/tswdc-project/issues/73)
-- [Issue 74](https://github.com/jchernandezUA/tswdc-project/issues/74)
+## Estrategia de prueba Iteración 2
 
-### Generación de datos aleatorios
+[Estrategia de pruebas](https://docs.google.com/document/d/1SiC4mFt7aXQlbWtTW95Yu3lOwNw_WuzeraLuIoh-hwY/edit)
 
-[Estrategias Kraken](https://github.com/jchernandezUA/tswdc-project/wiki/Descripci%C3%B3n-de-estrategias#descripci%C3%B3n-de-estrategias-kraken)
-[Estrategias Cypress](https://github.com/jchernandezUA/tswdc-project/wiki/Descripci%C3%B3n-de-estrategias#descripci%C3%B3n-de-estrategias-cypress)
+[Presentación](https://docs.google.com/presentation/d/1H7pdN-zZUboWrjtjD3UjZvZBsLQmM4VQhxNwQwjFXu8/edit?usp=sharing)
 
-### Pre requisitos para pruebas
+[Retrospectiva](https://easyretro.io/publicboard/GojAETTB3MRpmIO2MQ72vAwiAQZ2/e48b2c61-9424-414a-b307-5b322abeab69)
 
-### S0
-Probado en:
+[Video](https://drive.google.com/file/d/14iPNxhwgRcTX_5c3n0X3CeU9XyrkPwsE/view?usp=drive_links)
 
-- Windows 10, 23H2 (64 bits)
+
+### Resultados Semana 1
+**Inventario de pruebas semana 1**
+[Inventiario](https://docs.google.com/spreadsheets/d/1IGSLCSQaI5zIwyktE9IdXIzEOmO76j8_/edit?usp=sharing&ouid=109467681455241057941&rtpof=true&sd=true)
+
+**Incidencias reportadas**
+- [Issue 79](https://github.com/jchernandezUA/tswdc-project/issues/79)
+- [Issue 80](https://github.com/jchernandezUA/tswdc-project/issues/80)
+- [Issue 81](https://github.com/jchernandezUA/tswdc-project/issues/82)
+- [Issue 82](https://github.com/jchernandezUA/tswdc-project/issues/82)
+- [Issue 83](https://github.com/jchernandezUA/tswdc-project/issues/83)
+- [Issue 84](https://github.com/jchernandezUA/tswdc-project/issues/84)
+- [Issue 85](https://github.com/jchernandezUA/tswdc-project/issues/85)
+- [Issue 86](https://github.com/jchernandezUA/tswdc-project/issues/86)
+- [Issue 87](https://github.com/jchernandezUA/tswdc-project/issues/87)
+- [Issue 88](https://github.com/jchernandezUA/tswdc-project/issues/88)
+- [Issue 89](https://github.com/jchernandezUA/tswdc-project/issues/89)
+- [Issue 90](https://github.com/jchernandezUA/tswdc-project/issues/90)
+- [Issue 91](https://github.com/jchernandezUA/tswdc-project/issues/91)
+- [Issue 92](https://github.com/jchernandezUA/tswdc-project/issues/92)
+- [Issue 93](https://github.com/jchernandezUA/tswdc-project/issues/93)
+- [Issue 94](https://github.com/jchernandezUA/tswdc-project/issues/94)
+- [Issue 95](https://github.com/jchernandezUA/tswdc-project/issues/95)
+- [Issue 96](https://github.com/jchernandezUA/tswdc-project/issues/96)
+- [Issue 97](https://github.com/jchernandezUA/tswdc-project/issues/97)
+- [Issue 98](https://github.com/jchernandezUA/tswdc-project/issues/98)
+- [Issue 99](https://github.com/jchernandezUA/tswdc-project/issues/99)
+- [Issue 100](https://github.com/jchernandezUA/tswdc-project/issues/100)
+
+#### Pre requisitos
+
+**SISTEMA OPERATIVO**
 - MacOS 14.4.1 (23E224) (Apple Chip)
 
-### Ghost 5.82.6
+#### Ghost 5.82.6
 [Ghost](http://54.205.168.32/)
 
 #### Node JS
 - [Instalar Node 18.20.1](https://nodejs.org/en/download)
-- 
-### Cypress
+
+#### Cypress
 Tener instalado Cypress
     ```
     npm install -g cypress
     ```
-### Faker-js
-Tener instalado Faker-js
-    ```
-    npm install -g @faker-js/faker
-    ```
-### Kraken
-Tener instalado Kraken
-- Ejecutar el siguiente comando para instalar kraken-node:
-    ```
-    npm install kraken-node -g
-    ```
-- Tener instalado Appium:
-    ```
-    npm install -g appium
-    ```
     
-## Instrucciones de ejecución:
+### Instrucciones de ejecución de pruebas VRT ResembleJS:
+- Ir a la carpeta:
+    ```
+    cd resemble-vtr-cypress
+    ```
+- Abrir el reporte ubicado en vtr-results/report.html
 
-### Cypress:
- - Dirigirse al folder /Cypress y ejecutar el siguiente comando
- - Correr el siguiente comando para correr las pruebas headless
-    ```
-        cypress run --spec cypress/e2e/data_generation/ --headless
-    ```
-### Kraken
-- Para ejecutar las pruebas de Kraken se debe dirigit al path: **/kraken** ahí se encuentran los archivos .feature donde se describen los escenarios de prueba.
+Para crear un nuevo reporte:
 
-- Ejecutar los siguientes comandos para instalar las dependencias:
+- Instalar dependencias:
     ```
-        npm uninstall -g android-platform-tools
-        npm uninstall -g @cucumber/cucumber
-        npm uninstall -g kraken-node
-        npm uninstall -g appium
-        npm install kraken-node
-        npm install android-platform-tools
-        npm install appium
+    npm install
     ```
-    
-- Ejecutar el siguiente comando para correr las pruebas:
+- Correr las pruebas para Safari:
     ```
-         ./node_modules/kraken-node/bin/kraken-node run
-    ```s
+    npx cypress run -b webkit
+    ```
+- Copiar todas las imagenes resultantes de la carpeta `cypress/screenshots` a la carpeta `vrt-results/screenshots`
 
-NOTA: Se cambiaron los archivos de pruebas pasadas de .feature a .xfeature para evitar que corrarn para las pruebas de esta semana.
+- Correr las pruebas para Chrome:
+    ```
+    npx cypress run -b chrome
+    ```
+- Copiar todas las imagenes resultantes de la carpeta `cypress/screenshots` a la carpeta `vrt-results/screenshots`
+
+- Correr el reporte:
+    ```
+    node browsers-vrt.js
+    ```
+
+- Ingresar a app : http://localhost:3001/

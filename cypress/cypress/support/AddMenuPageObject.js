@@ -1,11 +1,12 @@
 import BasePageObject from '../support/BasePageObject';
 import {faker} from '@faker-js/faker';
 import ITEMS from '../fixtures/aanieves/new_item.json';
+const Utils = require('./Utils')
 
 class AddMenuPageObject extends BasePageObject {
 
   screenshot(number) {
-    cy.screenshot('ss_add_menu_item_0' + number, {
+    Utils.screenshot('ss_add_menu_item_0' + number, {
       capture: 'viewport',
       clip: { x: 0, y: 0, width: 1000, height: 660 }
     });

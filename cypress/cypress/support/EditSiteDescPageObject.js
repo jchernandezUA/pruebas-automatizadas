@@ -1,12 +1,13 @@
 import BasePageObject from "../support/BasePageObject";
 import { faker } from '@faker-js/faker';
 import descriptions from '../fixtures/aanieves/description.json';
+const Utils = require('./Utils')
 
 class EditSiteDescPageObject extends BasePageObject {
   UPDATED_DESC = '';
 
   screenshot(number) {
-    cy.screenshot('ss_edit_site_description_0' + number);
+    Utils.screenshot('ss_edit_site_description_0' + number);
   }
 
   clickDescButton() {

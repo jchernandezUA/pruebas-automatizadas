@@ -43,6 +43,34 @@ async function getReport(res) {
   res.send(report)
 }
 
+
+async function buildReportBrowsers(resultFies, res) {
+  let datetime = new Date().toISOString().replace(/:/g,".");
+  
+
+  for (let i = 0; i < resultFies.length; i++) {
+    let files = resultFies[i]["files"]
+    let name = resultFies[i]["name"]
+
+   if (files.length == 2) {
+    const data = await compareImages(
+      fs.readFileSync('./vtr-results/'+files[0].toString()),
+      fs.readFileSync('./vtr-results/'+files[1].toString()),
+      options
+    );
+    let compareFile = `screenshots/xx_${name}_compare.png`
+    fs.writeFileSync(`./vtr-results/${compareFile}`, data.getBuffer());
+    resultFies[i]["files"].push(compareFile)
+   }
+  }
+
+  fs.writeFileSync(`./vtr-results/report.html`, createReport(datetime, resultFies));
+  fs.copyFileSync('./index.css', `./vtr-results/index.css`);
+  const report = await createReport(datetime, resultFies)
+  res.send(report)
+}
+
+
 async function createResultsDir() {
   const directoryPath = 'vtr-results'
   if (!fs.existsSync(directoryPath)) {
@@ -149,5 +177,6 @@ function buildFileMap(directoryPath, fileMap = {}) {
   }
 
 module.exports = {
-    getReport
+    getReport,
+    buildReportBrowsers
 }
