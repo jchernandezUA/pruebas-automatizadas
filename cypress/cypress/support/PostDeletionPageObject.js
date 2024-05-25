@@ -1,4 +1,5 @@
 // pageObjects/PostManagementPageObject.js
+const Utils = require('./Utils')
 
 class PostManagementPageObject {
     constructor() {
@@ -20,7 +21,7 @@ class PostManagementPageObject {
     createPost(title, content) {
         cy.get(this.titleInput).type(title);
         cy.get(this.contentInput).type(content);     
-        cy.screenshot('ss_delete_post_create-post-step-1' + this.number, {
+        Utils.screenshot('ss_delete_post_create-post-step-1' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
@@ -34,7 +35,7 @@ class PostManagementPageObject {
             $buttons.first().click();
         });
         cy.wait(3000);       
-        cy.screenshot('ss_delete_post_create-post-step-2' + this.number, {
+        Utils.screenshot('ss_delete_post_create-post-step-2' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
@@ -47,18 +48,18 @@ class PostManagementPageObject {
 
     selectAndDeletePost(title) {
         cy.contains('h3', title).click({ force: true });
-        cy.screenshot('ss_delete_post_delete-post-step-1');
+        Utils.screenshot('ss_delete_post_delete-post-step-1');
         cy.get(this.settingsMenuToggle).click();
         cy.get(this.deleteButton).click();
         cy.get(this.confirmDeleteButton).click();       
-        cy.screenshot('ss_delete_post_delete-post-step-2' + this.number, {
+        Utils.screenshot('ss_delete_post_delete-post-step-2' + this.number, {
             capture: 'viewport',
             clip: { x: 0, y: 0, width: 1000, height: 660 }
           });
     }
     cancelDelete() {
         cy.get(this.cancelDeleteButton, { timeout: 10000 }).should('be.visible').then(($buttons) => {             
-            cy.screenshot('ss_click_cancel_delete_button' + this.number, {
+            Utils.screenshot('ss_click_cancel_delete_button' + this.number, {
                 capture: 'viewport',
                 clip: { x: 0, y: 0, width: 1000, height: 660 }
             });

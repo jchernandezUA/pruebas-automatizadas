@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run:chrome": "cypress run --browser chrome --headless",
+    "cypress:run:webkit": "cypress run --browser webkit --headless",
+    "cypress:run:both": "npx run cypress:run:chrome && npx run cypress:run:webkit"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +16,8 @@
     "express": "^4.19.2",
     "playwright": "^1.44.0",
     "resemblejs": "^5.0.0"
+  },
+  "devDependencies": {
+    "playwright-webkit": "1.34"
   }
 }

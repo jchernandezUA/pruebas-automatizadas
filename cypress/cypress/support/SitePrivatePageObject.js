@@ -1,11 +1,12 @@
 import BasePageObject from "../support/BasePageObject";
 import { faker } from '@faker-js/faker';
 import passwords from '../fixtures/aanieves/password.json';
+const Utils = require('./Utils')
 
 class SitePrivatePageObject extends BasePageObject {
 
   screenshot(number) {
-    cy.screenshot('ss_site_private_0' + number);
+    Utils.screenshot('ss_site_private_0' + number);
   }
 
   getRandomPassword() {

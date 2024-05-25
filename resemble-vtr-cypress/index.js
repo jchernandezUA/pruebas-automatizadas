@@ -2,52 +2,11 @@ const playwright = require('playwright');
 const compareImages = require("resemblejs/compareImages")
 const config = require("./config.json");
 const fs = require('fs');
-const { spawn } = require('child_process');
 const path = require('path');
-
-
-// Función para ejecutar las pruebas de Cypress
-
-function runCypressTests() {
-  return new Promise((resolve, reject) => {
-    const cypressProcess = spawn('npx', ['cypress', 'run']);
-
-    cypressProcess.stdout.on('data', (data) => {
-      console.log(`Cypress: ${data.toString().trim()}`);
-    });
-
-    cypressProcess.stderr.on('data', (data) => {
-      console.error(`Error de Cypress: ${data.toString().trim()}`);
-    });
-
-    cypressProcess.on('close', (code) => {
-      if (code === 0) {
-        console.log('Cypress ejecutado exitosamente.');
-        resolve();
-      } else {
-        const errorMessage = `Error al ejecutar Cypress. Código de salida: ${code}`;
-        console.error(errorMessage);
-        reject(new Error(errorMessage));
-      }
-    });
-  });
-}
 
 const { viewportHeight, viewportWidth, browsers, options } = config;
 
 async function executeTest(){
-  let resultInfo = {
-  }
-  console.log("Running cypress test")
-  await runCypressTests()
-  .then((stdout) => {
-    console.log('Ejecución exitosa de Cypress:', stdout);
-  })
-  .catch((error) => {
-    // La ejecución de Cypress falló
-    console.error('Error al ejecutar las pruebas de Cypress:', error);
-    // Aquí puedes manejar el error según sea necesario
-  });
 
   let datetime = new Date().toISOString().replace(/:/g,".");
 

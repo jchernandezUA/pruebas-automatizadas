@@ -2,6 +2,7 @@
 const LoginPageObject = require("../../support/LoginPageObject")
 const PagePostPageObject = require("../../support/PagePostPageObject")
 const DashboardPageObject = require("../../support/DashboardPageObject")
+const Utils = require('../../support/Utils')
 
 describe('Testing change password', () => {
   it('Como usuario quiero cambiar contraseña', () => {
@@ -22,20 +23,20 @@ Scenario: Como usuario inicio sesión, agrego un post y le agrego un tag al post
 
     //Given
     LoginPageObject.signIn()
-    cy.screenshot("ss_add_page_01")
+    Utils.screenshot("ss_add_page_01")
     //When
-    cy.screenshot("ss_add_page_02")
+    Utils.screenshot("ss_add_page_02")
     DashboardPageObject.startNewPage()
-    cy.screenshot("ss_add_page_02")
+    Utils.screenshot("ss_add_page_02")
     PagePostPageObject.typeTitle()
-    cy.screenshot("ss_add_page_03")
+    Utils.screenshot("ss_add_page_03")
     PagePostPageObject.publish()
-    cy.screenshot("ss_add_page_04")
+    Utils.screenshot("ss_add_page_04")
     PagePostPageObject.backPages('Pages')
-    cy.screenshot("ss_add_page_05")
+    Utils.screenshot("ss_add_page_05")
     // Then
     DashboardPageObject.verifyPage()
-    cy.screenshot("ss_add_page_06")
+    Utils.screenshot("ss_add_page_06")
     //Teardown
     DashboardPageObject.openFirstPublishedPage()
     PagePostPageObject.deletePage()
