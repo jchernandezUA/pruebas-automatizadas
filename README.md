@@ -43,21 +43,6 @@ Tener instalado Cypress
     ```
     npm install -g cypress
     ```
-#### Faker-js
-Tener instalado Faker-js
-    ```
-    npm install -g @faker-js/faker
-    ```
-#### Kraken
-Tener instalado Kraken
-- Ejecutar el siguiente comando para instalar kraken-node:
-    ```
-    npm install kraken-node -g
-    ```
-- Tener instalado Appium:
-    ```
-    npm install -g appium
-    ```
     
 ### Instrucciones de ejecución de pruebas VRT ResembleJS:
 - Ir a la carpeta:
