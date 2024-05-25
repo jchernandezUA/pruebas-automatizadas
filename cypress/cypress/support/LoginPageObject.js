@@ -9,7 +9,7 @@ class LoginPageObject extends BasePageObject {
 
   setEmail() {
     const field = cy.get(this.elements.email)
-    field.type(this.properties['<GHOST_MAIL>'])
+    field.should('exist').type(this.properties['<GHOST_MAIL>'])
   }
 
   setPassword() {

@@ -13,7 +13,7 @@ describe('Edit profile ', () => {
     Utils.screenshot("ss_edit_profile_02")
     DashboardPageObject.openProfile()  
     Utils.screenshot("ss_edit_profile_03")
-    ProfilePageObject.changeName()
+    ProfilePageObject.changeName("sdsakdjlsakdjsalkdjaskldjaskldjaskldjaslkdjaslkdjsakldjaskldjsakldjsakldjsakldjaslkdjaskldjasdjaskldjsalkdjaksldjaksljdklasjdalksjdalksdjaskldjaslkdjaskldjalkdalklsjdklsajlkjakljdlajl")
     Utils.screenshot("ss_edit_profile_04")
     cy.wait(3000)
     ProfilePageObject.saveAndClose()
