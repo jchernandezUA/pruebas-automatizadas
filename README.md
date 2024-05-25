@@ -5,9 +5,11 @@
 
 [Estrategia de pruebas](https://docs.google.com/document/d/1SiC4mFt7aXQlbWtTW95Yu3lOwNw_WuzeraLuIoh-hwY/edit)
 
+[Presentación](https://docs.google.com/presentation/d/1H7pdN-zZUboWrjtjD3UjZvZBsLQmM4VQhxNwQwjFXu8/edit?usp=sharing)
+
 ### Resultados Semana 1
 **Inventario de pruebas semana 1**
-[Inventiario](https://docs.google.com/spreadsheets/d/1jhxcXGVS1LDpgrUe5LTG2Xysj_VWqqY9FHFruOh10xE/edit?hl=es#gid=0)
+[Inventiario](https://docs.google.com/spreadsheets/d/1IGSLCSQaI5zIwyktE9IdXIzEOmO76j8_/edit?usp=sharing&ouid=109467681455241057941&rtpof=true&sd=true)
 
 **Incidencias reportadas**
 - [Issue 79](https://github.com/jchernandezUA/tswdc-project/issues/79)
@@ -25,12 +27,16 @@
 - [Issue 91](https://github.com/jchernandezUA/tswdc-project/issues/91)
 - [Issue 92](https://github.com/jchernandezUA/tswdc-project/issues/92)
 - [Issue 93](https://github.com/jchernandezUA/tswdc-project/issues/93)
+- [Issue 94](https://github.com/jchernandezUA/tswdc-project/issues/94)
+- [Issue 95](https://github.com/jchernandezUA/tswdc-project/issues/95)
+- [Issue 96](https://github.com/jchernandezUA/tswdc-project/issues/96)
+- [Issue 97](https://github.com/jchernandezUA/tswdc-project/issues/97)
+- [Issue 98](https://github.com/jchernandezUA/tswdc-project/issues/98)
+- [Issue 99](https://github.com/jchernandezUA/tswdc-project/issues/99)
 
 #### Pre requisitos
 
 **SISTEMA OPERATIVO**
-Probado en:
-- iOS 17.5.1
 - MacOS 14.4.1 (23E224) (Apple Chip)
 
 #### Ghost 5.82.6
