@@ -8,6 +8,7 @@
 ### Resultados Semana 1
 **Inventario de pruebas semana 1**
 [Inventiario](https://docs.google.com/spreadsheets/d/1jhxcXGVS1LDpgrUe5LTG2Xysj_VWqqY9FHFruOh10xE/edit?hl=es#gid=0)
+
 **Incidencias reportadas**
 - [Issue 79](https://github.com/jchernandezUA/tswdc-project/issues/79)
 - [Issue 80](https://github.com/jchernandezUA/tswdc-project/issues/80)
@@ -29,7 +30,7 @@
 
 **SISTEMA OPERATIVO**
 Probado en:
-- Oneplus 10 Pro
+- iOS 17.5.1
 - MacOS 14.4.1 (23E224) (Apple Chip)
 
 #### Ghost 5.82.6
