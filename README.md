@@ -7,6 +7,11 @@
 
 [Presentación](https://docs.google.com/presentation/d/1H7pdN-zZUboWrjtjD3UjZvZBsLQmM4VQhxNwQwjFXu8/edit?usp=sharing)
 
+[Retrospectiva](https://easyretro.io/publicboard/GojAETTB3MRpmIO2MQ72vAwiAQZ2/e48b2c61-9424-414a-b307-5b322abeab69)
+
+[Video](https://drive.google.com/file/d/14iPNxhwgRcTX_5c3n0X3CeU9XyrkPwsE/view?usp=drive_links)
+
+
 ### Resultados Semana 1
 **Inventario de pruebas semana 1**
 [Inventiario](https://docs.google.com/spreadsheets/d/1IGSLCSQaI5zIwyktE9IdXIzEOmO76j8_/edit?usp=sharing&ouid=109467681455241057941&rtpof=true&sd=true)
@@ -33,6 +38,7 @@
 - [Issue 97](https://github.com/jchernandezUA/tswdc-project/issues/97)
 - [Issue 98](https://github.com/jchernandezUA/tswdc-project/issues/98)
 - [Issue 99](https://github.com/jchernandezUA/tswdc-project/issues/99)
+- [Issue 100](https://github.com/jchernandezUA/tswdc-project/issues/100)
 
 #### Pre requisitos
 
